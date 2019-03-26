@@ -1,0 +1,125 @@
+/*PRIMARY COLOUR*/
+
+.primary {
+    background: #ff0000 !important;
+    opacity: .8;
+    color: #ffffff;
+}
+
+.primary.accent-1 {
+    background: #f7e9e9 !important;
+    color: inherit !important;
+}
+
+.primary.accent-2 {
+    background: #007FFF !important;
+    color: white;
+}
+
+.primary.accent-3 {
+    background: #26537F !important;
+    color: white;
+}
+
+.primary.accent-4 {
+    background: #0066CC !important;
+    color: white;
+}
+
+.primary-text {
+    color: #ff0000 !important;
+}
+
+/*SECONDARY COLOUR*/
+
+.secondary {
+    background: #fffdd0 !important;
+    color: #111;
+}
+
+.secondary.accent-1 {
+    background: #fff0cc4a !important;
+    color: white;
+}
+
+.secondary.accent-2 {
+    background: #FFDA7F !important;
+    color: white;
+}
+
+.secondary.accent-3 {
+    background: #7F7866 !important;
+    color: white;
+}
+
+.secondary.accent-4 {
+    background: #CCAF66 !important;
+    color: white;
+}
+
+.secondary-text {
+    color: #6bfedb !important;
+}
+
+/*DEFAULT TEXT*/
+
+.default-text {
+    color: #72738e !important;
+}
+
+/*COLOURS*/
+
+.blue {
+    background: #040f64 !important;
+    color: white;
+}
+
+.blue-text {
+    color: #040f64 !important;
+}
+
+.yellow {
+    background: #FDED11 !important;
+    color: white;
+}
+
+.yellow-text {
+    color: #FDED11 !important;
+}
+
+.grey {
+    background: #f3f3f3 !important;
+}
+
+.grey-text {
+    color: #72738e !important;
+}
+
+.light-grey {
+    background: #f5f5f7 !important;
+    color: inherit;
+}
+
+.light-grey-text {
+    color: #f5f5f7 !important;
+}
+
+/*DARK COLOUR*/
+
+.lighter {
+    background: #e7ebf0 !important;
+}
+
+.dark {
+    background: #444 !important;
+    color: white;
+}
+
+.dark-text {
+    /*color: #040221 !important;*/
+    color: #333456 !important;
+}
+
+.pinkish {
+    background-color: #f4f2f3 !important;
+}

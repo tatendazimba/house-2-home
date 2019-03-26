@@ -1,0 +1,37 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: tat-nda
+ * Date: 3/1/19
+ * Time: 12:12 PM
+ */
+
+namespace App\Http\Composers;
+
+
+use App\Http\Controllers\Repositories\PostsRepository;
+use App\Http\Controllers\Repositories\ProductRepository;
+use App\Http\Controllers\Repositories\TagRepository;
+use Illuminate\View\View;
+
+class SidebarComposer
+{
+
+    protected $tags;
+    protected $posts;
+
+    public function __construct(TagRepository $tags, PostsRepository $posts)
+    {
+        $this->tags = $tags;
+        $this->posts = $posts;
+    }
+
+    public function compose(View $view)
+    {
+        $popularTags = $this->tags->all();
+        $popularStories = $this->posts->popular();
+
+        $view->with("popularTags", $popularTags);
+        $view->with("popularStories", $popularStories);
+    }
+}

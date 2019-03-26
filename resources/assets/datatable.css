@@ -1,0 +1,8 @@
+
+.dataTables_filter, .dataTables_filter label, .dataTables_info, .dataTables_info label, .dataTables_paginate, .dataTables_wrapper .dataTables_paginate .paginate_button  {
+    color: #444 !important;
+}
+
+.night .dataTables_filter, .dataTables_filter label, .dataTables_info, .dataTables_info label, .dataTables_paginate, .dataTables_wrapper .dataTables_paginate .paginate_button {
+    color: #ffffff !important;
+}

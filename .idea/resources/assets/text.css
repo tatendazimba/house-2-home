@@ -1,0 +1,15 @@
+.justified {
+    text-align: justify !important;
+}
+
+.capitalise {
+    text-transform: capitalize !important;
+}
+
+.lower-case {
+    text-transform: lowercase !important;
+}
+
+.upper-case {
+    text-transform: uppercase !important;
+}
