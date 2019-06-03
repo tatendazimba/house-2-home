@@ -5,7 +5,7 @@
 
     <main class="">
 
-        <div class="center-align">
+        <div class="center-align hide">
             <div class="flex row left-align">
                 <div class="col s12 m8 l7" style="height: 500px;">
                     <div class="full-height white-text with-small-padding">
@@ -52,7 +52,7 @@
 
         <div class="container row">
             <div class="col s12">
-                <h2 class="capitalise">Shop</h2>
+                <h2 class="capitalise">Shop for Homeware</h2>
                 <p>
                     <strong>PRODUCTS</strong> <i class="material-icons">keyboard_arrow_right</i> <span class="active-link capitalise"> {{ $tagParameter }}</span>
                 </p>
@@ -95,16 +95,15 @@
                     <div class="flex row no-pad">
                         @foreach($shop as $i => $post)
                             <div class="black white-text col s12 m4 no-pad with-small-margin">
-                                <div class="img-background square no-margin" style="background-image: url('/uploads/{{ $post->images[0]->url }}'); -webkit-background-size: cover; background-size: cover;"></div>
-                                <div class="with-small-padding" style="">
-                                    <a class="white-text whatsapp-link" target="_blank" href="https://wa.me/263733636940?text={{ urlencode("Hi, I am interested in REF# " . $post->id . ". \n\n" . $post->title . " " . $post->content) }}">
-                                        <u>BUY# {{ $post->id }}</u>
-                                    </a>
-                                    <div class="">{{ $post->title }}</div>
-                                    <strong class="">
-                                        {!! nl2br(e($post->content, 1)) !!}
-                                    </strong>
-                                </div>
+                                <a  href="{{ route('story', $post) }}">
+                                    <div class="img-background square no-margin ignore" style="background-image: url('/uploads/{{ $post->images[0]->url }}'); -webkit-background-size: cover; background-size: cover;"></div>
+                                    <div class="with-small-padding" style="">
+                                        <strong class="white-text">{{ $post->title }}</strong>
+                                        <div class="truncate white-text">
+                                            {{ $post->content }}
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
 
                             @if((($i+1) % 3) === 0 )

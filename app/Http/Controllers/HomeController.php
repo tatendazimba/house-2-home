@@ -3,16 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Interfaces\PostsInterface;
+use App\Http\Controllers\Interfaces\RequestInterface;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
 
     protected $posts;
+    protected $requests;
 
-    public function __construct(PostsInterface $posts)
+    public function __construct(PostsInterface $posts, RequestInterface $requests)
     {
         $this->posts = $posts;
+        $this->requests = $requests;
     }
 
     public function __invoke()
@@ -22,7 +25,13 @@ class HomeController extends Controller
         $categories = $this->posts->featuredCategories();
         $sale = $this->posts->sale();
         $new = $this->posts->new();
+        $decorTips = $this->posts->decors()->reverse();
 
-        return view("home", compact("heroes", "featured", "categories", "sale", "new"));
+        $response = $this->requests->getInstagramPhotos();
+
+        $instagramImages = $response->data;
+
+
+        return view("home", compact("heroes", "featured", "categories", "sale", "new", "decorTips", "instagramImages"));
     }
 }

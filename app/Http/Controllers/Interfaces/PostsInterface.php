@@ -22,6 +22,7 @@ interface PostsInterface
     public function new();
     public function shop();
     public function featured();
+    public function decors();
     public function gallery();
     public function shopWithTag($tag);
     public function galleryWithTag($tag);

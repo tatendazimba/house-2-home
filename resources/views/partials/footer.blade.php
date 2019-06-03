@@ -153,23 +153,48 @@
     <script>
 
         $(document).ready(function () {
+
+            $("body").on("click", "#image-view img", function() {
+            });
+
             const instance = M.Modal.init(
                 document.getElementById("image-modal")
             );
 
             M.Sidenav.init(document.querySelectorAll('.sidenav'), {});
 
+            $("#image-view img").click(function () {
+                console.log("in x");
+
+                const image = $(this.cloneNode(true));
+
+                image.removeClass("full-width").addClass("full-height");
+
+                $("#image-modal #content").html(image);
+
+                instance.open();
+            });
+
             $("img").click(function () {
 
                 if ($(this).attr("class")) {
+
                     if (!$(this).attr("class").includes("ignore")) {
                         const image = $(this.cloneNode(true));
 
-                        image.removeClass("full-width").addClass("full-height");
+                        // append to modal or display in image view
+                        if($("#image-view")) {
+                            console.log("in");
+                            image.addClass("zoom");
+                            $("#image-view").html(image);
+                        } else {
+                            console.log("out");
+                            image.removeClass("full-width").addClass("full-height");
 
-                        $("#image-modal #content").html(image);
+                            $("#image-modal #content").html(image);
 
-                        instance.open();
+                            instance.open();
+                        }
                     }
                 }
             });
@@ -215,7 +240,19 @@
         M.Carousel.init(document.querySelectorAll(".carousel.carousel-slider"), {
             fullWidth: true,
             indicators: true,
-            duration: 200
+            duration: 300,
+            onCycleTo: function(hero) {
+
+                // hide hero text
+                $(".hero-text").addClass("hide");
+
+                $heroText = $(hero).find(".hero-text");
+
+                setTimeout(function(){
+                    $heroText.removeClass("hide").addClass("animated fadeIn");
+                }, 1300);
+
+            }
         });
 
         const instance = M.Carousel.getInstance(document.getElementById("hero"));

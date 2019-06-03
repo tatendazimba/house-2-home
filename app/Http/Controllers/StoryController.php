@@ -21,6 +21,6 @@ class StoryController extends Controller
         $categories = $this->posts->featuredCategories();
         $shopTags = $this->posts->shopTags();
 
-        return view("story", compact("post", "featured", "categories", "shop", "shopTags", "tagParameter"));
+        return view("add-to-cart", compact("post", "featured", "categories", "shop", "shopTags", "tagParameter"));
     }
 }

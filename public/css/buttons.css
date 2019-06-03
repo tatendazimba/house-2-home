@@ -1,0 +1,182 @@
+/*BUTTON*/
+
+button, .btn, .label, .btn-large {
+    color: #ffffff;
+    -webkit-border-radius: 60px;
+    -moz-border-radius: 60px;
+    border-radius: 25px;
+    border-width: 1px !important;
+    border-style: solid !important;
+    text-transform: uppercase !important;
+    box-shadow: none !important;
+    font-weight: bold;
+}
+
+button.primary, .btn.primary, .btn-large.primary, .outline.black {
+    border-color: #ff0000 !important;
+}
+
+button.primary.outline, .btn.primary.outline, .btn-large.primary.outline {
+    background: transparent !important;
+    border-color: #ff0000 !important;
+    color: #ff0000 !important;
+}
+
+.btn-large {
+    position: relative;
+    height: 54px;
+    line-height: 54px;
+}
+
+.btn-large .text {
+    margin-right: 40px;
+}
+
+.btn-large .circle {
+    height: 38px;
+    width: 38px;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    border-radius: 50% !important;
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+}
+
+.circle-btn {
+    height: 40px !important;
+    width: 40px !important;
+    text-align: center !important;
+    display: inline-flex !important;
+    margin: auto 0 !important;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    border-radius: 50% !important;
+}
+
+.circle-btn i {
+    font-size: 20px !important;
+}
+
+.grey.outline {
+    -webkit-transition: background-color 0.5s ease;
+    -moz-transition: background-color 0.5s ease;
+    -ms-transition: background-color 0.5s ease;
+    -o-transition: background-color 0.5s ease;
+    transition: background-color 0.5s ease;
+    border: 1px solid #72738e !important;
+    color: #72738e !important;
+    background-color: transparent !important;
+}
+
+.grey.outline:hover {
+    -webkit-transition: background-color 0.5s ease;
+    -moz-transition: background-color 0.5s ease;
+    -ms-transition: background-color 0.5s ease;
+    -o-transition: background-color 0.5s ease;
+    transition: background-color 0.5s ease;
+    color: #ffffff !important;
+    background-color: #72738e !important;
+}
+
+.small-btn .btn {
+    height: 24px !important;
+    line-height: 24px !important;
+    font-size: .7rem;
+    font-weight: bold !important;
+}
+
+.small-btn i {
+    font-size: .7rem !important;
+}
+
+.outline-btn {
+    box-shadow: none !important;
+    border: 1px solid white !important;
+    background: transparent !important;
+}
+
+.outline-btn.blue {
+    box-shadow: none !important;
+    border: 1px solid #2196f3 !important;
+    background: transparent !important;
+    color: #2196f3 !important;
+}
+
+.outline-btn.primary {
+    box-shadow: none !important;
+    border: 1px solid #763568 !important;
+    background: transparent !important;
+    color: #763568 !important;
+}
+
+.outline-btn.yellow {
+    box-shadow: none !important;
+    border: 1px solid #FDED11 !important;
+    background: transparent !important;
+    color: #FDED11 !important;
+}
+
+/*JOINED BUTTONS*/
+
+.joined-btns {
+    border-radius: 25px;
+    width: fit-content !important;
+    vertical-align: middle;
+}
+
+.joined-btns .btn {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    /*    border: 2px solid white !important;*/
+    padding: 0 .7rem !important;
+}
+
+.joined-btns .left-outer {
+    border-top-left-radius: 25px !important;
+    border-bottom-left-radius: 25px !important;
+}
+
+.joined-btns .right-outer {
+    border-top-right-radius: 25px !important;
+    border-bottom-right-radius: 25px !important;
+}
+
+/*BUTTON ATTACHED INPUT */
+
+.button-attached-input button {
+    border-radius: 0 !important;
+    border-top-right-radius: 25px !important;
+    border-bottom-right-radius: 25px !important;
+    min-width: 20%;
+    vertical-align: middle !important;
+    height: 2rem !important;
+    line-height: 2rem !important;
+}
+
+.button-attached-input input {
+    border-radius: 0 !important;
+    border-top-left-radius: 25px !important;
+    border-bottom-left-radius: 25px !important;
+    max-width: 75%;
+    margin: 0 !important;
+    vertical-align: middle !important;
+}
+
+/*SUBSCRIBE*/
+
+.subscribe button {
+    border-radius: 0 !important;
+    border-top-right-radius: 25px !important;
+    border-bottom-right-radius: 25px !important;
+    min-width: 20%;
+    vertical-align: top !important;
+}
+
+.subscribe input {
+    border: 1px dotted #444 !important;
+    border-top-left-radius: 25px !important;
+    border-bottom-left-radius: 25px !important;
+    max-width: 75%;
+}
+

@@ -15,13 +15,14 @@
 
     <title>{{ config('app.name', '') }}</title>
 
-    <link rel="stylesheet" href="https://rawgit.com/cycle-path/nhanga/master/src/styles.css">
+    <link rel="stylesheet" href="https://use.typekit.net/ddw4llj.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Inconsolata:700|Amatic+SC:400,700|Didact+Gothic|News+Cycle|Josefin+Sans:300|Hind:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Didact+Gothic|Josefin+Sans" rel="stylesheet">
 
     <!-- Styles -->
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/buttons.css') }}" rel="stylesheet">
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
 
     <link rel="icon" href="{{ asset('images/logo/h2h.png') }}" sizes="32x32">

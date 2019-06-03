@@ -17,6 +17,7 @@ mix.scripts([
     ], 'public/js/app.js')
     .styles([
         "node_modules/materialize-css/dist/css/materialize.css",
+        "node_modules/animate.css/animate.min.css",
         "resources/css/colours.css",
         "resources/css/text.css",
         "resources/css/tooltip.css",
