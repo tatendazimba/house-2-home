@@ -1,15 +1,13 @@
-<div class="sidenav sidenav-fixed">
-    <nav class="" style="height: 96px !important;">
-        <div class="navbar-wrapper center" style="height: 96px !important;">
+<div id="sidenav" class="sidenav sidenav-fixed black white-text">
+    <nav class="top-margin bottom-margin" style="height: 120px !important;">
+        <div class="navbar-wrapper center" style="height: 120px !important;">
             <ul>
-                <li class="" style="height: 96px !important;">
-                    <a href="{{ url('/') }}" class="full-height logo">
-                        <div class="full-height valign-wrapper center-align">
-                            <div class="full-width">
-                                <img src="{{ asset('images/logo/h2h.svg') }}" class="" style="height: 40px !important;">
-                            </div>
+                <li class="" style="height: 120px !important;">
+                    <div href="{{ url('/') }}" class="full-height valign-wrapper">
+                        <div class="full-width center-align">
+                            <img src="{{ asset('images/logo/h2h.svg') }}" class="" style="height: 72px !important;">
                         </div>
-                    </a>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -20,9 +18,9 @@
         <p>&nbsp;</p>
 
         <a href="{{ route('stories.create') }}">
-            <button class="btn-large btn right-align btn-large wiretap">
-                <div class="text">New Story</div>
-                <div class="pink circle">
+            <button class="btn-large btn right-align btn-large white black-text">
+                <div class="text">New Product</div>
+                <div class="circle white-text black">
                     <i class="material-icons">add</i>
                 </div>
             </button>
@@ -32,56 +30,32 @@
 
     </div>
 
-    <ul class="uppercase collapsible">
+    <ul class="uppercase collapsible transparent">
         <li class="active">
-            <a class="collapsible-header valign-wrapper">
+            <a class="collapsible-header valign-wrapper white-text">
                 <div class="icon center-align">
                     <img class="full-height" src="{{ asset('images/icons/story.svg') }}">
                 </div>
-                Stories
+                Posts
             </a>
 
-            <div class="collapsible-body">
-                <div class="light-grey">
-                    <a href="{{ route('stories.index') }}">
-                        View All
-                    </a>
-                </div>
-
-                @foreach($popularTags as $tag)
-                    <div>
-                        <a href="{{ route('stories.per', $tag) }}" class="full-width capitalise">
+            <div class="collapsible-body transparent">
+                @foreach($allTags as $tag)
+                    <div class="">
+                        <a href="{{ route('stories.per', $tag) }}" class="full-width capitalise white-text">
                             {{ $tag->name }}
                         </a>
                     </div>
                 @endforeach
 
-            </div>
-        </li>
-
-        <li class="">
-            <a class="collapsible-header valign-wrapper">
-                <div class="icon center-align">
-                    <img class="full-height" src="{{ asset('images/icons/tags.svg') }}">
-                </div>
-                Tags
-            </a>
-
-            <div class="collapsible-body">
                 <div class="">
-                    <a href="{{ route('tags.create') }}">
-                        <strong>Add New</strong>
+                    <a class="white-text" href="{{ route('tags.index') }}">
+                        View All Tags
                     </a>
                 </div>
 
-                <div class="light-grey">
-                    <a href="{{ route('tags.index') }}">
-                        View All
-                    </a>
-                </div>
             </div>
         </li>
-
     </ul>
 </div>
 

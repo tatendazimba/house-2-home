@@ -6,6 +6,7 @@ use App\Http\Controllers\Interfaces\PostsInterface;
 use App\Http\Controllers\Interfaces\TagInterface;
 use App\Image;
 use App\Post;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -46,7 +47,9 @@ class StoryController extends Controller
         $method = "POST";
         $url = route("stories.store");
 
-        return view("stories-create", compact("story", "method", "url"));
+        $allTags = $this->tags->all();
+
+        return view("stories-create", compact("story", "method", "url", "allTags"));
     }
 
     /**
@@ -70,7 +73,7 @@ class StoryController extends Controller
         $payload = [
             "title" => $request->title,
             "content" => $request->input("content"),
-            "text_colour" => $request->input("text_colour")
+            "text_colour" => $request->input("text_colour"),
         ];
 
         // new story
@@ -131,7 +134,7 @@ class StoryController extends Controller
             $story->images()->saveMany($images);
         }
 
-        return redirect(route('stories.index'));
+        return redirect(route("stories.edit", $story));
     }
 
     /**
@@ -153,10 +156,15 @@ class StoryController extends Controller
      */
     public function edit(Post $story)
     {
+
+        $story = Post::with("tags")->find($story->id);
+
         $method = "PUT";
         $url = route("stories.update", $story);
 
-        return view("stories-create", compact("story", "method", "url"));
+        $allTags = $this->tags->all();
+
+        return view("stories-create", compact("story", "method", "url", "allTags"));
     }
 
     /**
@@ -236,13 +244,11 @@ class StoryController extends Controller
             $story->images()->saveMany($images);
         }
 
-        return redirect(route('stories.index'));
+        return back();
     }
 
     public function destroy(Post $story)
     {
-//        dd($story);
-
         $this->repo->destroy($story);
 
         return back();

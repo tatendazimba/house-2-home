@@ -53,8 +53,13 @@
 
                                 <div class="col s12 m6">
                                     <div class="input-field">
-                                        <button class="pink btn-large" type="submit">
-                                            Sumbit Tag
+                                        <button class="black white-text btn-large" type="submit">
+                                            <span class="text">
+                                                Sumbit Tag
+                                            </span>
+                                            <span class="icon circle white black-text">
+                                                <i class="material-icons">add</i>
+                                            </span>
                                         </button>
                                     </div>
 

@@ -13,7 +13,7 @@
 
             <p class="container center-align">
                 @foreach($post->tags as $tag)
-                    <a class="grey-text" href="{{ route('decor', $tag->name) }}">
+                    <a class="black-text" href="{{ route('decor', $tag->name) }}">
                         <u>{{ $tag->name }}</u>
                     </a>
 

@@ -5,54 +5,11 @@
 
     <main class="">
 
-        <div class="center-align hide">
-            <div class="flex row left-align">
-                <div class="col s12 m8 l7" style="height: 500px;">
-                    <div class="full-height white-text with-small-padding">
-                        <div class="ignore full-height" style="background: url('/uploads/{{ $featured[0]->images[0]->url }}') no-repeat bottom right; background-size: cover;">
-                            <div class="bottom container">
-                                <div class="">
-                                    <h3 class=" {{ $featured[0]->text_colour }}">{{ $featured[0]->title }}</h3>
-
-                                    <p class=" {{ $featured[0]->text_colour }} truncate">{{ $featured[0]->content }}</p>
-
-                                    <a href="{{ route('story', $featured[0]) }}" class="btn primary">View more &raquo;</a>
-
-                                    <p>&nbsp;</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s12 m4 l5" style="height: 500px;">
-                    @foreach($featured->slice(1, 3) as $post)
-                        <div class="third-height full-width with-small-padding">
-                            <div class="full-height" style="background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), url('/uploads/{{ $post->images[0]->url }}') no-repeat bottom right; background-size: cover;">
-                                <div class="bottom container">
-                                    <div class="">
-                                        <a href="{{ route('story', $post) }}">
-                                            <h4 class=" {{ $post->text_colour }}">
-                                                <span class="truncate left">
-                                                    {{ $post->title }}
-                                                    &nbsp;
-                                                    <i class="material-icons">arrow_forward</i>
-                                                </span>
-                                            </h4>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-
         @include("partials.linebreak")
 
         <div class="container row">
             <div class="col s12">
-                <h2 class="capitalise">Shop for Homeware</h2>
+                <h2 class="capitalise">Buy Homeware</h2>
                 <p>
                     <strong>PRODUCTS</strong> <i class="material-icons">keyboard_arrow_right</i> <span class="active-link capitalise"> {{ $tagParameter }}</span>
                 </p>
@@ -64,7 +21,7 @@
                 <div class="sidebar">
                     <ul class="collapsible">
                         <li>
-                            <div class="collapsible-header capitalise">
+                            <div class="collapsible-header capitalise transparent">
                                 @if($tagParameter === 'ALL')
                                     <i class="material-icons primary-text">keyboard_arrow_right</i>
                                 @endif
@@ -76,7 +33,7 @@
                         @foreach($shopTags as $tag)
                             @if(!in_array($tag->name, ["Hero", "Inspiration", "New", "Sales & Offers", "Shop"]))
                                 <li>
-                                    <div class="collapsible-header capitalise">
+                                    <div class="collapsible-header capitalise transparent">
                                         @if($tagParameter === $tag->name)
                                             <i class="material-icons primary-text">keyboard_arrow_right</i>
                                         @endif
@@ -92,23 +49,33 @@
             </div>
             <div class="col s12 m9">
                 <div class="">
-                    <div class="flex row no-pad">
+                    <div class="flex row no-pad overflow-visible">
                         @foreach($shop as $i => $post)
-                            <div class="black white-text col s12 m4 no-pad with-small-margin">
-                                <a  href="{{ route('story', $post) }}">
-                                    <div class="img-background square no-margin ignore" style="background-image: url('/uploads/{{ $post->images[0]->url }}'); -webkit-background-size: cover; background-size: cover;"></div>
-                                    <div class="with-small-padding" style="">
-                                        <strong class="white-text">{{ $post->title }}</strong>
-                                        <div class="truncate white-text">
-                                            {{ $post->content }}
-                                        </div>
+                            <a href="{{ route('story', $post) }}" class="col s12 m4 default-text">
+                                <div class="white rounded shadow full-height">
+                                    <div class="square no-margin ignore"
+                                         style="background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), url('/uploads/{{ $post->images[0]->url }}') no-repeat bottom right; background-size: cover;">
                                     </div>
-                                </a>
-                            </div>
+                                    <h5 class="with-medium-padding no-margin">
+                                        <span class="">
+                                            {{ $post->title }}
+                                        </span>
+
+                                        <br>
+
+                                        <p class="truncate small-text grey-text">{{ $post->content }}</p>
+                                        <p class="truncate small-text black-text">
+                                            @foreach($post->tags->slice(0, 2) as $tag)
+                                                <u>{{ $tag->name }}</u> &nbsp;
+                                            @endforeach
+                                        </p>
+                                    </h5>
+                                </div>
+                            </a>
 
                             @if((($i+1) % 3) === 0 )
                                 </div>
-                                <div class="flex row no-pad">
+                                <div class="flex row no-pad overflow-visible">
                             @endif
                         @endforeach
                     </div>

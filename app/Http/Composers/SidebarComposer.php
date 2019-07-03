@@ -28,10 +28,12 @@ class SidebarComposer
 
     public function compose(View $view)
     {
-        $popularTags = $this->tags->all();
+        $popularTags = $this->tags->popular()->reverse();
+        $allTags = $this->tags->all();
         $popularStories = $this->posts->popular();
 
         $view->with("popularTags", $popularTags);
         $view->with("popularStories", $popularStories);
+        $view->with("allTags", $allTags);
     }
 }

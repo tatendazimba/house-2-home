@@ -6,13 +6,11 @@
     <main class="container">
 
         @include("partials.linebreak")
-        @include("partials.linebreak")
-        @include("partials.linebreak")
 
-        <div class="flex row">
+        <div class="white flex row with-padding">
             <div class="col s12 m6">
                 <div class="flex row">
-                    <div class="col s3">
+                    <div class="col s3 no-pad">
                         @foreach($post->images as $image)
                             <img class="full-width" src="/uploads/{{ $image->url }}">
                         @endforeach
@@ -48,7 +46,9 @@
 
                         @include("partials.linebreak")
 
-                        <a id="add-to-cart" href="https://wa.me/263733636940?text={{ urlencode("Hi, I am interested in REF# " . $post->id . ". \n\n" . $post->title . " " . $post->content) }}" class="btn full-width primary outline">Contact Sales</a>
+                        <a id="add-to-cart" class="btn-large primary outline" style="box-shadow: none !important;" href="https://wa.me/263733636940?text={{ urlencode("Hi, I am interested in REF# " . $post->id . ". \n\n" . $post->title . " ") }}" >
+                            <span class="">Contact Sales</span>
+                        </a>
 
                         @include("partials.linebreak")
 
@@ -58,35 +58,6 @@
         </div>
 
         @include("partials.linebreak")
-        @include("partials.linebreak")
-        @include("partials.linebreak")
-
-        <div class="divide with-small-margin">
-            FEATURED
-        </div>
-
-        @include("partials.linebreak")
-
-        <div class="flex row no-pad">
-            @foreach($featured->slice(0, 4) as $post)
-                <div class="col s12 m3 with-small-margin no-pad black">
-                    <div class="img-background square no-margin" style="background-image: url('/uploads/{{ $post->images[0]->url }}'); background-size: cover;"></div>
-                    <div class="black white-text with-padding" style="">
-
-                        <a class="uppercase small-text white-text" href="{{ route('story', $post) }}">
-                            <strong><u>{{ $post->tags[0]->name }}</u></strong>
-                        </a>
-
-                        <h5>
-                            <a class="thin white-text" href="{{ route('story', $post) }}">
-                                <span>{{ $post->title }}</span>
-                            </a>
-                        </h5>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-
         @include("partials.linebreak")
         @include("partials.linebreak")
 

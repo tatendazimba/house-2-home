@@ -10,8 +10,8 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Bedroom Decor Living Room Decor Home Makeover">
-    <meta name="keywords" content="Bedroom, Decor, Living, Room, Decor, Home, Makeover">
+    <meta name="description" content="{{ config('app.name', '') }} house2home housetohome house 2 home zw harare Mirror Kitchen Rugs Living Room Bedroom Table Bathroom accessories Storage Mink Decor Tips Throw Clock Accent Chairs Lamp Cushions & Pillows">
+    <meta name="keywords" content="{{ config('app.name', '') }}  house2home housetohome house 2 home zw harare Mirror Kitchen Rugs Living Room Bedroom Table Bathroom accessories Storage Mink Decor Tips Throw Clock Accent Chairs Lamp Cushions & Pillows">
 
     <title>{{ config('app.name', '') }}</title>
 
@@ -22,8 +22,8 @@
     <!-- Styles -->
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/buttons.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+{{--    <link href="{{ asset('css/buttons.css') }}" rel="stylesheet">--}}
+{{--    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">--}}
 
     <link rel="icon" href="{{ asset('images/logo/h2h.png') }}" sizes="32x32">
 

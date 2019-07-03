@@ -4,34 +4,29 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Interfaces\PostsInterface;
 use App\Http\Controllers\Interfaces\RequestInterface;
+use App\Http\Controllers\Interfaces\TagInterface;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
 
     protected $posts;
+    protected $tags;
     protected $requests;
 
-    public function __construct(PostsInterface $posts, RequestInterface $requests)
+    public function __construct(PostsInterface $posts, TagInterface $tags, RequestInterface $requests)
     {
         $this->posts = $posts;
+        $this->tags = $tags;
         $this->requests = $requests;
     }
 
     public function __invoke()
     {
         $heroes = $this->posts->heroes();
-        $featured = $this->posts->inspiration();
-        $categories = $this->posts->featuredCategories();
-        $sale = $this->posts->sale();
-        $new = $this->posts->new();
+        $specials = $this->posts->specials();
         $decorTips = $this->posts->decors()->reverse();
 
-        $response = $this->requests->getInstagramPhotos();
-
-        $instagramImages = $response->data;
-
-
-        return view("home", compact("heroes", "featured", "categories", "sale", "new", "decorTips", "instagramImages"));
+        return view("home", compact("heroes", "featured", "specials", "decorTips", "tags"));
     }
 }

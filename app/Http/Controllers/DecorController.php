@@ -15,7 +15,6 @@ class DecorController extends Controller
 
     public function __invoke($tagParameter)
     {
-        $heroes = $this->posts->heroes();
         $featured = $this->posts->decors();
         $categories = $this->posts->featuredCategories();
         $shopTags = $this->posts->shopTags();
@@ -27,6 +26,6 @@ class DecorController extends Controller
             $shop = $this->posts->shopWithTag($tagParameter);
         }
 
-        return view("decor", compact("heroes", "featured", "categories", "shop", "shopTags", "tagParameter"));
+        return view("decor", compact("featured", "categories", "shop", "shopTags", "tagParameter"));
     }
 }

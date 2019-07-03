@@ -1,7 +1,7 @@
-@extends("layouts.panel");
+@extends("layouts.panel")
 
 @section('content')
-    @include("partials.nav-panel")
+    @include("partials.nav-admin")
     @include("partials.sidebar")
 
     <main class="full-height">
@@ -72,7 +72,7 @@
                                     <br><br>
 
                                     @foreach($story->tags as $tag)
-                                        <div class="{{ $colours[strlen($tag->name) % count($colours)] }} icon label valign-wrapper">
+                                        <div class="icon label outline grey valign-wrapper">
                                             <form action="{{ route('remove.tag', ['story' => $story, 'tag' => $tag])  }}" method="post">
                                                 @csrf
 
@@ -86,11 +86,11 @@
                                         </div>
                                     @endforeach
 
-                                    <div class="blue-grey lighten-1 white-text icon label valign-wrapper">
+                                    <div class="black white-text icon label valign-wrapper">
 
                                         <strong class="text uppercase">New Tag</strong>
 
-                                        <a class="blue-grey darken-2 dropdown circle white-text cursor-click" href='#' data-target='tags-{{ $story->id }}'>
+                                        <a class="white dropdown circle black-text cursor-click" href='#' data-target='tags-{{ $story->id }}'>
                                             <i class="material-icons">more_horiz</i>
                                         </a>
                                     </div>

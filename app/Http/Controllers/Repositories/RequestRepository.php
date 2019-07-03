@@ -19,8 +19,8 @@ class RequestRepository implements RequestInterface
     public function __construct()
     {
         $this->timeout = 10.0;
-        $this->token = "1694429657.1677ed0.22f01b3305b34b0fb470c466508719e0";
-        $this->count = 4; // number of images to fetch
+        $this->token = "4477889696.1677ed0.ac8052a29fbb4a12939a6243292b0465";
+        $this->count = 6; // number of images to fetch
         $this->url = "https://api.instagram.com/v1/users/self/media/recent/?access_token={$this->token}&count={$this->count}";
     }
 

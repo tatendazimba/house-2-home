@@ -11,10 +11,24 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.scripts([
-    "node_modules/jquery/dist/jquery.js",
-    "node_modules/materialize-css/dist/js/materialize.js"
-    ], 'public/js/app.js')
+// mix.scripts([
+//     "node_modules/jquery/dist/jquery.js",
+//     "node_modules/materialize-css/dist/js/materialize.js"
+//     ], 'public/js/app.js')
+//     .styles([
+//         "node_modules/materialize-css/dist/css/materialize.css",
+//         "node_modules/animate.css/animate.min.css",
+//         "resources/css/colours.css",
+//         "resources/css/text.css",
+//         "resources/css/tooltip.css",
+//         "resources/css/gradients.css",
+//         "resources/css/buttons.css",
+//         "resources/css/styles.css",
+//     ], "public/css/app.css")
+//    .sass('resources/sass/app.scss', 'public/css');
+
+mix.js('node_modules/materialize-css/dist/js/materialize.js', 'public/js/materialize.js')
+    .js("node_modules/jquery/dist/jquery.js", 'public/js/jquery.js')
     .styles([
         "node_modules/materialize-css/dist/css/materialize.css",
         "node_modules/animate.css/animate.min.css",
@@ -22,6 +36,7 @@ mix.scripts([
         "resources/css/text.css",
         "resources/css/tooltip.css",
         "resources/css/gradients.css",
-        // "resources/css/styles.css",
+        "resources/css/buttons.css",
+        "resources/css/styles.css",
     ], "public/css/app.css")
-   .sass('resources/sass/app.scss', 'public/css');
+    .styles("node_modules/materialize-css/dist/css/materialize.css", "public/css/materialize.css");

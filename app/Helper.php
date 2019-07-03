@@ -1,5 +1,5 @@
 <?php
 
 function setActive($path, $active = 'active'){
-    return call_user_func_array('Request::is', (array) $path) ? $active : '';
+    return strtolower(request()->path()) === strtolower(ltrim($path[0], "/")) ? $active : '';
 }

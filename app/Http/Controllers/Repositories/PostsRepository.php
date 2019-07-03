@@ -147,7 +147,19 @@ class PostsRepository implements PostsInterface
 
     public function sale()
     {
-        $posts = $this->tags->where("name", "Sales & Offers")->get();
+        $posts = $this->tags->where("name", "Sales & Offers")
+                            ->get();
+
+        return $posts;
+    }
+
+    public function specials()
+    {
+        $posts = Post::whereHas("tags", function ($query){
+            $query->where([
+                ['name', '=', "Shop"]
+            ]);
+        })->with("tags")->orderBy("id", "desc")->get();
 
         return $posts;
     }
@@ -308,5 +320,16 @@ class PostsRepository implements PostsInterface
         //TODO make new and sale go to top of list
 
         return (new Collection($tags))->unique();
+    }
+
+    public function search($string)
+    {
+        $matches = Post::where("title", "LIKE", "%{$string}%")
+            ->orWhere("content", "LIKE", "%{$string}%")
+            ->orWhereHas("tags", function ($query) use ($string) {
+                $query->where("name", "LIKE", "%{$string}%");
+            })->with("tags")->get();
+
+        return $matches;
     }
 }

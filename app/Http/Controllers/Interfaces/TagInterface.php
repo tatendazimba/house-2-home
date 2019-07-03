@@ -14,6 +14,7 @@ use App\Tag;
 interface TagInterface
 {
     public function index();
+    public function all();
     public function popular();
     public function destroy(Tag $tag);
     public function store($request);

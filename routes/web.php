@@ -18,15 +18,18 @@ use App\Tag;
 
 Route::get('/', HomeController::class)->name("home");
 Route::get('/shop/{tag}', "ShopController")->name("shop");
+Route::any('/decor/furniture/{string?}/zw', SearchController::class)->name("search");
 Route::get('/makeovers/{tag}', MakeoverController::class)->name("blog");
 Route::get('/inspiration/{tag}', InspirationsController::class)->name("inspirations");
 Route::get('/gallery/{tag}', GalleryController::class)->name("gallery");
 Route::get('/decor-tips/{tag}', DecorController::class)->name("decor");
 Route::get('/story/{post}', StoryController::class)->name("story");
 
-Route::resource("stories", ADMIN\StoryController::class);
-Route::resource("tags", ADMIN\TagController::class);
-Route::resource("images", ADMIN\ImageController::class);
+Route::middleware(["auth"])->group(function () {
+    Route::resource("stories", ADMIN\StoryController::class);
+    Route::resource("tags", ADMIN\TagController::class);
+    Route::resource("images", ADMIN\ImageController::class);
+});
 
 Route::get("/stories/per/{tag}", function(Tag $tag){
 
@@ -41,3 +44,5 @@ Route::get("/stories/per/{tag}", function(Tag $tag){
 
 Route::post("/add/tag/{story}/{tag}", ADMIN\AddTagController::class)->name("add.tag");
 Route::post("/remove/tag/{story}/{tag}", ADMIN\DeleteTagController::class)->name("remove.tag");
+
+Auth::routes();

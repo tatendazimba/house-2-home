@@ -3,15 +3,16 @@ html {
 }
 
 html, body, app-root, nav {
-    font-family: "Roboto Condensed", sans-serif;
-    background: linear-gradient(to right, #f2f6f7, #f5f5f7) !important;
-    color: #72738e !important;
+    font-family: "Josefin Sans", sans-serif !important;
+    background: linear-gradient(to right, #ffffff, #ffffff) !important;
+    color: #000000 !important;
+    height: 100%;
 }
 
 main, .navbar-fixed {
     padding-left: 320px !important;
     padding-right: 20px;
-    color: #72738e !important;
+    color: #000000 !important;
 }
 
 .night main {
@@ -272,6 +273,9 @@ img.icon {
 
 .sidenav li .collapsible-header {
     display: flex;
+    font-size: 1.2rem;
+    background-color: #444;
+    font-weight: bold;
 }
 
 
@@ -291,7 +295,7 @@ img.icon {
 }
 
 .sidenav li, .sidenav li a:not(.logo) {
-    color: #72738e; !important;
+    color: #000000; !important;
     min-height: 56px !important;
     line-height: inherit !important;
 }
@@ -320,12 +324,10 @@ img.icon {
 }
 
 .sidenav li .active {
-    background: #f8eef2 !important;
 }
 
 .sidenav li.active .collapsible-header {
-    background: #f8eef2 !important;
-    border-left: 3px solid #e91e63 !important;
+    border-left: 5px solid #e91e63 !important;
     font-weight: bold;
 }
 
@@ -365,13 +367,13 @@ nav {
 }
 
 nav li a {
-    color: #72738e !important;
+    color: #000000 !important;
     font-weight: 700 !important;
 }
 
 nav li.active a {
     text-transform: capitalize !important;
-    border-bottom: #72738e !important;
+    border-bottom: #000000 !important;
     font-weight: 700 !important;
     background: #f5f5f7;
 }
@@ -570,7 +572,7 @@ h1, h2, h3, h4 {
 }
 
 .default-font {
-    font-family: 'Barlow Condensed', sans-serif !important;
+    font-family: 'Josefin Sans', sans-serif !important;
     color: #444!important;
 }
 
@@ -645,8 +647,8 @@ button, .btn-large {
     -ms-transition: background-color 0.5s ease;
     -o-transition: background-color 0.5s ease;
     transition: background-color 0.5s ease;
-    border: 1px solid #72738e !important;
-    color: #72738e !important;
+    border: 1px solid #000000 !important;
+    color: #000000 !important;
     background-color: transparent !important;
 }
 
@@ -657,7 +659,7 @@ button, .btn-large {
     -o-transition: background-color 0.5s ease;
     transition: background-color 0.5s ease;
     color: #ffffff !important;
-    background-color: #72738e !important;
+    background-color: #000000 !important;
 }
 
 .small-btn .btn {
@@ -773,15 +775,15 @@ button.link {
 /*PRIMARY FONT*/
 
 .primary-font{
-    font-family: 'Barlow Condensed', serif !important;
+    font-family: 'Josefin Sans', serif !important;
 }
 
 .secondary-font{
-    font-family: 'Sun', serif !important;
+    font-family: 'Josefin Sans', serif !important;
 }
 
 .logo-font {
-    font-family: 'Moon', sans-serif !important;
+    font-family: 'Josefin Sans', sans-serif !important;
     font-size: 36px !important;
     line-height: 32px !important;
 }
@@ -923,9 +925,9 @@ button.link {
 /*INPUT*/
 
 input, select {
+    font-family: "Josefin Sans", sans-serif !important;
     border: 1px solid #cacbcd !important;
     height: 3rem !important;
-    font-family: 'Barlow Condensed', serif !important;
     font-size: 2rem !important;
     color: #444 !important;
 }

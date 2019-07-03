@@ -28,6 +28,8 @@ interface PostsInterface
     public function galleryWithTag($tag);
     public function shopTags();
     public function galleryTags();
+    public function specials();
+    public function search($string);
 
     public function store($request);
     public function destroy(Post $post);

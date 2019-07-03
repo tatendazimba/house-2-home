@@ -1,9 +1,9 @@
-<div class="grey">
+<div class="black white-text">
     <p>&nbsp;</p>
     <p>&nbsp;</p>
 
     <div class="container">
-        <div class="flex row black-text">
+        <div class="flex row">
             <div class="col s12 m4">
                 <div class="">
 
@@ -14,10 +14,10 @@
                     <ul>
                         @foreach($tags->slice(0, 5) as $tag)
                             <li>
-                                <a class="capitalise black-text" href="{{ route('shop', $tag->name) }}">
+                                <a class="capitalise white-text" href="{{ route('shop', $tag->name) }}">
                                     {{ $tag->name }}
                                 </a>
-                                <p class="truncate">{{ $tag->description }}</p>
+                                <p class="truncate grey-text">{{ $tag->description }}</p>
                             </li>
                         @endforeach
                     </ul>
@@ -40,7 +40,7 @@
                                     </div>
                                 </div>
                                 <div class="col s9">
-                                    <strong class="capitalise black-text" href="">
+                                    <strong class="capitalise white-text" href="">
                                         {{ $post->title }}
                                     </strong>
                                     <div class="truncate grey-text">{{ $post->content }}</div>
@@ -93,18 +93,18 @@
             </div>
 
             <div class="col s12 m4">
-                <div class="black-text">
+                <div class="">
                     <h5 class="uppercase">
                         <strong>About Us</strong>
                     </h5>
 
                     <p class="justified">
-                        <b>Finest Bespoke Interiors</b>
+                        <strong>Finest Bespoke Interiors</strong>
 
                         <br>
                         <br>
 
-                        House2home brings classic, glamorous and  exquisite designs into homes and offices. We style spaces from formation to finish,  introducing new life into existing spaces with thoughtful, liveable, enjoyable and beautiful results that are comfortable to our client’s home lifestyle or business setting. Whether you own your space and have lived there for several years, or you are in a rental for a short time, we believe that it is important to personalize your space and make it feel like home.
+                        House2Home brings classic, glamorous and  exquisite designs into homes and offices. We style spaces from formation to finish,  introducing new life into existing spaces with thoughtful, liveable, enjoyable and beautiful results that are comfortable to our client’s home lifestyle or business setting. Whether you own your space and have lived there for several years, or you are in a rental for a short time, we believe that it is important to personalize your space and make it feel like home.
                     </p>
 
                     @include("partials.linebreak")
@@ -113,20 +113,25 @@
             </div>
 
             <div class="col s12 m4">
-                <div class="container black-text">
+                <div class="container">
                     <h5 class="uppercase">
                         <strong>Social Media</strong>
                     </h5>
 
                     <p>
+                        <strong>Follow us:</strong>
+
+                        <br>
+                        <br>
+
                         <a target="_blank" href="https://www.facebook.com/House2HomeZ/" class="">
-                            <img class="ignore right-margin" src="{{ asset('images/icons/social/facebook-dark.svg') }}" style="height: 16px !important;">
+                            <img class="ignore right-margin" src="{{ asset('images/icons/social/facebook-colour.svg') }}" style="height: 32px !important;">
                         </a>
                         <a target="_blank" href="https://www.instagram.com/house2home.zw/" class="">
-                            <img class="ignore right-margin" src="{{ asset('images/icons/social/instagram-dark.svg') }}" style="height: 16px !important;">
+                            <img class="ignore right-margin" src="{{ asset('images/icons/social/instagram-colour.svg') }}" style="height: 32px !important;">
                         </a>
                         <a target="_blank" href="https://wa.me/263733636940?text={{ urlencode("Hi, I just visited your website.") }}" class="">
-                            <img class="ignore right-margin" src="{{ asset('images/icons/social/whatsapp-dark.svg') }}" style="height: 16px !important;">
+                            <img class="ignore right-margin" src="{{ asset('images/icons/social/whatsapp-colour.svg') }}" style="height: 32px !important;">
                         </a>
                     </p>
                 </div>

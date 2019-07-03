@@ -11,7 +11,17 @@
         <div class="row">
             <div class="col s12">
                 <h4>Tags</h4>
-                <p>Add, View, Edit & Delete Tags</p>
+                <p>
+                    <span>Add, View, Edit & Delete Tags</span>
+                    <a class="right" href="{{ route('tags.create') }}">
+                        <button class="btn-large btn right-align btn-large black white-text">
+                            <div class="text">New Tag</div>
+                            <div class="circle white black-text">
+                                <i class="material-icons">add</i>
+                            </div>
+                        </button>
+                    </a>
+                </p>
             </div>
         </div>
 
@@ -27,8 +37,6 @@
                             <th>Name</th>
                             <th>Description</th>
                             <th>Stories</th>
-                            <th>Created On</th>
-                            <th>Last Edited</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -43,8 +51,6 @@
                                 </td>
                                 <td>{{ $tag->description }}</td>
                                 <td>{{ $tag->posts()->count() }}</td>
-                                <td>{{ $tag->created_at }}</td>
-                                <td>{{ $tag->updated_at }}</td>
                                 <td>
                                     <div class="red accent-3 icon label white-text valign-wrapper">
                                         <form action="{{ route('tags.destroy', ['tag' => $tag]) }}" method="post">
