@@ -76,15 +76,15 @@
     </nav>
 </div>
 
-<div class="transparent hide-on-large-only">
+<div class="transparent hide-on-large-only top-small-margin">
     <nav class="tiny-nav transparent container">
         <div class="transparent navbar-wrapper overflow-visible">
             <div class="full-width">
                 <ul class="full-width">
-                    <li class="valign-wrapper full-width">
+                    <li class="valign-wrapper full-width top-small-padding">
                         <form action="{{ route("search") }}" method="POST" class="full-width center-align">
                             @csrf
-                            <input id="search" type="text" class="" placeholder="Search" name="search" style="margin: 5px;">
+                            <input id="search" type="text" class="top-small-margin" placeholder="Search" name="search" style="margin: 5px;">
                         </form>
                     </li>
                 </ul>
@@ -121,7 +121,7 @@
     </li>
 
     <li class="{{ setActive(['/']) }}">
-        <a href="{{ route('home') }}" class="cursor-click valign-wrapper white-text full-height">
+        <a href="{{ route('home') }}" class="cursor-click valign-wrapper white-text">
             HOME
         </a>
     </li>
@@ -134,7 +134,7 @@
 
     @foreach($popularTags as $tag)
         <li class="{{ setActive(['/tag/' . $tag->name]) }}">
-            <a href="{{ route('search', $tag->name) }}" class="cursor-click valign-wrapper white-text full-height uppercase">
+            <a href="{{ route('search', $tag->name) }}" class="cursor-click valign-wrapper white-text uppercase">
                 {{ $tag->name }}
             </a>
         </li>

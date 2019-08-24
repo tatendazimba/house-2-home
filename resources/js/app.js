@@ -5,9 +5,13 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+import {Carousel, Collapsible, Sidenav} from "materialize-css";
+
 require('./bootstrap');
 
 window.Vue = require('vue');
+window.$ = require('jquery')
+window.JQuery = require('jquery')
 
 /**
  * The following block of code may be used to automatically register your
@@ -17,10 +21,12 @@ window.Vue = require('vue');
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-// const files = require.context('./', true, /\.vue$/i);
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
+const files = require.context('./', true, /\.vue$/i);
+files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+// vue.component('image-viewer-component', require('./components/ImageViewComponent').default);
+
+// vue.component('zoom-on-hover', require('./components/ZoomOnHover').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -29,5 +35,40 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  */
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    mounted: function() {
+
+        Collapsible.init(document.querySelectorAll('.collapsible'), {});
+
+        Sidenav.init(document.querySelectorAll('.sidenav'), {});
+
+        if (document.querySelectorAll(".carousel.carousel-slider").length) {
+
+            Carousel.init(document.querySelectorAll(".carousel.carousel-slider"), {
+                fullWidth: true,
+                indicators: true,
+                duration: 300,
+                onCycleTo: function (hero) {
+
+                    // hide hero text
+                    $(".hero-text").addClass("hide");
+
+                    const $heroText = $(hero).find(".hero-text");
+
+                    setTimeout(function () {
+                        $heroText.removeClass("hide").addClass("animated fadeIn");
+                    }, 1300);
+
+                }
+            });
+
+            const instance = Carousel.getInstance(document.getElementById("hero"));
+
+            setInterval(function () {
+                if (!instance.pressed) {
+                    instance.next();
+                }
+            }, 7000);
+        }
+    },
 });

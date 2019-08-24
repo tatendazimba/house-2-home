@@ -272,4 +272,5 @@
     </main>
 
     @include("partials.footer")
+
 @endsection

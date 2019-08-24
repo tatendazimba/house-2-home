@@ -16,11 +16,8 @@ class StoryController extends Controller
 
     public function __invoke(Post $post)
     {
-        $heroes = $this->posts->heroes();
-        $featured = $this->posts->featured();
-        $categories = $this->posts->featuredCategories();
-        $shopTags = $this->posts->shopTags();
+        $post = Post::with("images")->find($post->id);
 
-        return view("add-to-cart", compact("post", "featured", "categories", "shop", "shopTags", "tagParameter"));
+        return view("add-to-cart", compact("post"));
     }
 }

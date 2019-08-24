@@ -59,9 +59,9 @@
     </ul>
 </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('.collapsible');
-        var instances = M.Collapsible.init(elems, {});
-    });
-</script>
+{{--<script>--}}
+{{--    document.addEventListener('DOMContentLoaded', function() {--}}
+{{--        var elems = document.querySelectorAll('.collapsible');--}}
+{{--        var instances = M.Collapsible.init(elems, {});--}}
+{{--    });--}}
+{{--</script>--}}

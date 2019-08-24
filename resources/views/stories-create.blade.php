@@ -8,6 +8,16 @@
 
         @include("partials.linebreak")
 
+{{--        <create-story-component :story="{{ json_encode($story, true) }}"--}}
+{{--                                :url="{{ json_encode($url) }}"--}}
+{{--                                :csrf="{{ json_encode(csrf_token()) }}"--}}
+{{--                                :method="{{ json_encode($method) }}"--}}
+{{--                                :errors="{{ json_encode($errors) }}"--}}
+{{--                                :code="{{ json_encode(session()->pull('code', '')) }}"--}}
+{{--                                :description="{{ json_encode(session()->pull('description', '')) }}"--}}
+{{--                                :all-tags="{{ json_encode($allTags) }}"--}}
+{{--        ></create-story-component>--}}
+
         <form action="{{ $url }}" enctype="multipart/form-data" method="POST">
 
             @csrf
@@ -59,10 +69,10 @@
                     <div class="col s12">
                         <strong>IMAGES ({{  $story->images->count() }})</strong> <br>
                         @foreach($story->images as $image)
-                            <div class="inline-block center-align" >
+                            <a href="{{ route('prices.set', $image) }}" class="inline-block center-align" >
                                 <div class="" style="width: 80px; height: 80px; background: url('/uploads/{{ $image->url }}') no-repeat bottom right; background-size: cover">
                                 </div>
-                            </div>
+                            </a>
                         @endforeach
                     </div>
 
@@ -177,4 +187,61 @@
             </div>
         </form>
     </main>
+
+{{--    <script>--}}
+{{--        jQuery(document).ready(function($){--}}
+{{--            /* Initialization of input elements and ImageUploader.js */--}}
+{{--            $("input.image-upload").each(function(index){--}}
+{{--                var id=$(this).attr('data-id');--}}
+{{--                var id_product = $(this).attr('data-product');--}}
+{{--                var uploader = new ImageUploader({'inputElement': $(this).get(0),--}}
+{{--                    'onProgress': function(info)--}}
+{{--                    {--}}
+{{--                        /* Updating the progress bar */--}}
+{{--                        if (info['currentItemTotal']<=0)--}}
+{{--                            return;--}}
+{{--                        var progress=info['currentItemDone']*100.0/info['currentItemTotal'];--}}
+{{--                        $('#upload-progress-'+id+' div').css('width',progress+'%');--}}
+{{--                    },--}}
+{{--                    'onComplete': function()--}}
+{{--                    {--}}
+{{--                        /* Enable upload button */--}}
+{{--                        $('#upload-button-'+id).removeProp('disabled');--}}
+{{--                        /* Hide progress bar */--}}
+{{--                        $("#upload-container-"+id).addClass("uk-hidden");--}}
+{{--                    },--}}
+{{--                    /* Add rand parameter to prevent accidental caching of the image by the server */--}}
+{{--                    'uploadUrl': 'index.php?action=upload_image&id_image=' + id + '&id_product=' + id_product + '&rand=' + new Date().getTime(),--}}
+{{--                    'debug': true--}}
+{{--                });--}}
+{{--            });--}}
+
+{{--            /* The function below is triggered every time the user selects a file */--}}
+{{--            $("input.image-upload").change(function(index){--}}
+{{--                /* We will check additionally the extension of the image if it's correct and we support it */--}}
+{{--                var extension = $(this).val();--}}
+{{--                if (extension.length>0){--}}
+{{--                    extension = extension.match(/[^.]+$/).pop().toLowerCase();--}}
+{{--                    extension = ~$.inArray(extension, ['jpg', 'jpeg']);--}}
+{{--                }--}}
+{{--                else{--}}
+{{--                    event.preventDefault();--}}
+{{--                    return;--}}
+{{--                }--}}
+
+{{--                if (!extension)--}}
+{{--                {--}}
+{{--                    event.preventDefault();--}}
+{{--                    console.error('Unsupported image format');--}}
+{{--                    return;--}}
+{{--                }--}}
+{{--                var id=$(this).attr('data-id');--}}
+{{--                /* Disable upload button until current upload completes */--}}
+{{--                $('#upload-button-'+id).prop('disabled',true);--}}
+{{--                /* Show progress bar */--}}
+{{--                $("#upload-container-"+id).removeClass("uk-hidden");--}}
+{{--                /* If you want, you can show a preview of the selected image to the user, but to keep the code simple, we will skip this step */--}}
+{{--            });--}}
+{{--        });--}}
+{{--    </script>--}}
 @endsection

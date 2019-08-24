@@ -29,8 +29,12 @@
 </head>
 <body>
 
-    @yield('content')
+    <div id="app" style="height: 100%;">
+        @yield('content')
+    </div>
 
+    <script src="{{ asset('js/exif.js') }}"></script>
+    <script src="{{ asset('js/ImageUploader.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
 
     <script>

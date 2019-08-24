@@ -13,4 +13,9 @@ class Image extends Model
     {
         return $this->belongsTo(Post::class);
     }
+
+    public function prices()
+    {
+        return $this->hasMany(Price::class);
+    }
 }

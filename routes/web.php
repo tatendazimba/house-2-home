@@ -26,23 +26,23 @@ Route::get('/decor-tips/{tag}', DecorController::class)->name("decor");
 Route::get('/story/{post}', StoryController::class)->name("story");
 
 Route::middleware(["auth"])->group(function () {
+
+    Route::redirect("home", "stories");
     Route::resource("stories", ADMIN\StoryController::class);
     Route::resource("tags", ADMIN\TagController::class);
     Route::resource("images", ADMIN\ImageController::class);
+    Route::post("/add/tag/{story}/{tag}", ADMIN\AddTagController::class)->name("add.tag");
+    Route::post("/remove/tag/{story}/{tag}", ADMIN\DeleteTagController::class)->name("remove.tag");
+
+    // display image
+    Route::get("prices/set/{image}", "ADMIN\PricesController@edit")->name("prices.set");
+    Route::delete("prices/{image}", "ADMIN\PricesController@destroy")->name("prices.delete");
+
+    // set prices on image
+    Route::post("prices/set/{image}", "ADMIN\PricesController@store")->name("prices.set");
+
+    Route::get("/stories/per/{tag}", 'ADMIN\StoryController@findByTag')->name("stories.per");
+
 });
-
-Route::get("/stories/per/{tag}", function(Tag $tag){
-
-    $repo = new PostsRepository(new Post(), new Tag());
-    $tagsRepo = new TagRepository(new Tag());
-
-    $stories = $repo->find($tag->name);
-    $allTags = $tagsRepo->all();
-
-    return view("stories", compact("stories", "allTags"));
-})->name("stories.per");
-
-Route::post("/add/tag/{story}/{tag}", ADMIN\AddTagController::class)->name("add.tag");
-Route::post("/remove/tag/{story}/{tag}", ADMIN\DeleteTagController::class)->name("remove.tag");
 
 Auth::routes();

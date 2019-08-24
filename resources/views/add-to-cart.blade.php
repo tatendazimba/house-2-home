@@ -7,18 +7,9 @@
 
         @include("partials.linebreak")
 
-        <div class="white flex row with-padding">
+        <div class="white flex row top-padding">
             <div class="col s12 m6">
-                <div class="flex row">
-                    <div class="col s3 no-pad">
-                        @foreach($post->images as $image)
-                            <img class="full-width" src="/uploads/{{ $image->url }}">
-                        @endforeach
-                    </div>
-                    <div id="image-view" class="col s9">
-                        <img class="full-width" src="/uploads/{{ $post->images[0]->url }}">
-                    </div>
-                </div>
+                <image-view-component :post="{{ json_encode($post) }}"></image-view-component>
             </div>
             <div class="col s12 m6">
                 <div class="container">
@@ -65,3 +56,6 @@
 
     @include("partials.footer")
 @endsection
+<script>
+
+</script>

@@ -261,6 +261,48 @@ nav {
     border: 1px solid #000000 !important;
 }
 
+/*PRICE PIN*/
+
+.price-pin {
+    background-color: white !important;
+    border-radius: 20px;
+    display: inline-block;
+    height: 40px !important;
+    width: 40px !important;
+    line-height: 40px !important;
+    padding: 5px;
+
+    transition: width .2s .1s ease;
+}
+
+.price-pin:hover{
+    width: auto !important;
+    transition: width .15s 0.25s ease;
+
+}
+
+.price-pin .icon {
+    background-color: white !important;
+    text-align: center;
+    display: inline-block;
+    border-radius: 50%;
+    height: 30px !important;
+    line-height: 30px !important;
+    width: 30px !important;
+    content: url("/images/icons/tags.svg");
+    padding: 5px;
+}
+
+.price-pin .text {
+    background-color: white !important;
+    color: black !important;
+    margin: 0 auto;
+    display: inline-block;
+    height: 30px !important;
+    line-height: 30px !important;
+    padding: 5px;
+}
+
 /*SHADOW*/
 
 .shadow {
@@ -268,7 +310,12 @@ nav {
     -webkit-box-shadow: 1px 5px 9px 4px rgba(202,203,205,1);
     -moz-box-shadow: 1px 5px 9px 4px rgba(202,203,205,1);
     box-shadow: 1px 5px 9px 4px rgba(202,203,205,1);
+}
 
+.price-pin {
+    -webkit-box-shadow: 1px 5px 9px 4px rgba(202,203,205,1);
+    -moz-box-shadow: 1px 5px 9px 4px rgba(202,203,205,1);
+    box-shadow: 1px 5px 9px 4px rgba(202,203,205,1);
 }
 
 /*SQUARE*/

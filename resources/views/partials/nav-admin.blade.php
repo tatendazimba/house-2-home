@@ -21,14 +21,14 @@
 </div>
 
 @section("scripts")
-    <script>
+{{--    <script>--}}
 
-        $(document).ready(function () {
+{{--        $(document).ready(function () {--}}
 
-            M.Collapsible.init(document.querySelectorAll('.collapsible'), {});
+{{--            M.Collapsible.init(document.querySelectorAll('.collapsible'), {});--}}
 
-            M.Sidenav.init(document.querySelectorAll('.sidenav'), {});
-        });
+{{--            M.Sidenav.init(document.querySelectorAll('.sidenav'), {});--}}
+{{--        });--}}
 
-    </script>
+{{--    </script>--}}
 @endsection

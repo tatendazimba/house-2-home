@@ -4,8 +4,11 @@ namespace App\Http\Controllers\ADMIN;
 
 use App\Http\Controllers\Interfaces\PostsInterface;
 use App\Http\Controllers\Interfaces\TagInterface;
+use App\Http\Controllers\Repositories\PostsRepository;
+use App\Http\Controllers\Repositories\TagRepository;
 use App\Image;
 use App\Post;
+use App\Tag;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -44,8 +47,15 @@ class StoryController extends Controller
     {
         $story = new Post();
 
+        $story->images = [];
+        $story->tags = [];
+
+//        dd($story);
+
         $method = "POST";
         $url = route("stories.store");
+
+//        {{ route('add.tag', ['story' => $story, 'tag' => $tag]) }}
 
         $allTags = $this->tags->all();
 
@@ -252,5 +262,16 @@ class StoryController extends Controller
         $this->repo->destroy($story);
 
         return back();
+    }
+
+    public function findByTag(Tag $tag)
+    {
+        $repo = new PostsRepository(new Post(), new Tag());
+        $tagsRepo = new TagRepository(new Tag());
+
+        $stories = $this->repo->find($tag->name);
+        $allTags = $this->tags->all();
+
+        return view("stories", compact("stories", "allTags"));
     }
 }
