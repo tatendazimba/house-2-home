@@ -20,14 +20,12 @@
         <div class="">
             <div class="row">
                 <div class="white col s12">
-                    <table>
+                    <table class="responsive-table">
                         <thead>
                         <tr>
                             <th>ID</th>
                             <th>Title</th>
                             {{--<th>Content</th>--}}
-                            <th>Published On</th>
-                            <th>Last Edited</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -114,8 +112,6 @@
                                     </ul>
 
                                 </td>
-                                <td>{{ $story->created_at }}</td>
-                                <td>{{ $story->updated_at }}</td>
                                 <td>
                                     <div class="red accent-3 icon label white-text valign-wrapper">
                                         <form action="{{ route('stories.destroy', ['story' => $story->id]) }}" method="post">

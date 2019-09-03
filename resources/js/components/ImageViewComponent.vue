@@ -8,7 +8,7 @@
                 <zoom-on-hover :img-normal="'/uploads/' + selectedImage.url" :scale="2"></zoom-on-hover>
             </div>
 
-            <div class="black">
+            <div class="black hide-on-small-and-down">
                 <i class="white-text small-text">Use mouse to zoom.</i>
             </div>
 
