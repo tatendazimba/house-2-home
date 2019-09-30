@@ -47,8 +47,8 @@ class StoryController extends Controller
     {
         $story = new Post();
 
-        $story->images = [];
-        $story->tags = [];
+        $story->images = new Collection([]);
+        $story->tags = new Collection([]);
 
 //        dd($story);
 
@@ -74,10 +74,10 @@ class StoryController extends Controller
             'title' => 'required:max:255',
             'content' => 'required',
             'text_colour' => 'required',
-            'image_one' => 'file|image|mimes:jpeg,png,gif,webp|max:2048',
-            'image_two' => 'file|image|mimes:jpeg,png,gif,webp|max:2048',
-            'image_three' => 'file|image|mimes:jpeg,png,gif,webp|max:2048',
-            'image_four' => 'file|image|mimes:jpeg,png,gif,webp|max:2048',
+            'image_one' => 'file|image|mimes:jpeg,png,gif,webp',
+            'image_two' => 'file|image|mimes:jpeg,png,gif,webp',
+            'image_three' => 'file|image|mimes:jpeg,png,gif,webp',
+            'image_four' => 'file|image|mimes:jpeg,png,gif,webp',
         ]);
 
         $payload = [
@@ -103,6 +103,11 @@ class StoryController extends Controller
 
             $path = $image_one->store('photos', ['disk' => 'public']);
 
+            $imagePath = public_path("uploads/{$path}");
+
+            //
+            $this->resizeImage($imagePath);
+
             // attach files to story
             $images[] = new Image([
                 "url" => $path
@@ -114,6 +119,11 @@ class StoryController extends Controller
 
             $path = $image_two->store("photos", ['disk' => 'public']);
 
+            $imagePath = public_path("uploads/{$path}");
+
+            //
+            $this->resizeImage($imagePath);
+
             $images[] = new Image([
                 "url" => $path
             ]);
@@ -124,6 +134,11 @@ class StoryController extends Controller
 
             $path = $image_three->store("photos", ['disk' => 'public']);
 
+            $imagePath = public_path("uploads/{$path}");
+
+            //
+            $this->resizeImage($imagePath);
+
             $images[] = new Image([
                 "url" => $path
             ]);
@@ -133,6 +148,11 @@ class StoryController extends Controller
             $image_four = $validation['image_four'];
 
             $path = $image_four->store("photos", ['disk' => 'public']);
+
+            $imagePath = public_path("uploads/{$path}");
+
+            //
+            $this->resizeImage($imagePath);
 
             $images[] = new Image([
                 "url" => $path
@@ -191,10 +211,10 @@ class StoryController extends Controller
             'title' => 'required:max:255',
             'content' => 'required',
             'text_colour' => 'required',
-            'image_one' => 'file|image|mimes:jpeg,png,gif,webp|max:2048',
-            'image_two' => 'file|image|mimes:jpeg,png,gif,webp|max:2048',
-            'image_three' => 'file|image|mimes:jpeg,png,gif,webp|max:2048',
-            'image_four' => 'file|image|mimes:jpeg,png,gif,webp|max:2048',
+            'image_one' => 'file|image|mimes:jpeg,png,gif,webp',
+            'image_two' => 'file|image|mimes:jpeg,png,gif,webp',
+            'image_three' => 'file|image|mimes:jpeg,png,gif,webp',
+            'image_four' => 'file|image|mimes:jpeg,png,gif,webp',
         ]);
 
         $story->title = $request->title;
@@ -213,6 +233,11 @@ class StoryController extends Controller
 
             $path = $image_one->store('photos', ['disk' => 'public']);
 
+            $imagePath = public_path("uploads/{$path}");
+
+            //
+            $this->resizeImage($imagePath);
+
             // attach files to story
             $images[] = new Image([
                 "url" => $path
@@ -224,6 +249,11 @@ class StoryController extends Controller
 
             $path = $image_two->store("photos", ['disk' => 'public']);
 
+            $imagePath = public_path("uploads/{$path}");
+
+            //
+            $this->resizeImage($imagePath);
+
             $images[] = new Image([
                 "url" => $path
             ]);
@@ -234,6 +264,11 @@ class StoryController extends Controller
 
             $path = $image_three->store("photos", ['disk' => 'public']);
 
+            $imagePath = public_path("uploads/{$path}");
+
+            //
+            $this->resizeImage($imagePath);
+
             $images[] = new Image([
                 "url" => $path
             ]);
@@ -243,6 +278,11 @@ class StoryController extends Controller
             $image_four = $validation['image_four'];
 
             $path = $image_four->store("photos", ['disk' => 'public']);
+
+            $imagePath = public_path("uploads/{$path}");
+
+            //
+            $this->resizeImage($imagePath);
 
             $images[] = new Image([
                 "url" => $path
@@ -273,5 +313,33 @@ class StoryController extends Controller
         $allTags = $this->tags->all();
 
         return view("stories", compact("stories", "allTags"));
+    }
+
+    public function resizeImage($path)
+    {
+        $image = \Intervention\Image\Facades\Image::make($path);
+
+        // resize if one width or height is greater that 1500
+        if ($image->width() > 1500) {
+            $image->resize(1500, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+
+            $image->save($path);
+        }
+
+        $image = \Intervention\Image\Facades\Image::make($path);
+
+        // resize if one width or height is greater that 1500
+        if ($image->height() > 1500) {
+            $image->resize(null, 1500, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+
+            $image->save($path);
+        }
+
+        return $image;
+
     }
 }
