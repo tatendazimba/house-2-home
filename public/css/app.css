@@ -9111,7 +9111,7 @@ input[type=range]::-ms-thumb {
 /*PRIMARY COLOUR*/
 
 .primary {
-    background: #ff0000 !important;
+    background: rgb(144, 0, 0) !important;
     opacity: .8;
     color: #ffffff;
 }
@@ -9137,7 +9137,7 @@ input[type=range]::-ms-thumb {
 }
 
 .primary-text {
-    color: #ff0000 !important;
+    color: rgb(207, 0, 0) !important;
 }
 
 /*SECONDARY COLOUR*/

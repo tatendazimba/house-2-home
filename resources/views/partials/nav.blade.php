@@ -25,8 +25,8 @@
 
             <a href="{{ route('home') }}" class="brand-logo valign-wrapper black-text" style="height: 72px !important; display: flex !important;">
                 <img class="ignore left-small-padding" src="{{ asset('images/logo/h2h.svg') }}" style="height: 48px !important;">
-                <div class="" style="position: relative;">
-                    <strong>&nbsp;House2Home</strong>
+                <div class="hide-on-small-and-down" style="position: relative;">
+                    <strong class="">&nbsp;House2Home</strong>
                     <div class="" style="position: absolute; top: 20px; right: 0;">
                         <span class="black white-text" style="padding: 2px;">
                             <strong>&nbsp;STORE&nbsp;</strong>
@@ -36,11 +36,11 @@
             </a>
 
             <a href="#" data-target="mobile-menu" class="sidenav-trigger black-text valign-wrapper" style="height: 72px !important;">
-                <img src="{{ asset("images/icons/bars.svg") }}" style="height: 24px !important;">
+                <img src="{{ asset("images/icons/bars.svg") }}" style="height: 18px !important;">
             </a>
 
             <a href="#" data-target="mobile-menu" class="right sidenav-trigger black-text valign-wrapper" style="height: 72px !important;">
-                <img src="{{ asset("images/icons/cart.svg") }}" style="height: 24px !important;">
+                <img src="{{ asset("images/icons/cart.svg") }}" style="height: 18px !important;">
             </a>
 
             <ul class="right overflow-visible hide-on-med-and-down">
@@ -111,4 +111,65 @@
             </div>
         </div>
     </nav>
+</div>
+
+<div id="mobile-menu" class="sidenav valign-wrapper center-align" style="background: linear-gradient(rgba(255, 255, 255, .97), rgba(255, 255, 255, .93)), url('{{ asset("images/green-and-brown.jpeg") }}') no-repeat bottom right; background-size: cover;">
+
+    <a href="#" class="sidenav-close" style="position: absolute; top: 10px; right: 20px;">
+        <h1>
+            <i class="material-icons">close</i>
+        </h1>
+    </a>
+
+    <ul class="center-align full-width">
+
+        <li class="">
+            <a href="{{ route('home') }}" class="top-margin bottom-margin" style="height: 48px !important;">
+                <img class="ignore full-height" src="{{ asset('images/logo/h2h.svg') }}" >
+            </a>
+        </li>
+
+        <li class="{{ setActive(['/']) }}">
+            <a href="{{ route('home') }}" class="cursor-click valign-wrapper black-text">
+                HOME
+            </a>
+        </li>
+
+        <li class="{{ setActive(['decor-tips/*']) }}">
+            <a href="{{ route('decor', "ALL") }}" class="cursor-click valign-wrapper black-text">
+                INSPIRATION
+            </a>
+        </li>
+
+        <li class="{{ setActive(['decor-tips/*']) }}">
+            <a href="{{ route('decor', "ALL") }}" class="cursor-click valign-wrapper black-text">
+                ABOUT
+            </a>
+        </li>
+
+        <li class="{{ setActive(['decor-tips/*']) }}">
+            <a href="{{ route('decor', "ALL") }}" class="cursor-click valign-wrapper black-text">
+                CONTACT
+            </a>
+        </li>
+
+        @foreach($popularTags->slice(0, 5) as $tag)
+            <li class="{{ setActive(['/tag/' . $tag->name]) }}">
+                <a href="{{ route('search', $tag->name) }}" class="cursor-click valign-wrapper  black-text">
+                    {{ $tag->name }}
+                </a>
+            </li>
+        @endforeach
+
+        <li>
+            <div class="full-width">
+                <a href="{{ route('shop', "ALL") }}" class="primary outline btn-large cursor-click white-text" style="width: auto;">
+                    <strong>
+                        Read & Shop
+                        <i class="material-icons">arrow_right</i>
+                    </strong>
+                </a>
+            </div>
+        </li>
+    </ul>
 </div>

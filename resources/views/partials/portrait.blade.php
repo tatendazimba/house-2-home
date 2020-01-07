@@ -1,28 +1,18 @@
-<div class="full-width left-align">
-    <div class="white bottom-margin">
-
-        <div class="ignore square no-margin black" style="">
-            <idea-view-component :post="{{ json_encode($post) }}"></idea-view-component>
-        </div>
-
-        <div class="">
-            <div class="with-small-padding">
-
-                <div class="mobile-flex flex">
-                    <div class="">
-                        <h1 class="flow-text no-margin primary-font truncate">{{ $post->title }}</h1>
-                    </div>
+<div class="white bordered full-width left-align bottom-margin">
+    <div class="white">
+        <div class="mobile-flex flex row no-margin">
+            <div class="col s9 no-pad">
+                <div class="ignore square no-margin left" style="">
+                    <idea-view-component :post="{{ json_encode($post) }}"></idea-view-component>
                 </div>
-
-                <h1 class="truncate small-text grey-text no-margin top-small-margin bottom-small-margin">{{ $post->content }}</h1>
-
-                <div class="">
-                    <strong class="small-text">
-                        Read & Shop
-                        <i class="material-icons">arrow_right</i>
-                    </strong>
+            </div>
+            <div class="col s3 no-pad">
+                <div class="container">
+                    <h1 class="small-text no-margin primary-font">
+                        <strong>{{ $post->title }}</strong>
+                    </h1>
+{{--                    <h1 class="small-text black-text no-margin top-small-margin bottom-small-margin">{{ $post->content }}</h1>--}}
                 </div>
-
             </div>
         </div>
     </div>

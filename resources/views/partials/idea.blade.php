@@ -8,10 +8,17 @@
                 <strong>{{ $post->title }}</strong>
             </h5>
 
-            @include("partials.linebreak")
+            <div class="container bottom-margin top-margin">
+                <p class="container truncate">{{ $post->content }}</p>
+            </div>
 
-            <div class="container">
-                <p class="container">{{ $post->content }}</p>
+            <div class="">
+                <u>
+                    <strong class="">
+                        Read & Shop
+                        <i class="material-icons">arrow_right</i>
+                    </strong>
+                </u>
             </div>
         </div>
 
@@ -40,12 +47,6 @@
                         </div>
                     @endforeach
                 </div>
-
-                @include("partials.linebreak")
-
-                <button class="btn-large primary">
-                    Add All To Cart
-                </button>
 
                 @include("partials.linebreak")
 
