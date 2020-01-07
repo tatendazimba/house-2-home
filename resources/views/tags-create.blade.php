@@ -31,7 +31,7 @@
                                 </p>
                             </div>
 
-                            <form action="{{ $url }}" method="POST">
+                            <form action="{{ $url }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method($method)
 
@@ -47,6 +47,33 @@
                                         <label class="active">Description</label>
                                         <textarea type="text" placeholder="" name="description">{{ old('description', $tag->description) }}</textarea>
                                     </div>
+                                </div>
+
+                                <div class="col s12">
+                                    <div class="required input-field">
+                                        <label class="active">Optional Image</label>
+                                        <input type="file" placeholder="" name="image_one" class="col s12">
+                                    </div>
+                                </div>
+
+                                @include("partials.linebreak")
+
+                                <div class="col s12">
+                                    <label class="active">Please select text colour:</label>
+                                </div>
+
+                                <div class="col s12">
+                                    <label class="input-field">
+                                        <input class="with-gap" type="radio"name="text_colour" value="black-text" checked required>
+                                        <span>Black Text</span>
+                                    </label>
+                                </div>
+
+                                <div class="col s12">
+                                    <label class="input-field">
+                                        <input class="with-gap" type="radio" name="text_colour" value="white-text" required>
+                                        <span>White Text</span>
+                                    </label>
                                 </div>
 
                                 @include("partials.linebreak")

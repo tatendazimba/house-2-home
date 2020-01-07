@@ -4,9 +4,7 @@ button, .btn, .label, .btn-large {
     color: #ffffff;
     -webkit-border-radius: 60px;
     -moz-border-radius: 60px;
-    border-radius: 45px;
-    border-width: 2px !important;
-    border-style: solid !important;
+    border-radius: 0;
     text-transform: uppercase !important;
     /*box-shadow: none !important;*/
     font-weight: bold;

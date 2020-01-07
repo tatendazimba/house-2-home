@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\ADMIN;
 
 use App\Http\Controllers\Interfaces\TagInterface;
+use App\Image;
 use App\Tag;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -52,10 +53,33 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
+
+        $validation = $request->validate([
+            'name' => 'required:max:255',
+            'description' => 'nullable',
+            'text_colour' => 'nullable',
+            'image_one' => 'file|image|mimes:jpeg,png,gif,webp',
+        ]);
+
         $payload = [
             "name" => $request->name,
-            "description" => $request->description
+            "description" => $request->description,
+            'text_colour' => $request->input("text_colour"),
         ];
+
+        if ($request->hasFile('image_one')) {
+
+            $image_one = $validation['image_one'];
+
+            $path = $image_one->store('photos', ['disk' => 'public']);
+
+            $imagePath = public_path("uploads/{$path}");
+
+            //
+            $this->resizeImage($imagePath);
+
+            $payload["image"] = $path;
+        }
 
         if ($this->tags->store($payload)) {
             return redirect(route("tags.index"));
@@ -98,8 +122,34 @@ class TagController extends Controller
      */
     public function update(Request $request, Tag $tag)
     {
+
+        $validation = $request->validate([
+            'name' => 'required:max:255',
+            'description' => 'nullable',
+            'text_colour' => 'nullable',
+            'image_one' => 'file|image|mimes:jpeg,png,gif,webp',
+        ]);
+
         $tag->name = $request->name;
         $tag->description = $request->description;
+
+        if ($request->has("text_colour"))
+            $tag->text_colour = $validation['text_colour'];
+
+        if ($request->hasFile('image_one')) {
+
+            $image_one = $validation['image_one'];
+
+            $path = $image_one->store('photos', ['disk' => 'public']);
+
+            $imagePath = public_path("uploads/{$path}");
+
+            //
+            $this->resizeImage($imagePath);
+
+            $tag->image = $path;
+
+        }
 
         if ($tag->save()) {
             return redirect(route("tags.index"));
@@ -120,5 +170,33 @@ class TagController extends Controller
         $this->tags->destroy($tag);
 
         return back();
+    }
+
+    public function resizeImage($path)
+    {
+        $image = \Intervention\Image\Facades\Image::make($path);
+
+        // resize if one width or height is greater that 1500
+        if ($image->width() > 1500) {
+            $image->resize(1500, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+
+            $image->save($path);
+        }
+
+        $image = \Intervention\Image\Facades\Image::make($path);
+
+        // resize if one width or height is greater that 1500
+        if ($image->height() > 1500) {
+            $image->resize(null, 1500, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+
+            $image->save($path);
+        }
+
+        return $image;
+
     }
 }

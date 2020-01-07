@@ -1,7 +1,13 @@
-.poscloud {
-  background: #763568;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #ED2A5A, #763568);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #ED2A5A, #763568); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+.h2h {
+    background: #763568;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, rgba(188, 193, 189, 1), rgba(212, 200, 186, 1), rgba(173, 188, 193, 1));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, rgba(188, 193, 189, 1), rgba(212, 200, 186, 1), rgba(173, 188, 193, 1)) !important;
+}
+
+.h2hh {
+    background: #000000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, rgba(0, 0, 0, 1), rgba(255, 0, 0, 1));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(255, 0, 0, 1)) !important;
 }
 
 .nepal {

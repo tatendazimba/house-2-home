@@ -5,6 +5,7 @@ mix
     .js('node_modules/materialize-css/dist/js/materialize.js', 'public/js/materialize.js')
     .js('node_modules/exif-js/exif.js', 'public/js/exif.js')
     .js("resources/js/zoomOnHover.js", 'public/js/zoomOnHover.js')
+    .js("resources/js/slick.min.js", 'public/js/app.js')
     .js("resources/js/ImageUploader.js", 'public/js/ImageUploader.js')
     .js("resources/js/app.js", 'public/js/app.js')
     .styles([
@@ -16,9 +17,12 @@ mix
         "resources/css/tooltip.css",
         "resources/css/gradients.css",
         "resources/css/buttons.css",
+        "resources/css/slick-theme.css",
         "resources/css/styles.css",
     ], "public/css/app.css")
-    .styles("node_modules/materialize-css/dist/css/materialize.css", "public/css/materialize.css");
+    .styles(["node_modules/materialize-css/dist/css/materialize.css"],
+        "public/css/materialize.css")
+    .version();
 
 /*
  |--------------------------------------------------------------------------

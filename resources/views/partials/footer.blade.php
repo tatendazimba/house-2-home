@@ -3,55 +3,43 @@
     <p>&nbsp;</p>
 
     <div class="container">
+
+        @include("partials.linebreak")
+
+        <div class="divide"></div>
+
+        @include("partials.linebreak")
+
         <div class="flex row">
-            <div class="col s12 m4">
+            <div class="col s12 m2">
                 <div class="">
+                    <h5>&nbsp;</h5>
 
-                    <h5 class="uppercase">
-                        <strong>Categories</strong>
-                    </h5>
-
-                    <ul>
-                        @foreach($tags->slice(0, 5) as $tag)
-                            <li>
-                                <a class="capitalise white-text" href="{{ route('shop', $tag->name) }}">
-                                    {{ $tag->name }}
-                                </a>
-                                <p class="truncate grey-text">{{ $tag->description }}</p>
-                            </li>
-                        @endforeach
-                    </ul>
+                    <img src="{{ asset('images/logo/h2h.svg') }}" style="height: 40px;">
                 </div>
             </div>
 
-            <div class="col s12 m4">
+            <div class="col s12 m5">
                 <div class="">
-
                     <h5 class="uppercase">
-                        <strong>Inspiration</strong>
+                        <strong>About Us</strong>
                     </h5>
 
-                    <ul>
-                        @foreach($inspiration->slice(0, 3) as $post)
-                            <a href="{{ route('story', $post) }}" class="flex row">
-                                <div class="col s3">
-                                    <div class="square no-margin ignore" style="background-image: url('/uploads/{{ $post->images[0]->url }}'); -webkit-background-size: cover;background-size: cover;">
+                    <p class="justified">
+                        <strong>Finest Bespoke Interiors</strong>
 
-                                    </div>
-                                </div>
-                                <div class="col s9">
-                                    <strong class="capitalise white-text" href="">
-                                        {{ $post->title }}
-                                    </strong>
-                                    <div class="truncate grey-text">{{ $post->content }}</div>
-                                </div>
-                            </a>
-                        @endforeach
-                    </ul>
+                        <br>
+                        <br>
+
+                        House2Home brings classic, glamorous and  exquisite designs into homes and offices. We style spaces from formation to finish,  introducing new life into existing spaces with thoughtful, liveable, enjoyable and beautiful results that are comfortable to our client’s home lifestyle or business setting. Whether you own your space and have lived there for several years, or you are in a rental for a short time, we believe that it is important to personalize your space and make it feel like home.
+                    </p>
+
+                    @include("partials.linebreak")
+
                 </div>
             </div>
 
-            <div class="col s12 m4">
+            <div class="col s12 m5">
                 <div class="container">
 
                     <h5 class="uppercase">
@@ -72,48 +60,7 @@
                     <p><strong>Whatsapp</strong>: +263 733 636 940</p>
 
                     <p>&nbsp;</p>
-                    <p>&nbsp;</p>
-                </div>
-            </div>
-        </div>
 
-        @include("partials.linebreak")
-
-        <div class="divide"></div>
-
-        @include("partials.linebreak")
-
-        <div class="flex row">
-            <div class="col s12 m4">
-                <div class="">
-                    <h5>&nbsp;</h5>
-
-                    <img src="{{ asset('images/logo/h2h.svg') }}" style="height: 40px;">
-                </div>
-            </div>
-
-            <div class="col s12 m4">
-                <div class="">
-                    <h5 class="uppercase">
-                        <strong>About Us</strong>
-                    </h5>
-
-                    <p class="justified">
-                        <strong>Finest Bespoke Interiors</strong>
-
-                        <br>
-                        <br>
-
-                        House2Home brings classic, glamorous and  exquisite designs into homes and offices. We style spaces from formation to finish,  introducing new life into existing spaces with thoughtful, liveable, enjoyable and beautiful results that are comfortable to our client’s home lifestyle or business setting. Whether you own your space and have lived there for several years, or you are in a rental for a short time, we believe that it is important to personalize your space and make it feel like home.
-                    </p>
-
-                    @include("partials.linebreak")
-
-                </div>
-            </div>
-
-            <div class="col s12 m4">
-                <div class="container">
                     <h5 class="uppercase">
                         <strong>Social Media</strong>
                     </h5>

@@ -27,6 +27,29 @@ class HomeController extends Controller
         $specials = $this->posts->specials();
         $decorTips = $this->posts->decors()->reverse();
 
-        return view("home", compact("heroes", "featured", "specials", "decorTips", "tags"));
+        $whyUsReasons = [
+            [
+                "title" => "Fast Delivery",
+                "description" => "Deliveries to all areas in Harare for orders above $50.",
+                "image" => "/images/icons/products.svg",
+            ],
+            [
+                "title" => "Easy Returns",
+                "description" => "Deliveries to all areas in Harare for orders above $50.",
+                "image" => "/images/icons/products.svg",
+            ],
+            [
+                "title" => "Payment Options",
+                "description" => "Deliveries to all areas in Harare for orders above $50.",
+                "image" => "/images/icons/products.svg",
+            ],
+            [
+                "title" => "Wide Selection",
+                "description" => "Deliveries to all areas in Harare for orders above $50.",
+                "image" => "/images/icons/products.svg",
+            ],
+        ];
+
+        return view("home", compact("whyUsReasons", "heroes", "featured", "specials", "decorTips", "tags"));
     }
 }

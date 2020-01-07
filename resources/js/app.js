@@ -38,6 +38,39 @@ const app = new Vue({
     el: '#app',
     mounted: function() {
 
+        $('.hero-slick').slick({
+            autoplay: true,
+            slidesPerRow: 1,
+            slidesToShow: 1,
+            swipeToSlide: true,
+            adaptiveHeight: true,
+            arrows: false,
+        });
+
+        $('.large-slick').slick({
+            autoplay: true,
+            slidesPerRow: 4,
+            slidesToShow: 4,
+            swipeToSlide: true,
+            arrows: false,
+        });
+
+        $('.slick').slick({
+            autoplay: true,
+            slidesPerRow: 3,
+            slidesToShow: 3,
+            swipeToSlide: true,
+            arrows: false,
+        });
+
+        $('.mobile-slick').slick({
+            autoplay: true,
+            slidesPerRow: 2,
+            slidesToShow: 2,
+            swipeToSlide: true,
+            arrows: false,
+        });
+
         Collapsible.init(document.querySelectorAll('.collapsible'), {});
 
         Sidenav.init(document.querySelectorAll('.sidenav'), {});

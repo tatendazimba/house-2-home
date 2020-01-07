@@ -4,227 +4,327 @@
 
     @include("partials.nav")
 
-    <main class="container">
-        <div class="flex row overflow-visible">
-            <div class="col s12 overflow-visible" style="">
-                <div class="shadow rectangle no-margin " style="-webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;">
-                    <div id="hero" class="carousel carousel-slider no-margin rectangle" style="">
-                        @foreach($heroes as $hero)
-                            <div class="carousel-item">
-                                <div class="" style="position: relative;">
-                                    <div class="ignore rectangle no-margin"
-                                         style="background: url('uploads/{{ $hero->images[0]->url }}') no-repeat bottom right; background-size: cover;"></div>
-                                    <div class="transparent {{ $hero->text_colour }} no-margin full-height"
-                                         style="position: absolute; top: 0; right: 0; left: 0; vertical-align: bottom;">
-                                        <div class="container hero-text hide" style="position: absolute; right: 0; left: 0; bottom: 20px;">
-                                            <h1 class=" {{ $hero->text_colour }}">{{ $hero->title }}</h1>
-                                            <h5 class="truncate {{ $hero->text_colour }}">{{ $hero->content }}</h5>
+    <main class="">
+        <div class="hero-slick row no-margin">
+            @foreach($heroes->slice(0, 3) as $hero)
+                <div class="col s12 no-pad">
+                    <div class="flex row no-margin">
+                        <div class="black-text col s12 l3 no-pad hide-on-med-and-down" style="background: linear-gradient(to right, rgba(188, 193, 189, .861), rgba(255, 255, 255, .9861)), url('/uploads/{{ $hero->images[0]->url }}') top left; background-size: cover;">
 
-                                            <a href="{{ route('story', $hero) }}" class="btn primary">Read more</a>
-                                        </div>
+                            @include("partials.linebreak")
+                            @include("partials.linebreak")
+
+                            <div class="container">
+                                <div class="container">
+                                    <h4 class="">
+                                        <strong>{{ $hero->title }}</strong>
+                                    </h4>
+
+                                    <p class="justified truncate">
+                                        {{ $hero->content }}
+                                    </p>
+
+                                    @include("partials.linebreak")
+
+                                    <div>
+                                        @foreach($hero->images[0]->prices as $i => $price)
+                                            <div class="container left-align">
+                                                <strong class="">{{ $i + 1 }}. &nbsp;</strong>
+                                                <span>{{ $price->name }}</span> <strong class="right">${{ $price->amount }}</strong>
+{{--                                                <span class="right">--}}
+{{--                                                    <svg width="16" height="16" viewBox="0 0 16 16" class="icon">--}}
+{{--                                                        <path id="defs-cart" d="M13.958 9.317l2-6a.971.971 0 0 0-.95-1.306V2H2.433L1.925.644a1 1 0 0 0-1.876.7l3.005 8.008a1 1 0 0 0 .938.648h9.016a1 1 0 0 0 .95-.683zM4.686 8l-1.5-4h10.436l-1.336 4h-7.6zm.308 6a2 2 0 1 1-2-2 2 2 0 0 1 2 2zm9.016 0a2 2 0 1 1-2-2 2 2 0 0 1 2 2z"></path>--}}
+{{--                                                    </svg>--}}
+{{--                                                </span>--}}
+                                            </div>
+                                        @endforeach
                                     </div>
+
+                                    @include("partials.linebreak")
+
+                                    <a class="black-text" href="">
+                                        <u>
+                                            <strong class="small-text bottom-small-margin">
+                                                Read & Shop
+                                                <i class="material-icons">arrow_right</i>
+                                            </strong>
+                                        </u>
+                                    </a>
                                 </div>
                             </div>
-                        @endforeach
+
+                            @include("partials.linebreak")
+                            @include("partials.linebreak")
+
+                        </div>
+                        <div class="col s12 l9 no-pad" style="">
+                            <div class="">
+                                <idea-view-component :post="{{ json_encode($hero) }}"></idea-view-component>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex row no-margin">
+                        <div class="black-text col s12 no-pad hide-on-large-only" style="background: linear-gradient(to right, rgba(188, 193, 189, .861), rgba(255, 255, 255, .9861)), url('/uploads/{{ $hero->images[0]->url }}') top left; background-size: cover;">
+                            <div class="container center-align">
+                                <div class="container">
+                                    <h4 class="flow-text">
+                                        <strong>{{ $hero->title }}</strong>
+                                    </h4>
+
+                                    <p class="justified truncate">
+                                        {{ $hero->content }}
+                                    </p>
+
+                                    <div>
+                                        @foreach($hero->images[0]->prices as $i => $price)
+                                            <div class="container">
+                                                <strong class="">{{ $i + 1 }}. &nbsp;</strong>
+                                                <span>{{ $price->name }}</span> <strong>${{ $price->amount }}</strong>
+                                            </div>
+                                        @endforeach
+                                    </div>
+
+                                    <a class="black-text" href="">
+                                        <u>
+                                            <strong class="small-text bottom-small-margin">
+                                                Read & Shop
+                                                <i class="material-icons">arrow_right</i>
+                                            </strong>
+                                        </u>
+                                    </a>
+                                </div>
+                            </div>
+
+                            @include("partials.linebreak")
+
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+
+        <div class=" lighten-4" style="background: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1), rgba(212, 200, 186, .5793)); background-size: cover;">
+
+            @include("partials.linebreak")
+            @include("partials.linebreak")
+
+            <div class="container center-align">
+                <div class="row">
+                    <div class="col s12 left-align">
+
+                        <div>
+                            <h3 class="">
+                                <strong class="left"><span class="hide-on-med-and-down">Find</span> Inspiration</strong>
+
+                                <strong class="black white-text right small-text" style="padding: 2px;">
+                                    &nbsp;
+                                    View All
+                                    <i class="material-icons">arrow_right</i>
+                                </strong>
+                            </h3>
+                        </div>
+
+                        <div class="">
+                            <p class="justified">
+                                House2Home offers a host of custom products and services including headboards, centre tables, decor
+                                consultancy, console tables, throw pillows, decor accessories, bedding, kitchenware and makeovers.
+                            </p>
+                        </div>
+
+                        @include("partials.linebreak")
+
+                    </div>
+                    <div class="col s12">
+                        <div class="hero-slick row hide-on-med-and-up">
+                            @foreach($decorTips as $post)
+                                <div class="col s12 m4">
+                                    @include("partials.landscape")
+                                </div>
+                            @endforeach
+                        </div>
+
+                        <div class="mobile-slick row hide-on-small-and-down">
+                            @foreach($decorTips as $post)
+                                <div class="col s12 m4">
+                                    @include("partials.landscape")
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s12">
+                        <div class="">
+                            <strong class="small-text">
+                                Find More Inspiration
+                                <i class="material-icons">arrow_right</i>
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            @include("partials.linebreak")
+
+
+        </div>
+
+        <div class="" style="background: url('/images/background.jpeg'); background-size: cover;">
+
+            @include("partials.linebreak")
+
+            <div class="container center-align">
+                <div class="row">
+                    <div class="col s12 white-text">
+                        <div>
+                            <h3 class="">
+                                <strong class="white-text">Sales <span class="">&</span> Offers</strong>
+                            </h3>
+                        </div>
+
+                        <div class="">
+                            <p class="">
+                                Stay Up To Date With Seasonal Promotions & Clearance Discounts!
+                            </p>
+                        </div>
+
+                        <div class="">
+                            <u>
+                                <strong class="small-text">
+                                    Check Out On Sale Items
+                                    <i class="material-icons">arrow_right</i>
+                                </strong>
+                            </u>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            @include("partials.linebreak")
+
         </div>
 
         @include("partials.linebreak")
-
-        <div class="center-align overflow-visible container">
-            <div class="flex row container">
-                <div class="col s12">
-                    <h2><strong>Be Inspired</strong></h2>
-                    <p class="thin container">
-                        For the modern home. Bring fashion and function into every room with unique furniture pieces from House2Home. Our furniture designs feature high-quality materials and a meticulous attention to detail, all at an affordable price-point. Whether you're furnishing a modest apartment or spacious house, discover essential pieces in modern designs that will help you create a space that you'll love to live in.
-                    </p>
-                </div>
-            </div>
-        </div>
-
+        @include("partials.linebreak")
         @include("partials.linebreak")
 
-        <div class="center-align overflow-visible">
-            <div class="flex row overflow-visible">
-                <div class="col s12 m9 l8">
+        <div class="">
+            <div class="container">
+                <div class="row">
+                    <div class="col s12 m4 l3">
+                        <h2 class="primary-font uppercase secondary-text">
+                            <strong>Shop By Category</strong>
+                        </h2>
 
-                    <div class="with-small-padding wrapper">
-                        <span class="uppercase center-align line-underline">
-                            <span>
-                                Must Reads
-                            </span>
-                        </span>
+                        <p>Choose from our wide selection of products.</p>
+                        <a class="black-text small-text" href="">
+                            <strong class="">View Our Full Range</strong>
+                            <i class="material-icons">arrow_right</i>
+                        </a>
+
+                        <p>&nbsp;</p>
+
                     </div>
-
-                    <div class="flex row left-align top-padding bottom-padding overflow-visible">
-                        @foreach($decorTips->slice(0, 2) as $post)
-                            <a href="{{ route('story', $post) }}" class="col s12 m6 black-text">
-                                <div class="shadow flex mobile-flex row no-margin rounded full-height">
-                                    <div class="col s6 with-small-padding no-margin">
-                                        <div class="full-height full-width rounded ignore"
-                                             style="background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), url('/uploads/{{ isset($post->images[0]) ? $post->images[0]->url : '' }}') no-repeat bottom right; background-size: cover;">
+                    <div class="col s12 m8 l9">
+                        <div class="row">
+                            @foreach($popularTags->slice(0, 12) as $tag)
+                                <a href="{{ route('shop', $tag->name) }}" class="col s6 m4 default-text overflow-visible">
+                                    <div class="grey lighten-4 bottom-small-margin" style="position: relative;">
+                                        <div class="full-width no-margin ignore"
+                                             style="height: 500px; background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), url('/uploads/{{ $tag->image }}') no-repeat center center; background-size: cover;">
                                         </div>
-                                    </div>
-                                    <div class="col s6 no-pad valign-wrapper">
-                                        <div class="container">
-                                            <div class="top-padding bottom-padding">
 
-                                                @include("partials.linebreak")
-
-                                                <h5 class="">
-                                                    {{ $post->title }}
-                                                    <br>
-                                                </h5>
-
-                                                <h1 class="truncate small-text black-text no-margin top-small-margin bottom-small-margin">{{ $post->content }}</h1>
-                                                <h1 class="small-text grey-text no-margin bottom-small-margin">
-                                                    @foreach($post->tags as $tag)
-                                                        <u>{{ $tag->name }}</u> &nbsp;
-                                                    @endforeach
-                                                </h1>
-
-                                                @include("partials.linebreak")
-
+                                        <div class="full-height full-width valign-wrapper" style="position: absolute; top: 0;">
+                                            <div class="full-height full-width valign-wrapper">
+                                                <div class=" container uppercase center-align primary-font" style="">
+                                                    <div class="black white-text inline-block with-small-padding">
+                                                        <h5 class="white-text">{{ $tag->name }}</h5>
+                                                        <strong class="small-text">
+                                                            BROWSE
+                                                            <i class="material-icons">arrow_right</i>
+                                                        </strong>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </a>
-{{--                            <a href="{{ route('story', $post) }}" class="col s6 m4 default-text">--}}
-{{--                                <div class="white rounded shadow full-height">--}}
-{{--                                    <div class="square no-margin ignore"--}}
-{{--                                         style="background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), url('/uploads/{{ $post->images[0]->url }}') no-repeat bottom right; background-size: cover;">--}}
-{{--                                    </div>--}}
-{{--                                    <h6 class="with-medium-padding">--}}
-{{--                                        <span class="">--}}
-{{--                                            {{ $post->title }}--}}
-{{--                                        </span>--}}
-{{--                                    </h6>--}}
-{{--                                </div>--}}
-{{--                            </a>--}}
-                        @endforeach
-                    </div>
-
-                    <div class="flex row left-align bottom-padding overflow-visible">
-                        @foreach($decorTips->slice(2, 2) as $post)
-                            <a href="{{ route('story', $post) }}" class="col s12 m6 black-text">
-                                <div class="shadow flex mobile-flex row no-margin rounded full-height">
-                                    <div class="col s6 with-small-padding no-margin">
-                                        <div class="full-height full-width rounded ignore"
-                                             style="background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), url('/uploads/{{ isset($post->images[0]) ? $post->images[0]->url : '' }}') no-repeat bottom right; background-size: cover;">
-                                        </div>
-                                    </div>
-                                    <div class="col s6 no-pad valign-wrapper">
-                                        <div class="container">
-                                            <div class="top-padding bottom-padding">
-
-                                                @include("partials.linebreak")
-
-                                                <h5 class="">
-                                                    {{ $post->title }}
-                                                    <br>
-                                                </h5>
-
-                                                <h1 class="truncate small-text black-text no-margin top-small-margin bottom-small-margin">{{ $post->content }}</h1>
-                                                <h1 class="small-text grey-text no-margin bottom-small-margin">
-                                                    @foreach($post->tags as $tag)
-                                                        <u>{{ $tag->name }}</u> &nbsp;
-                                                    @endforeach
-                                                </h1>
-
-                                                @include("partials.linebreak")
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-{{--                            <a href="{{ route('story', $post) }}" class="col s6 m4 default-text">--}}
-{{--                                <div class="white rounded shadow full-height">--}}
-{{--                                    <div class="square no-margin ignore"--}}
-{{--                                         style="background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), url('/uploads/{{ $post->images[0]->url }}') no-repeat bottom right; background-size: cover;">--}}
-{{--                                    </div>--}}
-{{--                                    <h6 class="with-medium-padding">--}}
-{{--                                        <span class="">--}}
-{{--                                            {{ $post->title }}--}}
-{{--                                        </span>--}}
-{{--                                    </h6>--}}
-{{--                                </div>--}}
-{{--                            </a>--}}
-                        @endforeach
-                    </div>
-
-                    <div class="with-padding wrapper center-align">
-                        <strong class="uppercase center-align line-underline">
-                        <span>
-                            Start Shopping
-                        </span>
-                        </strong>
-                    </div>
-
-                    <p class="hide">
-                        House2Home offers a host of custom products and services including headboards, centre tables, decor
-                        consultancy, console tables, throw pillows, decor accessories, bedding, kitchenware and makeovers.
-                    </p>
-
-                    <div class="left-align overflow-visible">
-                        <div class="row overflow-visible">
-                            @foreach($specials->slice(0, 9) as $post)
-                                <a href="{{ route('story', $post) }}" class="col s6 m4 no-pad default-text overflow-visible">
-                                    <div class="white rounded shadow full-height">
-                                        <div class="square no-margin ignore"
-                                             style="background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), url('/uploads/{{ $post->images[0]->url }}') no-repeat bottom right; background-size: cover;">
-                                        </div>
-                                        <h6 class="with-small-padding">
-                                    <span class="">
-                                        {{ $post->title }}
-                                    </span>
-                                        </h6>
                                     </div>
                                 </a>
                             @endforeach
                         </div>
                     </div>
+                </div>
+
+                <p>&nbsp;</p>
+
+            </div>
+        </div>
+
+        @include("partials.linebreak")
+
+        <div class="grey lighten-3">
+
+            @include("partials.linebreak")
+            @include("partials.linebreak")
+
+            <div class="flex row container">
+                <div class="col s12 m9 l8">
+
+                    <h2 class="no-margin"><strong>Decor Ideas</strong></h2>
+                    <h4 class="no-margin">For Your Home! </h4>
+                    <div class="row left-align top-padding bottom-padding overflow-visible">
+                        @foreach($specials->slice(0, 2) as $post)
+                            <div class="white col s12 bottom-margin">
+                                @include("partials.idea")
+                            </div>
+                        @endforeach
+                    </div>
 
                 </div>
-                <div class="col s12 m3 l4 no-pad overflow-visible">
+                <div class="col s12 m3 l4 overflow-visible">
 
-                    <div class="white-text container ignore top-medium-padding">
+                    <div class="container">
 
-                        <div class="bordered container center-align">
-
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-
-                            <img class="quarter-width ignore" src="{{ asset("images/icons/stage.svg") }}">
+                        <div class="amber container center-align">
 
                             <br>
                             <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
 
-                            <h5 class="no-margin uppercase black-text">
-                                Experts In
-                            </h5>
                             <h2 class="no-margin">
-                                <span class="script primary-text">Home & Office</span><br>
+                                <span class="white-text">NEW <span class="">YEAR</span></span><br>
                             </h2>
+                            <h2 class="no-margin">
+                                <span class="black-text">NEW <span class="">YOU</span></span><br>
+                            </h2>
+
+                            <br>
+                            <br>
+                            <br>
+
                             <h5 class="no-margin uppercase black-text">
-                                Make-overs
+                                <strong><span class="white-text">Fresh Ideas For</span>
+                                    <br>
+                                    <span class="">Your Home!</span>
+                                </strong>
                             </h5>
 
                             <br>
+                            <br>
+                            <br>
 
-                            <a class="label white-text white outline" href="https://wa.me/263733636940?text={{ urlencode("Hi, I am interested in your make-over services.") }}" >
-                                <span class="black-text">Contact Us</span>
+                            <a class="white-text" href="https://wa.me/263733636940?text={{ urlencode("Hi, I am interested in your make-over services.") }}" >
+                                <strong class="">
+                                    BROWSE
+                                    <i class="material-icons">arrow_right</i>
+                                </strong>
                             </a>
 
                             <br>
@@ -240,6 +340,81 @@
                         </div>
 
                         @include("partials.linebreak")
+
+                        <div class="container" style="background: url('/images/background.jpeg'); background-size: cover;">
+
+                            @include("partials.linebreak")
+                            @include("partials.linebreak")
+                            @include("partials.linebreak")
+                            @include("partials.linebreak")
+
+                            <div class="container center-align">
+                                <div class="container row">
+                                    <div class="col s12 white-text">
+                                        <div>
+                                            <h3 class="">
+                                                <span class="white-text">Sales <span class="">&</span> Offers</span>
+                                            </h3>
+                                        </div>
+
+                                        <div class="">
+                                            <p class="">
+                                                Stay Up To Date With Seasonal Promotions & Clearance Discounts!
+                                            </p>
+                                        </div>
+
+                                        @include("partials.linebreak")
+
+                                        <div class="">
+                                            <u>
+                                                <strong class="">
+                                                    Check Out On Sale Items
+                                                    <i class="material-icons">arrow_right</i>
+                                                </strong>
+                                            </u>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @include("partials.linebreak")
+                            @include("partials.linebreak")
+                            @include("partials.linebreak")
+                            @include("partials.linebreak")
+
+                        </div>
+
+                        @include("partials.linebreak")
+
+                        <div class="row">
+                            @foreach($popularTags->slice(0, 4) as $tag)
+                                <a href="{{ route('shop', $tag->name) }}" class="col s12 default-text overflow-visible">
+                                    <div class="grey lighten-4 bottom-small-margin" style="position: relative;">
+                                        <div class="full-width no-margin ignore"
+                                             style="height: 500px; background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), url('/uploads/{{ $tag->image }}') no-repeat center center; background-size: cover;">
+                                        </div>
+
+                                        <div class="full-height full-width valign-wrapper" style="position: absolute; top: 0;">
+                                            <div class="full-height full-width valign-wrapper">
+                                                <div class=" container uppercase center-align primary-font" style="">
+                                                    <div class="black white-text inline-block with-small-padding">
+                                                        <h5 class="white-text">{{ $tag->name }}</h5>
+                                                        <strong class="small-text">
+                                                            BROWSE
+                                                            <i class="material-icons">arrow_right</i>
+                                                        </strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </a>
+
+                                @include("partials.linebreak")
+
+                            @endforeach
+                        </div>
 
                     </div>
 
@@ -266,8 +441,92 @@
             </div>
         </div>
 
-        @include("partials.linebreak")
-        @include("partials.linebreak")
+        <div class="hide" style="background: linear-gradient(rgba(255, 255, 255, .97), rgba(255, 255, 255, .93)), url('{{ asset("images/green-and-brown.jpeg") }}') no-repeat bottom right fixed; background-size: cover;">
+
+            @include("partials.secondary-nav")
+
+            @include("partials.linebreak")
+            @include("partials.linebreak")
+
+            <div class="container">
+                <div class="row">
+                    <div class="col s12">
+                        <h3>
+                            <strong>Why House2Home</strong>
+                        </h3>
+                    </div>
+                    <div class="col s12">
+                        <div class="large-slick row hide-on-med-and-down">
+                            @foreach($whyUsReasons as $reason)
+                                <a href="" class="col s6 m4 l3 default-text overflow-visible">
+                                    <div class="bordered bottom-small-margin" style="position: relative;">
+                                        <div class="full-width with-padding valign-wrapper" style="height: 500px;">
+                                            <div class="container">
+                                                <img src="{{ $reason["image"] }}" style="height: 32px;">
+                                                <h5 class="grey-text">
+                                                    <strong>{{ $reason["title"] }}</strong>
+                                                </h5>
+                                                <p class="">{{ $reason["description"] }}</p>
+                                                <p class="grey-text">
+                                                    <i class="material-icons primary-text">arrow_forward</i>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            @endforeach
+                        </div>
+
+                        <div class="slick row hide-on-small-only hide-on-large-only">
+                            @foreach($whyUsReasons as $reason)
+                                <a href="" class="col s6 m4 l3 default-text overflow-visible">
+                                    <div class="bordered bottom-small-margin" style="position: relative;">
+                                        <div class="full-width with-padding valign-wrapper" style="height: 500px;">
+                                            <div class="container">
+                                                <img src="{{ $reason["image"] }}" style="height: 32px;">
+                                                <h5 class="grey-text">
+                                                    <strong>{{ $reason["title"] }}</strong>
+                                                </h5>
+                                                <p class="">{{ $reason["description"] }}</p>
+                                                <p class="grey-text">
+                                                    <i class="material-icons primary-text">arrow_forward</i>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            @endforeach
+                        </div>
+                        <div class="mobile-slick row hide-on-med-and-up">
+                            @foreach($whyUsReasons as $reason)
+                                <a href="" class="col s6 m4 l3 default-text overflow-visible">
+                                    <div class="bordered bottom-small-margin" style="position: relative;">
+                                        <div class="full-width with-medium-padding valign-wrapper" style="height: 500px;">
+                                            <div class="container">
+                                                <img src="{{ $reason["image"] }}" style="height: 32px;">
+                                                <h5 class="grey-text">
+                                                    <strong>{{ $reason["title"] }}</strong>
+                                                </h5>
+                                                <p class="">{{ $reason["description"] }}</p>
+                                                <p class="grey-text">
+                                                    <i class="material-icons primary-text">arrow_forward</i>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+
+                <p>&nbsp;</p>
+
+            </div>
+
+            @include("partials.linebreak")
+
+        </div>
 
     </main>
 

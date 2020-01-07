@@ -3,10 +3,11 @@ html {
 }
 
 html, body, app-root {
-    height: 100%;
+    /*height: 100%;*/
     background: #ffffff !important;
+    /*background: linear-gradient(rgba(188, 193, 189, 1), rgba(212, 200, 186, 1), rgba(173, 188, 193, 1)) !important;*/
     color: #000000;
-    font-family: "Josefin Sans", sans-serif;
+    font-family: "Julius Sans One", sans-serif;
 }
 
 .default-text, .black-text {
@@ -18,7 +19,7 @@ html, body, app-root {
 
 h1, h2, h3, h4 {
     /*font-family: "Didact Gothic", sans-serif;*/
-    font-family: "Josefin Sans", sans-serif;
+    font-family: "Julius Sans One", sans-serif;
     color: #000000;
 }
 
@@ -153,13 +154,16 @@ h1, h2, h3, h4 {
 /*h5 { font-size: 1.243em; }*/
 /*h6 { font-size: 1.132em; }*/
 
+.vertical-text {
+    writing-mode: vertical-rl;
+}
+
 .default-font {
     font-family: 'Didact Gothic', sans-serif !important;
 }
 
 main {
     background: transparent;
-    padding: 0 30px !important;
 }
 
 div {
@@ -226,6 +230,12 @@ nav {
     width: 5% !important;
 }
 
+/*BRAND LOGO*/
+
+.brand-logo {
+    font-size: 1rem !important;
+}
+
 /*CALLOUT*/
 
 .right-callout {
@@ -263,10 +273,44 @@ nav {
 
 /*PRICE PIN*/
 
-.price-pin {
+.numbered-pinn {
+
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+    font-weight: bold;
+
+    border: 1px solid black;
+
+    -moz-border-radius: 50%; /* or 50% */
+    border-radius: 50%; /* or 50% */
+
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-size: 1em;
+
+}
+
+
+.numbered-pin {
+
     background-color: white !important;
     border-radius: 20px;
     display: inline-block;
+    height: 20px !important;
+    width: 20px !important;
+    line-height: 20px !important;
+    padding: 1px;
+
+    transition: width .2s .1s ease;
+}
+
+.price-pin {
+    background-color: white !important;
+    border-radius: 20px;
+    /*display: inline-block;*/
     height: 40px !important;
     width: 40px !important;
     line-height: 40px !important;
@@ -275,32 +319,33 @@ nav {
     transition: width .2s .1s ease;
 }
 
-.price-pin:hover{
+.numbered-pin:hover{
     width: auto !important;
     transition: width .15s 0.25s ease;
 
 }
 
-.price-pin .icon {
+.numbered-pin .icon {
     background-color: white !important;
     text-align: center;
     display: inline-block;
     border-radius: 50%;
-    height: 30px !important;
-    line-height: 30px !important;
-    width: 30px !important;
+    height: 18px !important;
+    line-height: 18px !important;
+    width: 18px !important;
     content: url("/images/icons/tags.svg");
-    padding: 5px;
+    padding: 1px;
 }
 
-.price-pin .text {
+.numbered-pin .text {
     background-color: white !important;
     color: black !important;
     margin: 0 auto;
     display: inline-block;
-    height: 30px !important;
-    line-height: 30px !important;
-    padding: 5px;
+    height: 18px !important;
+    line-height: 18px !important;
+    padding: 1px;
+    font-weight: bold;
 }
 
 /*SHADOW*/
@@ -520,6 +565,10 @@ img.icon {
 }
 
 /*SIDE BAR*/
+
+.sidenav {
+    width: 100% !important;
+}
 
 .collapsible {
     border: none !important;
@@ -783,6 +832,13 @@ strong {
     font-weight: 700 !important;
 }
 
+/*BLUR*/
+
+.blur {
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}
+
 /*NAVBAR*/
 
 nav li a {
@@ -798,7 +854,7 @@ nav, nav li, .navbar-wrapper, .navbar-fixed {
 }
 
 nav.tiny-nav, nav.tiny-nav li, nav.tiny-nav li a, .navbar-wrapper, .navbar-fixed {
-    /*height: 36px !important;*/
+    height: 36px !important;
     overflow: hidden;
     /*    box-shadow: none !important;*/
 }
@@ -874,9 +930,8 @@ nav ul li.active {
 }
 
 .jumbo-text {
-    font-size: 9.5rem !important;
+    font-size: 7.5rem !important;
     /*line-height: 2.5rem !important;*/
-    z-index: -999 !important;
 }
 
 .jumbo-text-overlapping {
@@ -905,8 +960,8 @@ nav ul li.active {
 
 /*PRIMARY FONT*/
 
-.primary-font{
-    font-family: 'Didact Gothic', serif !important;
+.primary-font {
+    font-family: 'Julius Sans One', sans-serif;
 }
 
 .secondary-font{
@@ -944,10 +999,6 @@ nav ul li.active {
 
     .flex {
         display: block !important;
-    }
-
-    .col {
-        margin-bottom: 20px;
     }
 
     .mobile-flex {
@@ -1097,8 +1148,6 @@ nav ul li.active {
 
 input, select {
     background-color: transparent !important;
-    width: unset !important;
-    height: unset !important;
     border: 1px solid #cacbcd !important;
     border-radius: 30px !important;
     padding: 10px 20px !important;
@@ -1147,6 +1196,16 @@ label {
     padding-bottom: 5px;
     font-weight: bold;
     border-bottom: 2px solid #003162;
+}
+
+#search {
+    height: 24px !important;
+    line-height: 24px !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    margin: 6px 0 !important;
+    padding: 0 5px !important;
+    border-radius: 2px !important;
 }
 
 /*UNDERLINE*/

@@ -1,16 +1,8 @@
-<div class="transparent hide-on-med-and-down">
-    <nav class="tiny-nav transparent container" style="height: 356px;">
+<div class="white" style="border-bottom: 1px solid rgb(188, 193, 189);">
+    <nav class="tiny-nav transparent container">
         <div class="transparent navbar-wrapper overflow-visible">
             <div class="full-width">
-                <ul>
-                    <li class="valign-wrapper">
-                        <form action="{{ route("search") }}" method="POST" class="full-width">
-                            @csrf
-                            <input id="search" type="text" class="no-margin" placeholder="Search" name="search">
-                        </form>
-                    </li>
-                </ul>
-                <ul class="right overflow-visible hide-on-med-and-down">
+                <ul class="right overflow-visible">
                     <li>
                         <a target="_blank" href="https://www.facebook.com/House2HomeZ/" class="valign-wrapper">
                             <img class="ignore" src="{{ asset('images/icons/social/facebook-colour.svg') }}" style="height: 16px !important;">
@@ -21,54 +13,42 @@
                             <img class="ignore" src="{{ asset('images/icons/social/instagram-colour.svg') }}" style="height: 16px !important;">
                         </a>
                     </li>
-
-                    <li>
-                        <a target="_blank" href="https://wa.me/263733636940?text={{ urlencode("Hi, I was going through your website and I'd like to make an enquiry.") }}" class="valign-wrapper black-text">
-                            <img class="ignore" src="{{ asset('images/icons/social/whatsapp-colour.svg') }}" style="height: 16px !important;"> &nbsp;&nbsp;
-                            +263 733 636 940
-                        </a>
-                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 </div>
-<div id="" class="">
+
+<div id="" class="white">
     <nav class="transparent container" style="">
         <div class="transparent navbar-wrapper overflow-visible">
 
             <a href="{{ route('home') }}" class="brand-logo valign-wrapper black-text" style="height: 72px !important; display: flex !important;">
-                <img class="ignore left-small-padding" src="{{ asset('images/logo/h2h.svg') }}" style="height: 32px !important;">
+                <img class="ignore left-small-padding" src="{{ asset('images/logo/h2h.svg') }}" style="height: 48px !important;">
+                <div class="" style="position: relative;">
+                    <strong>&nbsp;House2Home</strong>
+                    <div class="" style="position: absolute; top: 20px; right: 0;">
+                        <span class="black white-text" style="padding: 2px;">
+                            <strong>&nbsp;STORE&nbsp;</strong>
+                        </span>
+                    </div>
+                </div>
             </a>
 
-            <a href="#" data-target="mobile-menu" class="sidenav-trigger black-text valign-wrapper" style="height: 72px;">
-                <img src="{{ asset("images/icons/menu.svg") }}">
+            <a href="#" data-target="mobile-menu" class="sidenav-trigger black-text valign-wrapper" style="height: 72px !important;">
+                <img src="{{ asset("images/icons/bars.svg") }}" style="height: 24px !important;">
             </a>
 
-            <ul class="right hide-on-med-and-down overflow-visible">
+            <a href="#" data-target="mobile-menu" class="right sidenav-trigger black-text valign-wrapper" style="height: 72px !important;">
+                <img src="{{ asset("images/icons/cart.svg") }}" style="height: 24px !important;">
+            </a>
+
+            <ul class="right overflow-visible hide-on-med-and-down">
                 <li class="{{ setActive(['/']) }}">
                     <a href="{{ route('home') }}" class="cursor-click valign-wrapper black-text full-height">
-                        HOME
-                    </a>
-                </li>
-
-                <li class="{{ setActive(['decor-tips/*']) }}">
-                    <a href="{{ route('decor', "ALL") }}" class="cursor-click valign-wrapper black-text">
-                        DECOR TIPS
-                    </a>
-                </li>
-
-                @foreach($popularTags as $tag)
-                    <li class="{{ setActive([route("search", $tag->name, false)]) }}">
-                        <a href="{{ route('search', $tag->name) }}" class="cursor-click valign-wrapper black-text full-height uppercase">
-                            {{ strtoupper($tag->name) }}
-                        </a>
-                    </li>
-                @endforeach
-
-                <li>
-                    <a href="{{ route('shop', "ALL") }}" class="primary btn-large cursor-click valign-wrapper ">
-                        BUY HOMEWARE
+                        <h4 class="no-margin">
+                            Creating A Lifestyle
+                        </h4>
                     </a>
                 </li>
             </ul>
@@ -76,34 +56,55 @@
     </nav>
 </div>
 
-<div class="transparent hide-on-large-only top-small-margin">
+<div class="white-text" style="background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(255, 0, 0, 1)), url('/images/green-and-brown.jpeg') no-repeat center center fixed; background-size: cover;">
     <nav class="tiny-nav transparent container">
         <div class="transparent navbar-wrapper overflow-visible">
             <div class="full-width">
-                <ul class="full-width">
-                    <li class="valign-wrapper full-width top-small-padding">
-                        <form action="{{ route("search") }}" method="POST" class="full-width center-align">
-                            @csrf
-                            <input id="search" type="text" class="top-small-margin" placeholder="Search" name="search" style="margin: 5px;">
+
+                <ul class="left overflow-visible">
+                    <li class="brand-logo">
+                        <form action="{{ route("search", "all") }}" method="POST" class="center-align">
+                            <div class="input-field search valign-wrapper">
+                                @csrf
+                                <input id="search" type="text" class="" placeholder="Search..." name="search" style="float: left;" required>
+                                <button class="transparent btn hide-on-med-and-down" type="submit">
+                                    <i class="material-icons" style="height: 36px; line-height: 36px; ">search</i>
+                                </button>
+                            </div>
                         </form>
                     </li>
                 </ul>
-                <ul class="right overflow-visible hide-on-med-and-down">
-                    <li>
-                        <a target="_blank" href="https://www.facebook.com/House2HomeZ/" class="valign-wrapper">
-                            <img class="ignore" src="{{ asset('images/icons/social/facebook-colour.svg') }}" style="height: 16px !important;">
-                        </a>
-                    </li>
-                    <li>
-                        <a target="_blank" href="https://www.instagram.com/house2home.zw/" class="valign-wrapper">
-                            <img class="ignore" src="{{ asset('images/icons/social/instagram-colour.svg') }}" style="height: 16px !important;">
+
+                <ul class="right hide-on-med-and-down overflow-visible">
+                    <li class="{{ setActive(['/']) }}">
+                        <a href="{{ route('home') }}" class="cursor-click valign-wrapper">
+                            <strong>HOME</strong>
                         </a>
                     </li>
 
-                    <li>
-                        <a target="_blank" href="https://wa.me/263733636940?text={{ urlencode("Hi, I was going through your website and I'd like to make an enquiry.") }}" class="valign-wrapper black-text">
-                            <img class="ignore" src="{{ asset('images/icons/social/whatsapp-colour.svg') }}" style="height: 16px !important;"> &nbsp;&nbsp;
-                            +263 733 636 940
+                    <li class="{{ setActive(['decor-tips/*']) }}">
+                        <a href="{{ route('decor', "ALL") }}" class="cursor-click valign-wrapper">
+                            <strong>INSPIRATION</strong>
+                        </a>
+                    </li>
+
+                    <li class="{{ setActive(['decor-tips/*']) }}">
+                        <a href="{{ route('decor', "ALL") }}" class="cursor-click valign-wrapper">
+                            <strong>ABOUT</strong>
+                        </a>
+                    </li>
+
+                    <li class="{{ setActive(['decor-tips/*']) }}">
+                        <a href="{{ route('decor', "ALL") }}" class="cursor-click valign-wrapper">
+                            <strong>CONTACT</strong>
+                        </a>
+                    </li>
+
+                    <li class="{{ setActive(['decor-tips/*']) }}">
+                        <a href="{{ route('decor', "ALL") }}" class="cursor-click valign-wrapper">
+                            <strong>
+                                <i class="material-icons">shopping_cart</i>
+                            </strong> (0)
                         </a>
                     </li>
                 </ul>
@@ -111,38 +112,3 @@
         </div>
     </nav>
 </div>
-
-<ul class="sidenav" id="mobile-menu" style="background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url('{{ asset("images/green-and-brown.jpeg") }}') no-repeat bottom right; background-size: cover;">
-
-    <li class="">
-        <a href="{{ route('home') }}" class="top-margin bottom-margin" style="height: 48px !important;">
-            <img class="ignore full-height" src="{{ asset('images/logo/h2h.svg') }}" >
-        </a>
-    </li>
-
-    <li class="{{ setActive(['/']) }}">
-        <a href="{{ route('home') }}" class="cursor-click valign-wrapper white-text">
-            HOME
-        </a>
-    </li>
-
-    <li class="{{ setActive(['decor-tips/*']) }}">
-        <a href="{{ route('decor', "ALL") }}" class="cursor-click valign-wrapper white-text">
-            DECOR TIPS
-        </a>
-    </li>
-
-    @foreach($popularTags as $tag)
-        <li class="{{ setActive(['/tag/' . $tag->name]) }}">
-            <a href="{{ route('search', $tag->name) }}" class="cursor-click valign-wrapper white-text uppercase">
-                {{ $tag->name }}
-            </a>
-        </li>
-    @endforeach
-
-    <li>
-        <a href="{{ route('shop', "ALL") }}" class="primary btn cursor-click valign-wrapper white-text">
-            <strong>BUY HOMEWARE</strong>
-        </a>
-    </li>
-</ul>

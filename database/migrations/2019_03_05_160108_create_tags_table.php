@@ -17,6 +17,8 @@ class CreateTagsTable extends Migration
             $table->bigIncrements('id');
             $table->string("name")->unique();
             $table->string("description")->nullable();
+            $table->string("image")->nullable();
+            $table->string("text_colour")->default("black-text");
             $table->timestamps();
         });
     }

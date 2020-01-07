@@ -2,11 +2,10 @@
 
 button, .btn, .label, .btn-large {
     color: #ffffff;
-    -webkit-border-radius: 60px;
-    -moz-border-radius: 60px;
-    border-radius: 45px;
-    border-width: 2px !important;
-    border-style: solid !important;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    border: none !important;
     text-transform: uppercase !important;
     /*box-shadow: none !important;*/
     font-weight: bold;
@@ -14,26 +13,22 @@ button, .btn, .label, .btn-large {
 
 button.primary, .btn.primary, .btn-large.primary, .outline.black {
     background-color: #ff0000 !important;
-    border-color: #ff0000 !important;
 
     transition: background-color .5s ease;
 }
 
 button.primary:hover, .btn.primary:hover, .btn-large.primary:hover {
     background-color: black !important;
-    border-color: #000000 !important;
 
 }
 
 button.primary.outline, .btn.primary.outline, .btn-large.primary.outline {
     background: transparent !important;
-    border-color: #ff0000 !important;
     color: #ff0000 !important;
 }
 
 button.green.outline, .btn.green.outline, .btn-large.green.outline {
     background: transparent !important;
-    border-color: #7ad06d !important;
     color: #7ad06d !important;
 }
 

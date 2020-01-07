@@ -73,9 +73,15 @@ class PostsRepository implements PostsInterface
 
     public function heroes()
     {
-        $posts = $this->tags->where("name", "Hero")->first()->posts()->orderBy("id", "desc")->get();
+        $posts = Post::whereHas("tags", function ($query){
+            $query->where([
+                ['name', '=', "Hero"]
+            ]);
+        })
+            ->with("tags", "images.prices")->orderBy("id", "desc")->get();
 
         return $posts;
+
     }
 
     public function inspiration()
@@ -159,7 +165,8 @@ class PostsRepository implements PostsInterface
             $query->where([
                 ['name', '=', "Shop"]
             ]);
-        })->with("tags")->orderBy("id", "desc")->get();
+        })->with("tags", "images.prices")->orderBy("id", "desc")->get();
+
 
         return $posts;
     }
@@ -178,8 +185,7 @@ class PostsRepository implements PostsInterface
                 $query->where([
                     ['name', '=', "Shop"]
                 ]);
-            })
-            ->with("tags")->orderBy("id", "desc")->get();
+            })->with("tags", "images.prices")->orderBy("id", "desc")->get();
 
         return $posts;
     }
@@ -231,7 +237,7 @@ class PostsRepository implements PostsInterface
                     ['name', '=', "Decor Tips"]
                 ]);
             })
-            ->with("tags")->orderBy("id", "desc")->get();
+            ->with("tags", "images.prices")->orderBy("id", "desc")->get();
 
         return $posts;
     }
@@ -247,8 +253,7 @@ class PostsRepository implements PostsInterface
                 $query->where([
                     ['name', '=', $tag]
                 ]);
-            })
-            ->with("tags")->orderBy("id", "desc")->get();
+            })->with("tags", "images.prices")->orderBy("id", "desc")->get();
 
         return $posts;
     }

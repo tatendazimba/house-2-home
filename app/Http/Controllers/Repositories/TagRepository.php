@@ -35,7 +35,7 @@ class TagRepository implements TagInterface
 
     public function popular()
     {
-        $tags = Tag::whereNotIn("name", ["Hero", "Inspiration", "New", "Sales & Offers", "Shop"])->with('posts')->limit(4)->get()->sortBy(function($tag)
+        $tags = Tag::whereNotIn("name", ["Hero", "Inspiration", "New", "Sales & Offers", "Shop"])->with('posts')->limit(12)->get()->sortBy(function($tag)
         {
             return $tag->posts->count();
         });
