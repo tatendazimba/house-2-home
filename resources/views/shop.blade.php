@@ -87,8 +87,11 @@
                 <div class="">
                     <div class="row">
                         @foreach($shop as $i => $post)
-                            <div class="col s6">
+                            <div class="col s12 m6 hide-on-small-and-down">
                                 @include("partials.landscape")
+                            </div>
+                            <div class="col s12 hide-on-med-and-up">
+                                @include("partials.idea")
                             </div>
                         @endforeach
                     </div>
@@ -113,29 +116,16 @@
                         @foreach($shopTags as $i => $tag)
                             @if(!in_array($tag->name, ["Hero", "Inspiration", "New", "Sales & Offers", "Shop"]))
                                 <li>
-                                    @if ($i % 2 === 0)
-                                        <div class="transparent small-text">
-                                            @if($tagParameter === $tag->name)
-                                                <strong>
-                                                    <i class="material-icons primary-text">arrow_right</i>
-                                                </strong>
-                                            @endif
-                                            <a href="{{ route('shop', $tag->name) }}" class="black-text">
-                                                <strong>{{ $tag->name }}</strong>
-                                            </a>
-                                        </div>
-                                    @else
-                                        <div class="transparent small-text right-align">
-                                            <a href="{{ route('shop', $tag->name) }}" class="black-text">
-                                                <strong>{{ $tag->name }}</strong>
-                                            </a>
-                                            @if($tagParameter === $tag->name)
-                                                <strong>
-                                                    <i class="material-icons primary-text">arrow_left</i>
-                                                </strong>
-                                            @endif
-                                        </div>
-                                    @endif
+                                    <div class="transparent small-text">
+                                        @if($tagParameter === $tag->name)
+                                            <strong>
+                                                <i class="material-icons primary-text">arrow_right</i>
+                                            </strong>
+                                        @endif
+                                        <a href="{{ route('shop', $tag->name) }}" class="black-text">
+                                            <strong>{{ $tag->name }}</strong>
+                                        </a>
+                                    </div>
                                 </li>
                             @endif
                         @endforeach
