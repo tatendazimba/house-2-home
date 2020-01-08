@@ -9,41 +9,28 @@
 
         <div class="container">
             <div class="row">
-                <div class="col s12">
+                <div class="col s12 no-pad">
                     <strong>House2Home</strong>
-                    <h3 class="no-margin">{{ $tagParameter }}</h3>
+                    <h3 class="no-margin">
+                        <strong>{{ $tagParameter }}</strong>
+                    </h3>
                     <strong class="primary-text small-text">
-                        Read<strong> & Shop</strong>
+                        Read & Shop
                     </strong>
                 </div>
             </div>
         </div>
 
-        <div class="container bottom-small-margin hide-on-small-and-down" style="position: relative;">
-
+        <div class="container bottom-small-margin" style="position: relative;">
             <div class="mobile-flex flex row">
-                <div class="col s3">
-                    <div class="square no-margin ignore"
-                         style="background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), url('/uploads/{{ $tag->image }}') no-repeat top left; background-size: cover;">
+                @foreach($shop->slice(0, 4) as $i => $post)
+                    <div class="col s3 no-pad">
+                        <div class="rectangle-portrait no-margin ignore"
+                             style="background: linear-gradient(to bottom, rgba(0, 0, 0, .579), rgba(0, 0, 0, .479)), url('/uploads/{{ $post->images[0]->url }}') no-repeat center center; background-size: cover;">
+                        </div>
                     </div>
-                </div>
-                <div class="col s3">
-                    <div class="square no-margin ignore"
-                         style="background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), url('/uploads/{{ $tag->image }}') no-repeat top left; background-size: cover;">
-                    </div>
-                </div>
-                <div class="col s3">
-                    <div class="square no-margin ignore"
-                         style="background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), url('/uploads/{{ $tag->image }}') no-repeat top left; background-size: cover;">
-                    </div>
-                </div>
-                <div class="col s3">
-                    <div class="square no-margin ignore"
-                         style="background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), url('/uploads/{{ $tag->image }}') no-repeat top left; background-size: cover;">
-                    </div>
-                </div>
+                @endforeach
             </div>
-
         </div>
 
         @include("partials.linebreak")
