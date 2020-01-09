@@ -110,7 +110,7 @@
                 @include("partials.linebreak")
 
                 <div class="container center-align">
-                    <div class="row">
+                    <div class="row container">
                         <div class="col s12 left-align">
 
                             <div>
@@ -276,8 +276,10 @@
                     <h4 class="no-margin">For Your Home! </h4>
                     <div class="row left-align top-padding bottom-padding overflow-visible">
                         @foreach($specials->slice(0, 2) as $post)
-                            <div class="white col s12 bottom-margin">
-                                @include("partials.idea")
+                            <div class="col s12 bottom-margin">
+                                <div class="white container">
+                                    @include("partials.idea")
+                                </div>
                             </div>
                         @endforeach
                     </div>

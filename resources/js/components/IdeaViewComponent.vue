@@ -1,9 +1,9 @@
 <template>
-    <div>
-        <div class="row no-margin">
+    <div class="container">
+        <div class="full-width row no-margin">
             <div class="col s12 no-pad">
-                <div :id="'image-' + image.id" class="col s12 no-pad no-margin" style="position: relative;">
-                    <img alt="" class="full-width left" :src="'/uploads/' + image.url">
+                <div :id="'image-' + image.id" class="col s12 no-pad no-margin" style="">
+                    <img alt="" class="full-width" :src="'/uploads/' + image.url">
                 </div>
             </div>
         </div>

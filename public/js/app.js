@@ -51278,19 +51278,18 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "row no-margin" }, [
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "full-width row no-margin" }, [
       _c("div", { staticClass: "col s12 no-pad" }, [
         _c(
           "div",
           {
             staticClass: "col s12 no-pad no-margin",
-            staticStyle: { position: "relative" },
             attrs: { id: "image-" + _vm.image.id }
           },
           [
             _c("img", {
-              staticClass: "full-width left",
+              staticClass: "full-width",
               attrs: { alt: "", src: "/uploads/" + _vm.image.url }
             })
           ]

@@ -56,7 +56,7 @@
                         <strong>Contact Us</strong>
                     </h5>
 
-                    <p><strong>Email</strong>: info@house2home.co.zw </p>
+{{--                    <p><strong>Email</strong>: info@house2home.co.zw </p>--}}
                     <p><strong>Whatsapp</strong>: +263 733 636 940</p>
 
                     <p>&nbsp;</p>

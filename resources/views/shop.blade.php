@@ -14,18 +14,23 @@
                     <h3 class="no-margin">
                         <strong>{{ $tagParameter }}</strong>
                     </h3>
-                    <strong class="primary-text small-text">
-                        Read & Shop
-                    </strong>
+                    <span class="grey-text small-text">
+                        Inspiration & Shop
+                    </span>
                 </div>
             </div>
         </div>
 
         <div class="container bottom-small-margin" style="position: relative;">
-            <div class="mobile-flex flex row">
-                @foreach($shop->slice(0, 4) as $i => $post)
+            <div class="row no-margin" style="background: linear-gradient(to bottom, rgba(0, 0, 0, .579), rgba(0, 0, 0, .479)), url('/uploads/{{ $tag->image }}') no-repeat center center; background-size: cover;">
+                <div class="col s3 no-pad">
+                    <div class="left rectangle-portrait no-margin ignore"
+                         style="background: linear-gradient(to bottom, rgba(0, 0, 0, .579), rgba(0, 0, 0, .479)), url('/uploads/{{ $tag->image }}') no-repeat center center; background-size: cover;">
+                    </div>
+                </div>
+                @foreach($shop->slice(0, 3) as $i => $post)
                     <div class="col s3 no-pad">
-                        <div class="rectangle-portrait no-margin ignore"
+                        <div class="left rectangle-portrait no-margin ignore"
                              style="background: linear-gradient(to bottom, rgba(0, 0, 0, .579), rgba(0, 0, 0, .479)), url('/uploads/{{ $post->images[0]->url }}') no-repeat center center; background-size: cover;">
                         </div>
                     </div>
@@ -38,12 +43,25 @@
         <div class="container row">
             <div class="col s12 m3 hide-on-small-and-down">
                 <div class="sidebar">
+
+                    <h5>
+                        <strong>Categories</strong>
+                    </h5>
+
+                    <hr>
+
+                    <br>
+
                     <ul class="">
                         <li>
                             <div class="transparent small-text">
                                 @if($tagParameter === 'ALL')
                                     <strong>
                                         <i class="material-icons primary-text">arrow_right</i>
+                                    </strong>
+                                @else
+                                    <strong>
+                                        <i class="material-icons grey-text text-lighten-2">arrow_right</i>
                                     </strong>
                                 @endif
                                 <a href="{{ route('shop', 'ALL') }}" class="black-text">
@@ -59,6 +77,10 @@
                                             <strong>
                                                 <i class="material-icons primary-text">arrow_right</i>
                                             </strong>
+                                        @else
+                                            <strong>
+                                                <i class="material-icons grey-text text-lighten-2">arrow_right</i>
+                                            </strong>
                                         @endif
                                         <a href="{{ route('shop', $tag->name) }}" class="black-text">
                                             <strong>{{ $tag->name }}</strong>
@@ -73,12 +95,33 @@
             <div class="col s12 m9">
                 <div class="">
                     <div class="row">
+                        <div class="col s12">
+                            <h5 class="">
+                                <strong>Read & Shop</strong>
+                            </h5>
+
+                            <hr>
+
+                            <h5 class="no-margin small-text">
+                                <span>
+                                    <strong>Find ideas you like</strong>
+                                </span>
+                                <span class="right grey-text">
+                                    <strong>Ideas on this page:</strong> <u class="black-text">{{ count($shop) }}</u>
+                                </span>
+                            </h5>
+                        </div>
+
+                        @include("partials.linebreak")
+
                         @foreach($shop as $i => $post)
                             <div class="col s12 m6 hide-on-small-and-down">
-                                @include("partials.landscape")
+                                @include("partials.post")
                             </div>
                             <div class="col s12 hide-on-med-and-up">
-                                @include("partials.idea")
+                                <div class="fade">
+                                    @include("partials.idea")
+                                </div>
                             </div>
                         @endforeach
                     </div>
@@ -94,6 +137,10 @@
                                     <strong>
                                         <i class="material-icons primary-text">arrow_right</i>
                                     </strong>
+                                @else
+                                    <strong>
+                                        <i class="material-icons grey-text text-lighten-2">arrow_right</i>
+                                    </strong>
                                 @endif
                                 <a href="{{ route('shop', 'ALL') }}" class="black-text">
                                     <strong>ALL PRODUCTS</strong>
@@ -107,6 +154,10 @@
                                         @if($tagParameter === $tag->name)
                                             <strong>
                                                 <i class="material-icons primary-text">arrow_right</i>
+                                            </strong>
+                                        @else
+                                            <strong>
+                                                <i class="material-icons grey-text text-lighten-2">arrow_right</i>
                                             </strong>
                                         @endif
                                         <a href="{{ route('shop', $tag->name) }}" class="black-text">

@@ -25,7 +25,7 @@
         @include("partials.linebreak")
 
         <div class="">
-            <div class="row container">
+            <div class="row">
                 <div class="col s12 offset-m1 m10 offset-l2 l8 ">
                     <idea-view-component :post="{{ json_encode($post) }}"></idea-view-component>
                 </div>

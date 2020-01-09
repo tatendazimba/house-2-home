@@ -1,7 +1,7 @@
 <div class="full-width left-align">
     <div class="white bottom-margin">
 
-        <div class="ignore rectangle no-margin black" style="">
+        <div class="ignore rectangle no-margin fade" style="">
             <idea-view-component :post="{{ json_encode($post) }}"></idea-view-component>
         </div>
 
