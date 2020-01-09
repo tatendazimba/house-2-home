@@ -333,7 +333,8 @@ class PostsRepository implements PostsInterface
             ->orWhere("content", "LIKE", "%{$string}%")
             ->orWhereHas("tags", function ($query) use ($string) {
                 $query->where("name", "LIKE", "%{$string}%");
-            })->with("tags")->get();
+            })->with("tags", "images.prices")->orderBy("id", "desc")->get();
+
 
         return $matches;
     }

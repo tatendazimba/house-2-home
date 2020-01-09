@@ -10,10 +10,11 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{{ config('app.name', '') }} house2home housetohome house 2 home zw harare Mirror Kitchen Rugs Living Room Bedroom Table Bathroom accessories Storage Mink Decor Tips Throw Clock Accent Chairs Lamp Cushions & Pillows">
-    <meta name="keywords" content="{{ config('app.name', '') }}  house2home housetohome house 2 home zw harare Mirror Kitchen Rugs Living Room Bedroom Table Bathroom accessories Storage Mink Decor Tips Throw Clock Accent Chairs Lamp Cushions & Pillows">
 
-    <title>{{ config('app.name', '') }}</title>
+    <meta name="description" content="@yield('pageTitle') | Modern Furniture & Home Decor | Wide Range of Homeware Products & Accessories | House2Home Online Furniture Homeware Home Decor Store | Home Decor Magazine | house2home housetohome house 2 home zw harare Mirror Kitchen Rugs Living Room Bedroom Table Bathroom accessories Storage Mink Decor Tips Throw Clock Accent Chairs Lamp Cushions & Pillows | {{ config('app.name', 'House2Home Online Store') }} ">
+    <meta name="keywords" content="@yield('pageTitle') | Modern Furniture & Home Decor | Wide Range of Homeware Products & Accessories | House2Home Online Furniture Homeware Home Decor Store | Home Decor Magazine | house2home housetohome house 2 home zw harare Mirror Kitchen Rugs Living Room Bedroom Table Bathroom accessories Storage Mink Decor Tips Throw Clock Accent Chairs Lamp Cushions & Pillows | {{ config('app.name', 'House2Home Online Store') }} ">
+
+    <title>@yield('pageTitle') | Modern Furniture & Home Decor | Wide Range of Homeware Products & Accessories | House2Home Online Furniture Homeware Home Decor Store | Home Decor Magazine | {{ config('app.name', 'House2Home Online Store') }} </title>
 
     <link rel="stylesheet" href="https://use.typekit.net/ddw4llj.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -27,8 +28,6 @@
 {{--    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">--}}
 
     <link rel="icon" href="{{ asset('images/logo/h2h.png') }}" sizes="32x32">
-
-
 
 </head>
 <body>

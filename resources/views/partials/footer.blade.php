@@ -89,7 +89,7 @@
 
 <div class="black white-text">
     <div class="container with-small-padding small-text">
-        House2Home 2019.
+        House2Home 2020.
     </div>
 </div>
 

@@ -1,5 +1,7 @@
 @extends("layouts.app")
 
+@section('pageTitle', "$tagParameter")
+
 @section('content')
     @include("partials.nav")
 
@@ -22,21 +24,30 @@
         </div>
 
         <div class="container bottom-small-margin" style="position: relative;">
-            <div class="row no-margin" style="background: linear-gradient(to bottom, rgba(0, 0, 0, .579), rgba(0, 0, 0, .479)), url('/uploads/{{ $tag->image }}') no-repeat center center; background-size: cover;">
+            <div class="row no-margin" style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('/images/inspiration.jpg') no-repeat center center; background-size: cover;">
                 <div class="col s3 no-pad">
-                    <div class="left rectangle-portrait no-margin ignore"
-                         style="background: linear-gradient(to bottom, rgba(0, 0, 0, .579), rgba(0, 0, 0, .479)), url('/uploads/{{ $tag->image }}') no-repeat center center; background-size: cover;">
+                    <div class="left rectangle-portrait no-margin ignore">
                     </div>
                 </div>
-                @foreach($shop->slice(0, 3) as $i => $post)
-                    <div class="col s3 no-pad">
-                        <div class="left rectangle-portrait no-margin ignore"
-                             style="background: linear-gradient(to bottom, rgba(0, 0, 0, .579), rgba(0, 0, 0, .479)), url('/uploads/{{ $post->images[0]->url }}') no-repeat center center; background-size: cover;">
-                        </div>
-                    </div>
-                @endforeach
             </div>
         </div>
+
+{{--        <div class="container bottom-small-margin" style="position: relative;">--}}
+{{--            <div class="row no-margin" style="background: linear-gradient(to bottom, rgba(0, 0, 0, .579), rgba(0, 0, 0, .479)), url('/uploads/{{ $tag->image }}') no-repeat center center; background-size: cover;">--}}
+{{--                <div class="col s3 no-pad">--}}
+{{--                    <div class="left rectangle-portrait no-margin ignore"--}}
+{{--                         style="background: linear-gradient(to bottom, rgba(0, 0, 0, .579), rgba(0, 0, 0, .479)), url('/uploads/{{ $tag->image }}') no-repeat center center; background-size: cover;">--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                @foreach($shop->slice(0, 3) as $i => $post)--}}
+{{--                    <div class="col s3 no-pad">--}}
+{{--                        <div class="left rectangle-portrait no-margin ignore"--}}
+{{--                             style="background: linear-gradient(to bottom, rgba(0, 0, 0, .579), rgba(0, 0, 0, .479)), url('/uploads/{{ $post->images[0]->url }}') no-repeat center center; background-size: cover;">--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                @endforeach--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
         @include("partials.linebreak")
 

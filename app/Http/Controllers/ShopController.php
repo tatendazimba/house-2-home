@@ -22,13 +22,17 @@ class ShopController extends Controller
         $shopTags = $this->posts->shopTags();
 
         // TODO refactor this
-        $tag = Tag::where("name", $tagParameter)->firstOrFail();
+        $tag = new Tag([
+            "name" => "ALL"
+        ]);
 
         if ($tagParameter === "ALL") {
             $shop = $this->posts->shop();
         }
         else {
             $shop = $this->posts->shopWithTag($tagParameter);
+            // TODO refactor this
+            $tag = Tag::where("name", $tagParameter)->firstOrFail();
         }
 
         return view("shop", compact("heroes", "featured", "categories", "shop", "shopTags", "tagParameter", "tag"));

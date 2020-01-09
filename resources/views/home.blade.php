@@ -138,8 +138,8 @@
                         <div class="col s12">
                             <div class="hero-slick row hide-on-med-and-up">
                                 @foreach($decorTips as $post)
-                                    <div class="col s12 m4">
-                                        @include("partials.landscape")
+                                    <div class="col s12 m4 fade">
+                                        @include("partials.idea")
                                     </div>
                                 @endforeach
                             </div>
@@ -147,7 +147,7 @@
                             <div class="mobile-slick row hide-on-small-and-down">
                                 @foreach($decorTips as $post)
                                     <div class="col s12 m4">
-                                        @include("partials.landscape")
+                                        @include("partials.post")
                                     </div>
                                 @endforeach
                             </div>
