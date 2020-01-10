@@ -17,29 +17,33 @@
 
             <div class="flex row">
                 <div class="col s12 m10 l8 ">
-                    <idea-view-component :post="{{ json_encode($post) }}"></idea-view-component>
+                    @foreach($post->images as $i => $image)
+                        <idea-view-component :post="{{ json_encode($post) }}" :postImage="{{ json_encode($post) }}"></idea-view-component>
+                    @endforeach
                 </div>
                 <div class="col m4">
                     <div class="">
 
+                        <h2 class="flow-text">
+                            <strong>{{ $post->title }}</strong>
+                        </h2>
+
+                        <div class="">
+                            <p class="">{{ $post->content }}</p>
+                        </div>
+
+                        @include("partials.linebreak")
+
                         <div class="grey">
                             <div class="container">
+
                                 @include("partials.linebreak")
 
                                 <h5>
                                     <strong>Items in the picture</strong>
                                 </h5>
 
-                                <br>
-
-                                <div>
-                                    <div class="white circle info-circle valign-wrapper">
-                                        <strong>
-                                            <i class="material-icons">add</i>
-                                        </strong>
-                                    </div>
-                                </div>
-
+                                <hr>
                                 <br>
 
                                 <div class="">

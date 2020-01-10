@@ -18,12 +18,15 @@
                 type: Object,
                 required: true,
             },
+            postImage: {
+                type: Object,
+                required: true,
+            },
         },
         data() {
             return {
                 salt: Math.random().toString(36).substring(7),
                 prices: [],
-                image: this.post.images[0],
             }
         },
         created() {
@@ -90,6 +93,11 @@
 
                 $imageViewer.append(pricePinDiv);
             },
+        },
+        computed: {
+            image() {
+                return this.postImage ? this.postImage : this.post.images[0];
+            }
         }
     }
 </script>

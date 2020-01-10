@@ -2234,13 +2234,16 @@ __webpack_require__.r(__webpack_exports__);
     post: {
       type: Object,
       required: true
+    },
+    postImage: {
+      type: Object,
+      required: true
     }
   },
   data: function data() {
     return {
       salt: Math.random().toString(36).substring(7),
-      prices: [],
-      image: this.post.images[0]
+      prices: []
     };
   },
   created: function created() {
@@ -2290,6 +2293,11 @@ __webpack_require__.r(__webpack_exports__);
       pricePinDiv.appendChild(pricePinIconDiv);
       pricePinDiv.appendChild(pricePinTextDiv);
       $imageViewer.append(pricePinDiv);
+    }
+  },
+  computed: {
+    image: function image() {
+      return this.postImage ? this.postImage : this.post.images[0];
     }
   }
 });
