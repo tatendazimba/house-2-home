@@ -78,7 +78,7 @@ class PostsRepository implements PostsInterface
                 ['name', '=', "Hero"]
             ]);
         })
-            ->with("tags", "images.prices")->orderBy("id", "desc")->get();
+            ->with("images.prices")->orderBy("id", "desc")->get();
 
         return $posts;
 
@@ -165,8 +165,7 @@ class PostsRepository implements PostsInterface
             $query->where([
                 ['name', '=', "Shop"]
             ]);
-        })->with("tags", "images.prices")->orderBy("id", "desc")->get();
-
+        })->with("images.prices")->orderBy("id", "desc")->get();
 
         return $posts;
     }
@@ -237,7 +236,7 @@ class PostsRepository implements PostsInterface
                     ['name', '=', "Decor Tips"]
                 ]);
             })
-            ->with("tags", "images.prices")->orderBy("id", "desc")->get();
+            ->with("images.prices")->orderBy("id", "desc")->get();
 
         return $posts;
     }

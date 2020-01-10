@@ -23,9 +23,9 @@ class HomeController extends Controller
 
     public function __invoke()
     {
-        $heroes = $this->posts->heroes();
-        $specials = $this->posts->specials();
         $decorTips = $this->posts->decors()->reverse();
+        $specials = $this->posts->specials();
+        $heroes = $this->posts->heroes();
 
         $whyUsReasons = [
             [

@@ -12,6 +12,7 @@ namespace App\Http\Composers;
 use App\Http\Controllers\Repositories\PostsRepository;
 use App\Http\Controllers\Repositories\ProductRepository;
 use App\Http\Controllers\Repositories\TagRepository;
+use Illuminate\Support\Collection;
 use Illuminate\View\View;
 
 class SidebarComposer
@@ -30,7 +31,7 @@ class SidebarComposer
     {
         $popularTags = $this->tags->popular()->reverse();
         $allTags = $this->tags->all();
-        $popularStories = $this->posts->popular();
+        $popularStories =  new Collection([]);
 
         $view->with("popularTags", $popularTags);
         $view->with("popularStories", $popularStories);

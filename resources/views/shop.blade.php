@@ -16,18 +16,28 @@
                     <h3 class="no-margin">
                         <strong>{{ $tagParameter }}</strong>
                     </h3>
-                    <span class="grey-text small-text">
-                        Inspiration & Shop
-                    </span>
                 </div>
             </div>
         </div>
 
-        <div class="container bottom-small-margin" style="position: relative;">
-            <div class="row no-margin" style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('/images/inspiration.jpg') no-repeat center center; background-size: cover;">
-                <div class="col s3 no-pad">
-                    <div class="left rectangle-portrait no-margin ignore">
+        <div style="position: relative;">
+            <div class="container bottom-small-margin" style="position: relative;">
+                <div class="row no-margin" style="background: linear-gradient(to bottom, rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), url('/images/inspiration.jpg') no-repeat center center; background-size: cover;">
+                    <div class="col s3 no-pad">
+                        <div class="left rectangle-portrait no-margin ignore">
+                        </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="transparent valign-wrapper" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
+                <div class="container center-align">
+                    <strong class="white-text">
+                        Inspiration & Shopping
+                    </strong>
+                    <h3 class="no-margin white-text">
+                        Fresh Decorating <br><span>Ideas</span> for Your <span>Home</span>.
+                    </h3>
                 </div>
             </div>
         </div>

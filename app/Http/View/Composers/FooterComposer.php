@@ -23,10 +23,6 @@ class FooterComposer
 
     public function compose(View $view)
     {
-        $tags = $this->repository->featuredCategories();
-        $inspirations = $this->repository->inspiration();
 
-        $view->with("tags", $tags);
-        $view->with("inspiration", $inspirations);
     }
 }
