@@ -2,7 +2,7 @@
     <div class="container">
         <div class="full-width row no-margin">
             <div class="col s12 no-pad">
-                <div :id="'image-' + image.id" class="col s12 no-pad no-margin" style="">
+                <div :id="salt + '-image-' + image.id" class="col s12 no-pad no-margin" style="position: relative;">
                     <img alt="" class="full-width" :src="'/uploads/' + image.url">
                 </div>
             </div>
@@ -21,6 +21,7 @@
         },
         data() {
             return {
+                salt: Math.random().toString(36).substring(7),
                 prices: [],
                 image: this.post.images[0],
             }
@@ -60,7 +61,9 @@
             },
             dropPin: function(pricePin, index) {
 
-                const $imageViewer = $('#image-' + this.image.id);
+                console.log("pricePin: ", pricePin);
+
+                const $imageViewer = $("#" + this.salt + '-image-' + this.image.id);
 
                 // create price pin
                 const pricePinDiv = document.createElement("div");

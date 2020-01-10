@@ -2238,6 +2238,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      salt: Math.random().toString(36).substring(7),
       prices: [],
       image: this.post.images[0]
     };
@@ -2271,7 +2272,8 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     dropPin: function dropPin(pricePin, index) {
-      var $imageViewer = $('#image-' + this.image.id); // create price pin
+      console.log("pricePin: ", pricePin);
+      var $imageViewer = $("#" + this.salt + '-image-' + this.image.id); // create price pin
 
       var pricePinDiv = document.createElement("div");
       var pricePinIconDiv = document.createElement("div");
@@ -51285,7 +51287,8 @@ var render = function() {
           "div",
           {
             staticClass: "col s12 no-pad no-margin",
-            attrs: { id: "image-" + _vm.image.id }
+            staticStyle: { position: "relative" },
+            attrs: { id: _vm.salt + "-image-" + _vm.image.id }
           },
           [
             _c("img", {

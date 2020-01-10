@@ -4,7 +4,7 @@
         <div style="position: relative;">
             <div class="left square no-margin fade" style=""></div>
 
-            <div class="ignore no-margin transparent valign-wrapper" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
+            <div class="ignore no-margin transparent" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
                 <idea-view-component :post="{{ json_encode($post) }}"></idea-view-component>
             </div>
         </div>
