@@ -20,7 +20,7 @@
 
                 <h1 class="truncate small-text grey-text no-margin top-small-margin bottom-small-margin">{{ $post->content }}</h1>
 
-                <a class="black-text">
+                <a href="{{ route('story', $post) }}" class="black-text">
                     <strong class="small-text">
                         BROWSE
                         <i class="material-icons">arrow_right</i>

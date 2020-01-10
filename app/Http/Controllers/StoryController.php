@@ -16,7 +16,7 @@ class StoryController extends Controller
 
     public function __invoke(Post $post)
     {
-        $post = Post::with("images")->find($post->id);
+        $post = Post::with("images.prices")->find($post->id);
 
         return view("add-to-cart", compact("post"));
     }
