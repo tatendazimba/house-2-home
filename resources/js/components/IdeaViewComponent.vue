@@ -18,7 +18,7 @@
                 type: Object,
                 required: true,
             },
-            postImage: {
+            post_image: {
                 type: Object,
                 required: true,
             },
@@ -26,12 +26,9 @@
         data() {
             return {
                 salt: Math.random().toString(36).substring(7),
-                prices: [],
             }
         },
-        created() {
-            this.prices = this.image.prices ? this.image.prices : [];
-        },
+        created() {},
         mounted() {
 
             window.addEventListener("load", (event) => {
@@ -96,7 +93,10 @@
         },
         computed: {
             image() {
-                return this.postImage ? this.postImage : this.post.images[0];
+                return this.post_image ? this.post_image : this.post.images[0];
+            },
+            prices() {
+                return this.image.prices ? this.image.prices : [];
             }
         }
     }

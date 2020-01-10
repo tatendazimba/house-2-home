@@ -117,11 +117,13 @@
                                 <h3 class="">
                                     <strong class="left"><span class="hide-on-med-and-down">Find</span> Inspiration</strong>
 
-                                    <strong class="black white-text right small-text" style="padding: 2px;">
-                                        &nbsp;
-                                        View All
-                                        <i class="material-icons">arrow_right</i>
-                                    </strong>
+                                    <a href="{{ route("shop", "ALL") }}">
+                                        <strong class="black white-text right small-text" style="padding: 2px;">
+                                            &nbsp;
+                                            View All
+                                            <i class="material-icons">arrow_right</i>
+                                        </strong>
+                                    </a>
                                 </h3>
                             </div>
 
@@ -190,9 +192,9 @@
                                 </p>
                             </div>
 
-                            <a href="{{ route('shop', "ALL") }}" class="">
+                            <a href="{{ route('shop', "Sale") }}" class="white-text">
                                 <u>
-                                    <strong class="small-text">
+                                    <strong class="white-text">
                                         Check Out On Sale Items
                                         <i class="material-icons">arrow_right</i>
                                     </strong>
@@ -275,7 +277,7 @@
                     <h2 class="no-margin"><strong>Decor Ideas</strong></h2>
                     <h4 class="no-margin">For Your Home! </h4>
                     <div class="row left-align top-padding bottom-padding overflow-visible">
-                        @foreach($specials->slice(0, 2) as $post)
+                        @foreach($specials->slice(0, 4) as $post)
                             <div class="col s12 bottom-margin">
                                 <div class="white container">
                                     @include("partials.idea")

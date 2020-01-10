@@ -20,44 +20,59 @@
             </div>
         </div>
 
+{{--        <div style="position: relative;">--}}
+{{--            <div class="container bottom-small-margin" style="position: relative;">--}}
+{{--                <div class="row no-margin" style="background: linear-gradient(to bottom, rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), url('/images/inspiration.jpg') no-repeat center center; background-size: cover;">--}}
+{{--                    <div class="col s3 no-pad">--}}
+{{--                        <div class="left rectangle-portrait no-margin ignore">--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+
+{{--            <div class="transparent valign-wrapper" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;">--}}
+{{--                <div class="container center-align">--}}
+{{--                    <strong class="white-text">--}}
+{{--                        Inspiration & Shopping--}}
+{{--                    </strong>--}}
+{{--                    <h3 class="no-margin white-text">--}}
+{{--                        Fresh Decorating <br><span>Ideas</span> for Your <span>Home</span>.--}}
+{{--                    </h3>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+
         <div style="position: relative;">
             <div class="container bottom-small-margin" style="position: relative;">
-                <div class="row no-margin" style="background: linear-gradient(to bottom, rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), url('/images/inspiration.jpg') no-repeat center center; background-size: cover;">
+                <div class="row no-margin" style="background: linear-gradient(to bottom, rgba(0, 0, 0, .579), rgba(0, 0, 0, .479)), url('/uploads/{{ $tag->image }}') no-repeat center center; background-size: cover;">
                     <div class="col s3 no-pad">
-                        <div class="left rectangle-portrait no-margin ignore">
+                        <div class="left rectangle-portrait no-margin ignore"
+                             style="background: linear-gradient(to bottom, rgba(0, 0, 0, .579), rgba(0, 0, 0, .479)), url('/uploads/{{ $tag->image }}') no-repeat center center; background-size: cover;">
                         </div>
                     </div>
+                    @foreach($shop->slice(0, 3) as $i => $post)
+                        <div class="col s3 no-pad">
+                            <div class="left rectangle-portrait no-margin ignore"
+                                 style="background: linear-gradient(to bottom, rgba(0, 0, 0, .579), rgba(0, 0, 0, .479)), url('/uploads/{{ $post->images[0]->url }}') no-repeat center center; background-size: cover;">
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
 
             <div class="transparent valign-wrapper" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
                 <div class="container center-align">
-                    <strong class="white-text">
-                        Inspiration & Shopping
-                    </strong>
-                    <h3 class="no-margin white-text">
-                        Fresh Decorating <br><span>Ideas</span> for Your <span>Home</span>.
-                    </h3>
+                    <h5>
+                        <strong class="white-text">
+                            Inspiration & Shopping
+                        </strong>
+                    </h5>
+                    <p class="no-margin white-text container">
+                        {{ $tag->description }}
+                    </p>
                 </div>
             </div>
         </div>
-
-{{--        <div class="container bottom-small-margin" style="position: relative;">--}}
-{{--            <div class="row no-margin" style="background: linear-gradient(to bottom, rgba(0, 0, 0, .579), rgba(0, 0, 0, .479)), url('/uploads/{{ $tag->image }}') no-repeat center center; background-size: cover;">--}}
-{{--                <div class="col s3 no-pad">--}}
-{{--                    <div class="left rectangle-portrait no-margin ignore"--}}
-{{--                         style="background: linear-gradient(to bottom, rgba(0, 0, 0, .579), rgba(0, 0, 0, .479)), url('/uploads/{{ $tag->image }}') no-repeat center center; background-size: cover;">--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                @foreach($shop->slice(0, 3) as $i => $post)--}}
-{{--                    <div class="col s3 no-pad">--}}
-{{--                        <div class="left rectangle-portrait no-margin ignore"--}}
-{{--                             style="background: linear-gradient(to bottom, rgba(0, 0, 0, .579), rgba(0, 0, 0, .479)), url('/uploads/{{ $post->images[0]->url }}') no-repeat center center; background-size: cover;">--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                @endforeach--}}
-{{--            </div>--}}
-{{--        </div>--}}
 
         @include("partials.linebreak")
 
@@ -140,7 +155,7 @@
                                 @include("partials.post")
                             </div>
                             <div class="col s12 hide-on-med-and-up">
-                                <div class="fade">
+                                <div class="bottom-margin fade">
                                     @include("partials.idea")
                                 </div>
                             </div>

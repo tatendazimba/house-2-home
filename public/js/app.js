@@ -2235,20 +2235,17 @@ __webpack_require__.r(__webpack_exports__);
       type: Object,
       required: true
     },
-    postImage: {
+    post_image: {
       type: Object,
       required: true
     }
   },
   data: function data() {
     return {
-      salt: Math.random().toString(36).substring(7),
-      prices: []
+      salt: Math.random().toString(36).substring(7)
     };
   },
-  created: function created() {
-    this.prices = this.image.prices ? this.image.prices : [];
-  },
+  created: function created() {},
   mounted: function mounted() {
     var _this = this;
 
@@ -2297,7 +2294,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     image: function image() {
-      return this.postImage ? this.postImage : this.post.images[0];
+      return this.post_image ? this.post_image : this.post.images[0];
+    },
+    prices: function prices() {
+      return this.image.prices ? this.image.prices : [];
     }
   }
 });

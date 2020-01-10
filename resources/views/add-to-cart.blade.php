@@ -18,7 +18,7 @@
             <div class="flex row">
                 <div class="col s12 m10 l8 ">
                     @foreach($post->images as $i => $image)
-                        <idea-view-component :post="{{ json_encode($post) }}" :postImage="{{ json_encode($post) }}"></idea-view-component>
+                        <idea-view-component :post="{{ json_encode($post) }}" :post_image="{{ json_encode($image) }}"></idea-view-component>
                     @endforeach
                 </div>
                 <div class="col m4">
