@@ -84,7 +84,7 @@
                                         @endforeach
                                     </div>
 
-                                    <a class="black-text" href="">
+                                    <a href="{{ route('story', $hero) }}" class="black-text" href="">
                                         <u>
                                             <strong class="small-text bottom-small-margin">
                                                 Read & Shop
