@@ -155,7 +155,7 @@
 
         @foreach($popularTags->slice(0, 5) as $tag)
             <li class="{{ setActive(['/tag/' . $tag->name]) }}">
-                <a href="{{ route('search', $tag->name) }}" class="cursor-click valign-wrapper  black-text">
+                <a href="{{ route('shop', $tag->name) }}" class="cursor-click valign-wrapper  black-text">
                     {{ $tag->name }}
                 </a>
             </li>

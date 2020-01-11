@@ -22,7 +22,7 @@
 
                 <a href="{{ route('story', $post) }}" class="black-text">
                     <strong class="small-text">
-                        BROWSE
+                        Read & Shop
                         <i class="material-icons">arrow_right</i>
                     </strong>
                 </a>
