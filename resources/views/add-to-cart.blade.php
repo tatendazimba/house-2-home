@@ -29,10 +29,66 @@
                 </div>
             </div>
 
-            <div class="row hero-slick">
+            <div class="row">
+                <div class="col s12">
+                    <a id="previous-mobile" class="small-text black-text left" href="#">
+                        <i class="material-icons grey-text">arrow_back</i>
+                        <strong>Previous</strong>
+                    </a>
+                    <a id="next-mobile" class="right small-text black-text" href="#">
+                        <strong>Next</strong>
+                        <i class="material-icons grey-text">arrow_forward</i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="row mobile-idea-view-slick">
                 @foreach($post->images as $i => $image)
                     <div class="col s12 ">
                         <idea-view-component :post="{{ json_encode($post) }}" :post_image="{{ json_encode($image) }}"></idea-view-component>
+
+                        <div class="">
+                            <p class="">{{ $post->content }}</p>
+                        </div>
+
+                        <div class="grey">
+                            <div class="container">
+
+                                <div class="row no-margin">
+                                    <div class="col s12 no-pad">
+
+                                        @if(count($image->prices))
+                                            <div class="right-padding left-padding">
+                                                @include("partials.linebreak")
+
+                                                <h5>
+                                                    <strong>Items in the picture</strong>
+                                                </h5>
+
+                                                <hr>
+                                                <br>
+                                            </div>
+                                        @endif
+
+                                        <div class="">
+                                            @foreach($image->prices as $i => $price)
+                                                <div class="right-padding left-padding left-align">
+                                                    <strong class="">{{ $i + 1 }}.</strong>
+                                                    <span>{{ $price->name }}</span> <strong class="">${{ $price->amount }}</strong>
+                                                </div>
+                                            @endforeach
+                                        </div>
+
+                                        @if(count($image->prices))
+                                            <div>
+                                                @include("partials.linebreak")
+                                            </div>
+                                        @endif
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 @endforeach
             </div>
@@ -40,55 +96,6 @@
             <div class="row">
                 <div class="col s12">
                     <div class="">
-
-                        <div class="">
-                            <p class="">{{ $post->content }}</p>
-                        </div>
-
-                        @include("partials.linebreak")
-
-                        <div class="grey">
-                            <div class="container">
-
-                                <div class="row no-margin hero-slick">
-                                    @foreach($post->images as $i => $image)
-                                        <div class="col s12 no-pad">
-
-                                            @if(count($image->prices))
-                                                <div>
-                                                    @include("partials.linebreak")
-
-                                                    <h5>
-                                                        <strong>Items in the picture</strong>
-                                                    </h5>
-
-                                                    <hr>
-                                                    <br>
-                                                </div>
-                                            @endif
-
-                                            <div class="">
-                                                @foreach($image->prices as $i => $price)
-                                                    <div class="left-align">
-                                                        <strong class="">{{ $i + 1 }}.</strong>
-                                                        <span>{{ $price->name }}</span> <strong class="">${{ $price->amount }}</strong>
-                                                    </div>
-                                                @endforeach
-                                            </div>
-
-                                            @if(count($image->prices))
-                                                <div>
-                                                    @include("partials.linebreak")
-                                                </div>
-                                            @endif
-
-                                        </div>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
-
-                        @include("partials.linebreak")
 
                         <div class="variables center-align">
                             @foreach($post->tags as $tag)
@@ -181,6 +188,9 @@
                 <div class="col s12 m10 l8 ">
                     @foreach($post->images as $i => $image)
                         <idea-view-component :post="{{ json_encode($post) }}" :post_image="{{ json_encode($image) }}"></idea-view-component>
+
+                        @include("partials.linebreak")
+
                     @endforeach
                 </div>
                 <div class="col m4">

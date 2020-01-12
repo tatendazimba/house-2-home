@@ -63808,6 +63808,16 @@ files.keys().map(function (key) {
 var app = new Vue({
   el: '#app',
   mounted: function mounted() {
+    $('.mobile-idea-view-slick').slick({
+      autoplay: false,
+      slidesPerRow: 1,
+      slidesToShow: 1,
+      swipeToSlide: true,
+      adaptiveHeight: true,
+      arrows: true,
+      prevArrow: '#previous-mobile',
+      nextArrow: '#next-mobile'
+    });
     $('.hero-slick').slick({
       autoplay: true,
       slidesPerRow: 1,
