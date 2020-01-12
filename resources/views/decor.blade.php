@@ -13,12 +13,9 @@
             <div class="row">
                 <div class="col s12 no-pad">
                     <strong>House2Home</strong>
-                    <h3 class="no-margin">
-                        <strong>Find Inspiration</strong>
-                    </h3>
-                    <span class="grey-text small-text">
-                        Inspiration & Shop
-                    </span>
+                    <h5 class="no-margin">
+                        <strong>Inspiration & Shopping</strong>
+                    </h5>
                 </div>
             </div>
         </div>
@@ -35,12 +32,14 @@
 
             <div class="transparent valign-wrapper" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
                 <div class="container center-align">
-                    <strong class="white-text">
-                        Inspiration & Shopping
-                    </strong>
-                    <h3 class="no-margin white-text">
+                    <h5>
+                        <strong class="white-text">
+                            Find Inspiration
+                        </strong>
+                    </h5>
+                    <p class="no-margin white-text">
                         Fresh Decorating <br><span>Ideas</span> for Your <span>Home</span>.
-                    </h3>
+                    </p>
                 </div>
             </div>
         </div>
@@ -114,7 +113,7 @@
                                 @include("partials.post")
                             </div>
                             <div class="col s12 hide-on-med-and-up">
-                                <div class="fade">
+                                <div class="bottom-margin fade">
                                     @include("partials.idea")
                                 </div>
                             </div>

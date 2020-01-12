@@ -13,9 +13,9 @@
             <div class="row">
                 <div class="col s12 no-pad">
                     <strong>House2Home</strong>
-                    <h3 class="no-margin">
-                        <strong>{{ $tagParameter }}</strong>
-                    </h3>
+                    <h5 class="no-margin">
+                        <strong>Inspiration & Shopping</strong>
+                    </h5>
                 </div>
             </div>
         </div>
@@ -64,7 +64,7 @@
                 <div class="container center-align">
                     <h5>
                         <strong class="white-text">
-                            Inspiration & Shopping
+                            {{ $tagParameter }}
                         </strong>
                     </h5>
                     <p class="no-margin white-text container">

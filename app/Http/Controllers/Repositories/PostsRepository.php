@@ -180,11 +180,7 @@ class PostsRepository implements PostsInterface
     public function shop()
     {
 
-        $posts = Post::whereHas("tags", function ($query){
-                $query->where([
-                    ['name', '=', "Shop"]
-                ]);
-            })->with("tags", "images.prices")->orderBy("id", "desc")->get();
+        $posts = Post::whereHas("tags")->with("tags", "images.prices")->orderBy("id", "desc")->get();
 
         return $posts;
     }
