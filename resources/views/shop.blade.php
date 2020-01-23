@@ -20,57 +20,61 @@
             </div>
         </div>
 
-{{--        <div style="position: relative;">--}}
-{{--            <div class="container bottom-small-margin" style="position: relative;">--}}
-{{--                <div class="row no-margin" style="background: linear-gradient(to bottom, rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), url('/images/inspiration.jpg') no-repeat center center; background-size: cover;">--}}
-{{--                    <div class="col s3 no-pad">--}}
-{{--                        <div class="left rectangle-portrait no-margin ignore">--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-
-{{--            <div class="transparent valign-wrapper" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;">--}}
-{{--                <div class="container center-align">--}}
-{{--                    <strong class="white-text">--}}
-{{--                        Inspiration & Shopping--}}
-{{--                    </strong>--}}
-{{--                    <h3 class="no-margin white-text">--}}
-{{--                        Fresh Decorating <br><span>Ideas</span> for Your <span>Home</span>.--}}
-{{--                    </h3>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-
         <div style="position: relative;">
             <div class="container bottom-small-margin" style="position: relative;">
-                <div class="row no-margin" style="background: linear-gradient(to bottom, rgba(0, 0, 0, .579), rgba(0, 0, 0, .479)), url('/uploads/{{ $tag->image }}') no-repeat center center; background-size: cover;">
-                    <div class="col s3 no-pad">
-                        <div class="left rectangle-portrait no-margin ignore"
-                             style="background: linear-gradient(to bottom, rgba(0, 0, 0, .579), rgba(0, 0, 0, .479)), url('/uploads/{{ $tag->image }}') no-repeat center center; background-size: cover;">
-                        </div>
-                    </div>
-                    @foreach($shop->slice(0, 3) as $i => $post)
+                @if($tagParameter === "ALL")
+                    <div class="row no-margin" style="background: linear-gradient(to bottom, rgba(0, 0, 0, .579), rgba(0, 0, 0, .479)), url('/images/inspiration.jpg') no-repeat center center; background-size: cover;">
                         <div class="col s3 no-pad">
-                            <div class="left rectangle-portrait no-margin ignore"
-                                 style="background: linear-gradient(to bottom, rgba(0, 0, 0, .579), rgba(0, 0, 0, .479)), url('/uploads/{{ $post->images[0]->url }}') no-repeat center center; background-size: cover;">
+                            <div class="left rectangle-portrait no-margin transparent">
                             </div>
                         </div>
-                    @endforeach
-                </div>
+                        @foreach($shop->slice(0, 3) as $i => $post)
+                            <div class="col s3 no-pad">
+                                <div class="left rectangle-portrait no-margin transparent">
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                @else
+                    <div class="row no-margin" style="background: linear-gradient(to bottom, rgba(0, 0, 0, .579), rgba(0, 0, 0, .479)), url('/uploads/{{ $tag->wide_image }}') no-repeat center center; background-size: cover;">
+                        <div class="col s3 no-pad">
+                            <div class="left rectangle-portrait no-margin transparent">
+                            </div>
+                        </div>
+                        @foreach($shop->slice(0, 3) as $i => $post)
+                            <div class="col s3 no-pad">
+                                <div class="left rectangle-portrait no-margin transparent">
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
             </div>
 
             <div class="transparent valign-wrapper" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
-                <div class="container center-align">
-                    <h5>
-                        <strong class="white-text">
-                            {{ $tagParameter }}
-                        </strong>
-                    </h5>
-                    <p class="no-margin white-text container">
-                        {{ $tag->description }}
-                    </p>
-                </div>
+                @if($tagParameter === "ALL")
+                    <div class="container center-align">
+                        <h5>
+                            <strong class="white-text">
+                                Inspiration & Shopping
+                            </strong>
+                        </h5>
+                        <p class="no-margin white-text container">
+                            Fresh Decorating <br><span>Ideas</span> for Your <span>Home</span>
+                        </p>
+                    </div>
+                @else
+                    <div class="container center-align">
+                        <h5>
+                            <strong class="white-text">
+                                {{ $tagParameter }}
+                            </strong>
+                        </h5>
+                        <p class="no-margin white-text container">
+                            {{ $tag->description }}
+                        </p>
+                    </div>
+                @endif
             </div>
         </div>
 

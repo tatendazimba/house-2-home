@@ -58,8 +58,8 @@ class TagController extends Controller
             'name' => 'required:max:255',
             'description' => 'required',
             'text_colour' => 'nullable',
-            'image_one' => 'required|file|image|mimes:jpeg,png,gif,webp',
-            'image_wide' => 'required|file|image|mimes:jpeg,png,gif,webp',
+            'image_one' => 'file|image|mimes:jpeg,png,gif,webp',
+            'image_wide' => 'file|image|mimes:jpeg,png,gif,webp',
         ]);
 
         $payload = [
@@ -143,8 +143,8 @@ class TagController extends Controller
             'name' => 'required:max:255',
             'description' => 'required',
             'text_colour' => 'nullable',
-            'image_one' => 'required|file|image|mimes:jpeg,png,gif,webp',
-            'image_wide' => 'required|file|image|mimes:jpeg,png,gif,webp',
+            'image_one' => 'file|image|mimes:jpeg,png,gif,webp',
+            'image_wide' => 'file|image|mimes:jpeg,png,gif,webp',
         ]);
 
         $tag->name = $request->name;

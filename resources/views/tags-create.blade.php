@@ -52,14 +52,16 @@
                                 <div class="col s12">
                                     <div class="required input-field">
                                         <label class="active">Tall Image</label>
-                                        <input type="file" placeholder="" name="image_one" class="col s12" required>
+                                        <input type="file" placeholder="" name="image_one" class="col s12">
                                     </div>
                                 </div>
+
+                                <br>
 
                                 <div class="col s12">
                                     <div class="required input-field">
                                         <label class="active">Wide Image</label>
-                                        <input type="file" placeholder="" name="image_wide" class="col s12" required>
+                                        <input type="file" placeholder="" name="image_wide" class="col s12">
                                     </div>
                                 </div>
 
