@@ -56,9 +56,10 @@ class TagController extends Controller
 
         $validation = $request->validate([
             'name' => 'required:max:255',
-            'description' => 'nullable',
+            'description' => 'required',
             'text_colour' => 'nullable',
-            'image_one' => 'file|image|mimes:jpeg,png,gif,webp',
+            'image_one' => 'required|file|image|mimes:jpeg,png,gif,webp',
+            'image_wide' => 'required|file|image|mimes:jpeg,png,gif,webp',
         ]);
 
         $payload = [
@@ -79,6 +80,21 @@ class TagController extends Controller
             $this->resizeImage($imagePath);
 
             $payload["image"] = $path;
+        }
+
+        if ($request->hasFile('image_wide')) {
+
+            $image_wide = $validation['image_wide'];
+
+            $path = $image_wide->store('photos', ['disk' => 'public']);
+
+            $imagePath = public_path("uploads/{$path}");
+
+            //
+            $this->resizeImage($imagePath);
+
+            $payload["image_wide"] = $path;
+
         }
 
         if ($this->tags->store($payload)) {
@@ -125,9 +141,10 @@ class TagController extends Controller
 
         $validation = $request->validate([
             'name' => 'required:max:255',
-            'description' => 'nullable',
+            'description' => 'required',
             'text_colour' => 'nullable',
-            'image_one' => 'file|image|mimes:jpeg,png,gif,webp',
+            'image_one' => 'required|file|image|mimes:jpeg,png,gif,webp',
+            'image_wide' => 'required|file|image|mimes:jpeg,png,gif,webp',
         ]);
 
         $tag->name = $request->name;
@@ -148,6 +165,21 @@ class TagController extends Controller
             $this->resizeImage($imagePath);
 
             $tag->image = $path;
+
+        }
+
+        if ($request->hasFile('image_wide')) {
+
+            $image_wide = $validation['image_wide'];
+
+            $path = $image_wide->store('photos', ['disk' => 'public']);
+
+            $imagePath = public_path("uploads/{$path}");
+
+            //
+            $this->resizeImage($imagePath);
+
+            $tag->image_wide = $path;
 
         }
 

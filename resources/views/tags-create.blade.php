@@ -45,14 +45,21 @@
                                 <div class="col s12">
                                     <div class="input-field">
                                         <label class="active">Description</label>
-                                        <textarea type="text" placeholder="" name="description">{{ old('description', $tag->description) }}</textarea>
+                                        <textarea type="text" placeholder="" name="description" required>{{ old('description', $tag->description) }}</textarea>
                                     </div>
                                 </div>
 
                                 <div class="col s12">
                                     <div class="required input-field">
-                                        <label class="active">Optional Image</label>
-                                        <input type="file" placeholder="" name="image_one" class="col s12">
+                                        <label class="active">Tall Image</label>
+                                        <input type="file" placeholder="" name="image_one" class="col s12" required>
+                                    </div>
+                                </div>
+
+                                <div class="col s12">
+                                    <div class="required input-field">
+                                        <label class="active">Wide Image</label>
+                                        <input type="file" placeholder="" name="image_wide" class="col s12" required>
                                     </div>
                                 </div>
 
