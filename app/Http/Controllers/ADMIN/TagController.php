@@ -93,7 +93,7 @@ class TagController extends Controller
             //
             $this->resizeImage($imagePath);
 
-            $payload["image_wide"] = $path;
+            $payload["wide_image"] = $path;
 
         }
 
@@ -179,7 +179,7 @@ class TagController extends Controller
             //
             $this->resizeImage($imagePath);
 
-            $tag->image_wide = $path;
+            $tag->wide_image = $path;
 
         }
 
