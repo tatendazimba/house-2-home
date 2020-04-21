@@ -88,9 +88,9 @@
                         </a>
                     </li>
 
-                    <li class="{{ setActive(['decor-tips/*']) }}">
-                        <a href="{{ route('decor', "ALL") }}" class="cursor-click valign-wrapper">
-                            <strong>ABOUT</strong>
+                    <li class="{{ setActive(['how-it-works']) }}">
+                        <a href="{{ route('how.works') }}" class="cursor-click valign-wrapper">
+                            <strong>HOW IT WORKS</strong>
                         </a>
                     </li>
 
@@ -141,9 +141,9 @@
             </a>
         </li>
 
-        <li class="{{ setActive(['decor-tips/*']) }}">
-            <a href="{{ route('decor', "ALL") }}" class="cursor-click valign-wrapper black-text">
-                ABOUT
+        <li class="{{ setActive(['how-it-works']) }}">
+            <a href="{{ route('how.works') }}" class="cursor-click valign-wrapper black-text">
+                HOW IT WORKS
             </a>
         </li>
 

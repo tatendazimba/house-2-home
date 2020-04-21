@@ -17,6 +17,8 @@ use App\Post;
 use App\Tag;
 
 Route::get('/', HomeController::class)->name("home");
+Route::get('/about', AboutController::class)->name("about");
+Route::get('/how-it-works', AboutController::class)->name("how.works");
 Route::get('/shop/{tag}', "ShopController")->name("shop");
 Route::any('/decor/furniture/{string?}/zw', SearchController::class)->name("search");
 Route::get('/makeovers/{tag}', MakeoverController::class)->name("blog");
