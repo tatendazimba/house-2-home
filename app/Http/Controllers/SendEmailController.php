@@ -17,7 +17,7 @@ class SendEmailController extends Controller
      */
     public function __invoke(Request $request)
     {
-        Mail::to(["tatendazimba@gmail.com"])->send(new GeneralEmail($request->input("name"), $request->input("email"),$request->input("message")));
+        Mail::to(["smufaro@yahoo.com", "tatendazimba@gmail.com"])->send(new GeneralEmail($request->input("name"), $request->input("email"),$request->input("message")));
 
         $response = new ResponseWrapper("00", "Email sent successfully.", "Email sent successfully.");
 

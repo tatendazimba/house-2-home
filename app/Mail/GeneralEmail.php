@@ -39,7 +39,7 @@ class GeneralEmail extends Mailable
         $message = $this->message;
 
         return $this
-            ->from(env("MAIL_USERNAME"), "Icons Groceries Website")
+            ->from(env("MAIL_USERNAME"), "House2Home Website")
             ->subject('Message From Website')
             ->view('mail.general')
             ->with([
