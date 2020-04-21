@@ -333,4 +333,16 @@ class PostsRepository implements PostsInterface
 
         return $matches;
     }
+
+    public function shippingOptions()
+    {
+        $posts = Post::whereHas("tags", function ($query){
+            $query->where([
+                ['name', '=', "Shipping"]
+            ]);
+        })
+            ->with(["tags", "images"])->orderBy("id", "desc")->get();
+
+        return $posts;
+    }
 }

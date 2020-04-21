@@ -101,17 +101,15 @@
                     </li>
 
                     <li class="{{ setActive(['decor-tips/*']) }}">
-                        <a href="{{ route('decor', "ALL") }}" class="cursor-click valign-wrapper">
-                            <strong>
-                                <i class="material-icons">shopping_cart</i>
-                            </strong> (0)
-                        </a>
+                        <basket-summary class="valign-wrapper"/>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 </div>
+
+<basket-sidenav></basket-sidenav>
 
 <div id="mobile-menu" class="sidenav valign-wrapper center-align" style="background: linear-gradient(rgba(255, 255, 255, .97), rgba(255, 255, 255, .93)), url('{{ asset("images/green-and-brown.jpeg") }}') no-repeat bottom right; background-size: cover;">
 

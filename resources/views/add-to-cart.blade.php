@@ -75,6 +75,7 @@
                                                 <div class="right-padding left-padding left-align">
                                                     <strong class="">{{ $i + 1 }}.</strong>
                                                     <span>{{ $price->name }}</span> <strong class="">${{ $price->amount }}</strong>
+                                                    <add-quantity-component :item="{{ json_encode($price) }}" :post="{{ json_encode($post) }}"></add-quantity-component>
                                                 </div>
                                             @endforeach
                                         </div>
@@ -220,9 +221,8 @@
 
                                 <div class="">
                                     @foreach($post->images[0]->prices as $i => $price)
-                                        <div class="left-align">
-                                            <strong class="">{{ $i + 1 }}.</strong>
-                                            <span>{{ $price->name }}</span> <strong class="">${{ $price->amount }}</strong>
+                                        <div class="bottom-margin">
+                                            <add-quantity-component :item="{{ json_encode($price) }}" :post="{{ json_encode($post) }}"></add-quantity-component>
                                         </div>
                                     @endforeach
                                 </div>

@@ -19,6 +19,7 @@ use App\Tag;
 Route::get('/', HomeController::class)->name("home");
 Route::get('/about', AboutController::class)->name("about");
 Route::get('/contact', ContactController::class)->name("contact");
+Route::get('/checkout', CheckoutController::class)->name("checkout");
 Route::get('/how-it-works', AboutController::class)->name("how.works");
 Route::get('/shop/{tag}', "ShopController")->name("shop");
 Route::any('/decor/furniture/{string?}/zw', SearchController::class)->name("search");
