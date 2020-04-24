@@ -39,9 +39,11 @@
                 <img src="{{ asset("images/icons/bars.svg") }}" style="height: 18px !important;">
             </a>
 
-            <a href="#" data-target="mobile-menu" class="right sidenav-trigger black-text valign-wrapper" style="height: 72px !important;">
-                <img src="{{ asset("images/icons/cart.svg") }}" style="height: 18px !important;">
-            </a>
+            <div class="right valign-wrapper" style="height: 72px !important; padding: 0 15px;">
+                <basket-summary :dark_text="true" class="valign-wrapper"/>
+            </div>
+
+            <basket-summary class="valign-wrapper"/>
 
             <ul class="right overflow-visible hide-on-med-and-down">
                 <li class="{{ setActive(['/']) }}">
@@ -98,10 +100,6 @@
                         <a href="{{ route('contact') }}" class="cursor-click valign-wrapper">
                             <strong>CONTACT</strong>
                         </a>
-                    </li>
-
-                    <li class="{{ setActive(['decor-tips/*']) }}">
-                        <basket-summary class="valign-wrapper"/>
                     </li>
                 </ul>
             </div>

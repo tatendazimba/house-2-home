@@ -1,8 +1,6 @@
 <template>
-    <a href="#" data-target="basket" class="sidenav-trigger cursor-click valign-wrapper white-text full-height no-margin" style="display: flex;">
-        <img src="/images/icons/cart.svg" style="height: 100px;">
-        <sup class="white">
-        </sup>
+    <a href="#" data-target="basket" :class="dark_text ? 'black-text' : 'white-text'" class="sidenav-trigger cursor-click valign-wrapper full-height no-margin" style="display: flex;">
+        <img :src="dark_text ? '/images/icons/add-to-cart.svg' : '/images/icons/cart.svg'" style="height: 100px;">
         &nbsp;
         <strong>({{ itemsCount }})</strong>
 
@@ -13,6 +11,12 @@
     import * as M from "materialize-css";
 
     export default {
+        props: {
+            dark_text: {
+                type: Boolean,
+                default: false
+            }
+        },
         data: function() {
             return {}
         },

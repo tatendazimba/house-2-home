@@ -2270,10 +2270,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    dark_text: {
+      type: Boolean,
+      default: false
+    }
+  },
   data: function data() {
     return {};
   },
@@ -52292,17 +52296,20 @@ var render = function() {
     "a",
     {
       staticClass:
-        "sidenav-trigger cursor-click valign-wrapper white-text full-height no-margin",
+        "sidenav-trigger cursor-click valign-wrapper full-height no-margin",
+      class: _vm.dark_text ? "black-text" : "white-text",
       staticStyle: { display: "flex" },
       attrs: { href: "#", "data-target": "basket" }
     },
     [
       _c("img", {
         staticStyle: { height: "100px" },
-        attrs: { src: "/images/icons/cart.svg" }
+        attrs: {
+          src: _vm.dark_text
+            ? "/images/icons/add-to-cart.svg"
+            : "/images/icons/cart.svg"
+        }
       }),
-      _vm._v(" "),
-      _c("sup", { staticClass: "white" }),
       _vm._v("\n     \n    "),
       _c("strong", [_vm._v("(" + _vm._s(_vm.itemsCount) + ")")])
     ]
