@@ -17,6 +17,7 @@ window.$ = require('jquery')
 window.JQuery = require('jquery')
 
 Vue.component('idea-view-component', require('./components/IdeaViewComponent').default);
+Vue.component('hero-component', require('./components/HeroComponent').default);
 Vue.component('add-quantity-component', require('./components/AddQuantityComponent').default);
 
 Vue.component('message-box', require('./components/BaseMessageBox').default);
@@ -26,6 +27,7 @@ Vue.component('shopping-item-component', require('./components/AddToCartComponen
 Vue.component('select-currency-component', require('./components/SelectCurrencyComponent').default);
 
 Vue.component('break', require('./components/BreakComponent').default);
+Vue.component('spacer', require('./components/SpacerComponent').default);
 Vue.component('loading', require('./components/LoadingComponent').default);
 
 Vue.component('basket-summary', require('./components/BasketSummaryComponent').default);

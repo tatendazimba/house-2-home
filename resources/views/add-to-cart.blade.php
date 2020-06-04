@@ -1,5 +1,7 @@
 @extends("layouts.app")
 
+@section('pageTitle', "$post->title - $post->content" )
+
 @section('content')
     @include("partials.nav")
 
@@ -24,6 +26,10 @@
                         <h3 class="">
                             <strong>{{ $post->title }}</strong>
                         </h3>
+
+                        <div>
+                            <i><span class="small-text">Last Updated</span> <strong>{{ $post->created_at }}</strong></i>
+                        </div>
 
                     </div>
                 </div>

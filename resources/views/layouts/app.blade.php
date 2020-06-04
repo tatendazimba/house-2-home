@@ -11,10 +11,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta name="description" content="@yield('pageTitle') | Modern Furniture & Home Decor | Wide Range of Homeware Products & Accessories | House2Home Online Furniture Homeware Home Decor Store | Home Decor Magazine | house2home housetohome house 2 home zw harare Mirror Kitchen Rugs Living Room Bedroom Table Bathroom accessories Storage Mink Decor Tips Throw Clock Accent Chairs Lamp Cushions & Pillows | {{ config('app.name', 'House2Home Online Store') }} ">
-    <meta name="keywords" content="@yield('pageTitle') | Modern Furniture & Home Decor | Wide Range of Homeware Products & Accessories | House2Home Online Furniture Homeware Home Decor Store | Home Decor Magazine | house2home housetohome house 2 home zw harare Mirror Kitchen Rugs Living Room Bedroom Table Bathroom accessories Storage Mink Decor Tips Throw Clock Accent Chairs Lamp Cushions & Pillows | {{ config('app.name', 'House2Home Online Store') }} ">
+    <meta name="description" content="@yield('pageTitle') | Lifestyle Furniture Shop | Home Decor | Buy Online | Shopping | Harare | Zimbabwe | Modern Furniture | Wide Range of Homeware Products & Accessories | Homeware | Decor Magazine | house2home housetohome house 2 home zw | {{ config('app.name', 'House2Home Online Store') }} ">
+    <meta name="keywords" content="@yield('pageTitle') | Lifestyle Furniture Shop | Home Decor | Buy Online | Shopping | Harare | Zimbabwe | Modern Furniture | Wide Range of Homeware Products & Accessories | Homeware | Decor Magazine | house2home housetohome house 2 home zw | {{ config('app.name', 'House2Home Online Store') }} ">
 
-    <title>@yield('pageTitle') | Modern Furniture & Home Decor | Wide Range of Homeware Products & Accessories | House2Home Online Furniture Homeware Home Decor Store | Home Decor Magazine | {{ config('app.name', 'House2Home Online Store') }} </title>
+    <title>@yield('pageTitle') | Lifestyle Furniture Shop | Home Decor | Buy Online | Harare | Zimbabwe | House2Home Online Store - Creating a Lifestyle</title>
 
     <link rel="stylesheet" href="https://use.typekit.net/ddw4llj.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

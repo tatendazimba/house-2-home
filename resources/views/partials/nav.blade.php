@@ -2,6 +2,17 @@
     <nav class="tiny-nav transparent container">
         <div class="transparent navbar-wrapper overflow-visible">
             <div class="full-width">
+                <ul class="overflow-visible">
+                    <li>
+                        <a target="_blank" href="https://www.instagram.com/house2home.zw/" class="valign-wrapper black-text">
+                            <span class="blue darken-5 white-text" style="padding: 2px;">
+                                <strong>&nbsp;COVID-19&nbsp;</strong>
+                            </span>
+
+                            <span class="black-text">&nbsp;We are now open <strong class="blue-text text-darken-5">&nbsp;8AM - 6PM.</strong></span>
+                        </a>
+                    </li>
+                </ul>
                 <ul class="right overflow-visible">
                     <li>
                         <a target="_blank" href="https://www.facebook.com/House2HomeZ/" class="valign-wrapper">
@@ -42,8 +53,6 @@
             <div class="right valign-wrapper" style="height: 72px !important; padding: 0 15px;">
                 <basket-summary :dark_text="true" class="valign-wrapper"/>
             </div>
-
-            <basket-summary class="valign-wrapper"/>
 
             <ul class="right overflow-visible hide-on-med-and-down">
                 <li class="{{ setActive(['/']) }}">

@@ -1,5 +1,7 @@
 @extends("layouts.app")
 
+@section('pageTitle', "$post->title $post->content" )
+
 @section('content')
     @include("partials.nav")
 

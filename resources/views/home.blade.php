@@ -8,96 +8,8 @@
         <div class="hero-slick row no-margin">
             @foreach($heroes->slice(0, 3) as $hero)
                 <div class="col s12 no-pad">
-                    <div class="flex row no-margin">
-                        <div class="black-text col s12 l3 no-pad hide-on-med-and-down" style="background: linear-gradient(to right, rgba(188, 193, 189, .861), rgba(255, 255, 255, .9861)), url('/uploads/{{ $hero->images[0]->url }}') top left; background-size: cover;">
-
-                            @include("partials.linebreak")
-                            @include("partials.linebreak")
-
-                            <div class="container">
-                                <div class="container">
-                                    <h4 class="">
-                                        <strong>{{ $hero->title }}</strong>
-                                    </h4>
-
-                                    <p class="justified truncate">
-                                        {{ $hero->content }}
-                                    </p>
-
-                                    @include("partials.linebreak")
-
-                                    <div>
-                                        @foreach($hero->images[0]->prices as $i => $price)
-                                            <div class="container left-align">
-                                                <strong class="">{{ $i + 1 }}. &nbsp;</strong>
-                                                <span>{{ $price->name }}</span> <strong class="">${{ $price->amount }}</strong>
-{{--                                                <span class="right">--}}
-{{--                                                    <svg width="16" height="16" viewBox="0 0 16 16" class="icon">--}}
-{{--                                                        <path id="defs-cart" d="M13.958 9.317l2-6a.971.971 0 0 0-.95-1.306V2H2.433L1.925.644a1 1 0 0 0-1.876.7l3.005 8.008a1 1 0 0 0 .938.648h9.016a1 1 0 0 0 .95-.683zM4.686 8l-1.5-4h10.436l-1.336 4h-7.6zm.308 6a2 2 0 1 1-2-2 2 2 0 0 1 2 2zm9.016 0a2 2 0 1 1-2-2 2 2 0 0 1 2 2z"></path>--}}
-{{--                                                    </svg>--}}
-{{--                                                </span>--}}
-                                            </div>
-                                        @endforeach
-                                    </div>
-
-                                    @include("partials.linebreak")
-
-                                    <a href="{{ route('story', $hero) }}" class="black-text">
-                                        <u>
-                                            <strong class="small-text bottom-small-margin">
-                                                Read & Shop
-                                                <i class="material-icons">arrow_right</i>
-                                            </strong>
-                                        </u>
-                                    </a>
-                                </div>
-                            </div>
-
-                            @include("partials.linebreak")
-                            @include("partials.linebreak")
-
-                        </div>
-                        <div class="col s12 l9 no-pad" style="">
-                            <div class="">
-                                <idea-view-component :post="{{ json_encode($hero) }}"></idea-view-component>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex row no-margin">
-                        <div class="black-text col s12 no-pad hide-on-large-only" style="background: linear-gradient(to right, rgba(188, 193, 189, .861), rgba(255, 255, 255, .9861)), url('/uploads/{{ $hero->images[0]->url }}') top left; background-size: cover;">
-                            <div class="container center-align">
-                                <div class="container">
-                                    <h4 class="flow-text">
-                                        <strong>{{ $hero->title }}</strong>
-                                    </h4>
-
-                                    <p class="justified truncate">
-                                        {{ $hero->content }}
-                                    </p>
-
-                                    <div>
-                                        @foreach($hero->images[0]->prices as $i => $price)
-                                            <div class="container">
-                                                <strong class="">{{ $i + 1 }}. &nbsp;</strong>
-                                                <span>{{ $price->name }}</span> <strong>${{ $price->amount }}</strong>
-                                            </div>
-                                        @endforeach
-                                    </div>
-
-                                    <a href="{{ route('story', $hero) }}" class="black-text" href="">
-                                        <u>
-                                            <strong class="small-text bottom-small-margin">
-                                                Read & Shop
-                                                <i class="material-icons">arrow_right</i>
-                                            </strong>
-                                        </u>
-                                    </a>
-                                </div>
-                            </div>
-
-                            @include("partials.linebreak")
-
-                        </div>
+                    <div class="">
+                        <hero-component :post="{{ json_encode($hero) }}"></hero-component>
                     </div>
                 </div>
             @endforeach
@@ -182,7 +94,7 @@
                         <div class="col s12 white-text">
                             <div>
                                 <h3 class="">
-                                    <strong class="white-text">Sales <span class="">&</span> Offers</strong>
+                                    <strong class="white-text">H2H Online Specials</strong>
                                 </h3>
                             </div>
 
@@ -192,10 +104,12 @@
                                 </p>
                             </div>
 
+                            <spacer :height="30"></spacer>
+
                             <a href="{{ route('shop', "Sale") }}" class="white-text">
                                 <u>
                                     <strong class="white-text">
-                                        Check Out On Sale Items
+                                        Check Out Our Shop
                                         <i class="material-icons">arrow_right</i>
                                     </strong>
                                 </u>
@@ -293,55 +207,51 @@
 
                         <div class="amber container center-align">
 
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
+                            <spacer :height="200"></spacer>
 
-                            <h2 class="no-margin">
-                                <span class="white-text">NEW <span class="">YEAR</span></span><br>
-                            </h2>
-                            <h2 class="no-margin">
-                                <span class="black-text">NEW <span class="">YOU</span></span><br>
-                            </h2>
-
-                            <br>
-                            <br>
-                            <br>
-
-                            <h5 class="no-margin uppercase black-text">
-                                <strong><span class="white-text">Fresh Ideas For</span>
-                                    <br>
-                                    <span class="">Your Home!</span>
-                                </strong>
+                            <h5 class="no-margin">
+                                <strong class="white-text">COMING SOON</strong><br>
                             </h5>
 
-                            <br>
-                            <br>
-                            <br>
+                            <spacer :height="100"></spacer>
 
-                            <a href="{{ route('shop', "Sale") }}" class="white-text" >
+                            <h2 class="no-margin">
+                                <span class="black-text">ONLINE</span><br>
+                            </h2>
+                            <h2 class="no-margin">
+                                <span class="black-text">SHOPPING</span><br>
+                            </h2>
+
+                            <spacer :height="100"></spacer>
+
+                            <h5 class="no-margin uppercase black-text">
+                                <strong class="white-text">Next Day Delivery</strong>
+                                    <br>
+                                <strong class="">To Your Home!</strong>
+                            </h5>
+
+                            <spacer :height="200"></spacer>
+
+                            <a href="{{ route('shop', "Sale") }}" class="black-text" >
                                 <strong class="">
-                                    BROWSE
-                                    <i class="material-icons">arrow_right</i>
+                                    Follow For Updates
                                 </strong>
                             </a>
 
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
+                            <spacer :height="20"></spacer>
+
+                            <a target="_blank" href="https://www.instagram.com/house2home.zw/" class="">
+                                <img class="ignore" src="{{ asset('images/icons/social/instagram-dark.svg') }}" style="height: 24px !important;">
+                            </a>
+                            <a target="_blank" href="https://www.facebook.com/House2HomeZ/" class="">
+                                <img class="ignore" src="{{ asset('images/icons/social/facebook-dark.svg') }}" style="height: 24px !important;">
+                            </a>
+                            <a target="_blank" href="https://wa.me/263733636940?text={{ urlencode("Hi, I just visited your website.") }}" class="">
+                                <img class="ignore" src="{{ asset('images/icons/social/whatsapp-dark.svg') }}" style="height: 24px !important;">
+                            </a>
+
+                            <spacer :height="100"></spacer>
+
                         </div>
 
                         @include("partials.linebreak")
