@@ -1,13 +1,11 @@
 <template>
     <div>
-        <div class="" :style="{ background: 'url(/images/glass.jpg) no-repeat center center', backgroundSize: 'cover' }">
+        <div class="" :style="{ background: 'url(/uploads/' + post.images[0].url + ') no-repeat center center', backgroundSize: 'cover' }">
            <div class="container">
                <div class="hide-on-med-and-down">
                    <spacer :height="300"></spacer>
 
                    <h1 :class="post.text_colour">{{ post.title }}</h1>
-                   <h5 :class="post.text_colour" class="truncate">{{ post.content }}</h5>
-                   <p :class="post.text_colour" class="truncate">{{ post.content }}</p>
 
                    <spacer :height="50"></spacer>
                    <a class="white btn-large black-text" href="">
