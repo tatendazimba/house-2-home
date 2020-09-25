@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="" :style="{ background: 'url(/uploads/' + post.images[0].url + ') no-repeat center center', backgroundSize: 'cover' }">
+        <div class="" :style="{ background: 'url('/images/glass.jpg') no-repeat center center', backgroundSize: 'cover' }">
            <div class="container">
                <div class="hide-on-med-and-down">
                    <spacer :height="300"></spacer>
