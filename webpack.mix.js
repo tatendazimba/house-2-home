@@ -20,6 +20,14 @@ mix
         "resources/css/slick-theme.css",
         "resources/css/styles.css",
     ], "public/css/app.css")
+    .styles([
+        "resources/css/colours.css",
+        "resources/css/text.css",
+        "resources/css/tooltip.css",
+        "resources/css/gradients.css",
+        "resources/css/buttons.css",
+        "resources/css/styles.css",
+    ], "public/css/catalogue.css")
     .styles(["node_modules/materialize-css/dist/css/materialize.css"],
         "public/css/materialize.css")
     .version();

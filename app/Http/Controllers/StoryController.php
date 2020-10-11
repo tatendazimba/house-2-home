@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Interfaces\PostsInterface;
 use App\Post;
+use Illuminate\Support\Facades\App;
 
 class StoryController extends Controller
 {

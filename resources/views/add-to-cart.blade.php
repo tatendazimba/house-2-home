@@ -127,9 +127,7 @@
                                 <br>
 
                                 <p>
-                                    <strong>
-                                        <i class="material-icons">local_shipping</i>
-                                    </strong>
+                                    
                                     And have your products delivered to you in Harare.
                                 </p>
 
@@ -143,9 +141,7 @@
                                 <br>
 
                                 <p>
-                                    <strong>
-                                        <i class="material-icons">near_me</i>
-                                    </strong>
+                                    
                                     Or, Pickup your order for <strong>FREE</strong> from our Harare shop.
                                 </p>
 

@@ -1,10 +1,11 @@
 {
-    "/js/ImageUploader.js": "/js/ImageUploader.js?id=f98197f236ec5fcd0764",
-    "/js/app.js": "/js/app.js?id=861c7dba3f722bdc8679",
-    "/js/exif.js": "/js/exif.js?id=773f5c2be2d973729e99",
-    "/js/jquery.js": "/js/jquery.js?id=f5dc74f411e45b9be849",
-    "/js/materialize.js": "/js/materialize.js?id=5c1130964b0ea244e589",
-    "/js/zoomOnHover.js": "/js/zoomOnHover.js?id=688da84956a038177942",
-    "/css/app.css": "/css/app.css?id=fc7b50eba8b074d5ee21",
-    "/css/materialize.css": "/css/materialize.css?id=05860fb0f37fa993eec4"
+    "/js/ImageUploader.js": "/js/ImageUploader.js?id=5257947bd7d0467e7ee8",
+    "/js/app.js": "/js/app.js?id=1b52c7c39edcd603f899",
+    "/js/exif.js": "/js/exif.js?id=68ee5a2e76ac2c838135",
+    "/js/jquery.js": "/js/jquery.js?id=7ef61a3968437025d222",
+    "/js/materialize.js": "/js/materialize.js?id=103d4b7f09db7e60233c",
+    "/js/zoomOnHover.js": "/js/zoomOnHover.js?id=a0d0ec561809c77e4841",
+    "/css/app.css": "/css/app.css?id=6a2d4e9a7c0be0266143",
+    "/css/catalogue.css": "/css/catalogue.css?id=77dffea392ec04c7063a",
+    "/css/materialize.css": "/css/materialize.css?id=b0663391a6dd5efed956"
 }

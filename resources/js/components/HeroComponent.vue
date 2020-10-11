@@ -20,7 +20,6 @@
                    <spacer :height="200"></spacer>
 
                    <h1 :class="post.text_colour">{{ post.title }}</h1>
-                   <p :class="post.text_colour" class="">{{ post.content }}</p>
 
                    <spacer :height="50"></spacer>
                    <a class="white btn-large black-text" href="">
