@@ -18,6 +18,7 @@ use App\Tag;
 
 Route::get('/', HomeController::class)->name("home");
 Route::get('/about', AboutController::class)->name("about");
+Route::get('/terms', TermsController::class)->name("privacy");
 Route::get('/privacy', PrivacyController::class)->name("privacy");
 Route::get('/contact', ContactController::class)->name("contact");
 Route::get('/checkout', CheckoutController::class)->name("checkout");
